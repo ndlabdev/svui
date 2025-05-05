@@ -1,1 +1,1 @@
-export declare const defaultColors: Record<string, string>;
+export declare const defaultColors: Record<string, string>
