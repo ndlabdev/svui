@@ -101,7 +101,7 @@ export default ts.config(
     },
     {
         rules: {
-			'import/no-unresolved': 'off',
+            'import/no-unresolved': 'off',
             'import/order': [
                 'warn',
                 {

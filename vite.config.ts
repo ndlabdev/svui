@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
+ 
 import tailwindcss from '@tailwindcss/vite'
 import { svelteTesting } from '@testing-library/svelte/vite'
 import { sveltekit } from '@sveltejs/kit/vite'
