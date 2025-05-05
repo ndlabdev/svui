@@ -84,6 +84,7 @@
 	],
 	"packageManager": "pnpm@10.10.0+sha256.fa0f513aa8191764d2b6b432420788c270f07b4f999099b65bb2010eec702a30",
 	"dependencies": {
+		"@lucide/svelte": "^0.507.0",
 		"tailwind-merge": "^3.2.0",
 		"tailwind-variants": "^1.0.0"
 	}

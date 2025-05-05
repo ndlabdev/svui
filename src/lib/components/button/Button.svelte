@@ -1,34 +1,35 @@
 <script lang="ts">
-    import { buttonTheme, type ButtonProps } from '.'
+    import { type ButtonProps, buttonTheme } from '.'
 
-    let {
+    const {
         children,
-        leading,
-        trailing,
         label,
+        size = 'md',
         color = 'primary',
         variant = 'solid',
-        size = 'md',
-        ...restProps
+        type = 'button',
+        loading,
+        block
     }: ButtonProps = $props()
 
-    const ui = $derived(
-        buttonTheme({
-            color,
-            variant,
-            size
-        })
-    )
+    const ui = $derived(buttonTheme({
+        color,
+        variant,
+        size,
+        loading,
+        block
+    }))
+
+    const uiBase = $derived(ui.base({
+    }))
 </script>
 
-<button class={ui.base()} {...restProps}>
-    {@render leading?.()}
-
+<button class={uiBase}>
     {#if children}
         {@render children?.()}
-    {:else if label}
-        <span class={ui.label()}>{label}</span>
+    {:else}
+        {#if label}
+            <span>{label}</span>
+        {/if}
     {/if}
-
-    {@render trailing?.()}
 </button>

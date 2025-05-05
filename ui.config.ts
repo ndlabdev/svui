@@ -1,5 +1,6 @@
 export default {
     colors: {
-        primary: 'purple'
+        primary: 'purple',
+        tertiary: 'blue'
     }
 }

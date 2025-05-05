@@ -1,12 +1,16 @@
 import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
 
+import type { ColorName } from '$lib/types/colors'
+import type { SizeType, VariantType } from '$lib/types'
+
 type HTMLAttributesWithoutAbort = Omit<HTMLButtonAttributes, 'on:abort'> &
 	Omit<HTMLAnchorAttributes, 'on:abort'>
 
 export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	label?: string
 	loading?: boolean
-	color?: string
-	variant?: string
-	size?: string
+	color?: ColorName
+	variant?: VariantType
+	size?: SizeType
+	block?: boolean
 }

@@ -10,5 +10,14 @@
 		"sourceMap": true,
 		"strict": true,
 		"moduleResolution": "bundler"
-	}
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.svelte"
+	],
+	"exclude": [
+		"node_modules",
+		"dist"
+	]
 }

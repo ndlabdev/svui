@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants'
 
-import { defaultColors, type ColorKey } from '../../../themes'
-const colors = Object.keys(defaultColors) as ColorKey[]
+import { defaultColors } from '../../../themes'
+const colors = Object.keys(defaultColors)
 
 export const buttonTheme = tv({
     slots: {
