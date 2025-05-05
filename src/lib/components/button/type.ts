@@ -6,4 +6,7 @@ type HTMLAttributesWithoutAbort = Omit<HTMLButtonAttributes, 'on:abort'> &
 export interface ButtonProps extends HTMLAttributesWithoutAbort{
 	label?: string
 	loading?: boolean
+	color?: string
+	variant?: string
+	size?: string
 }

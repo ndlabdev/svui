@@ -1,9 +1,9 @@
 import type { ButtonProps } from './type';
 import Button from './Button.svelte';
-import { button } from './theme'
+import { buttonTheme } from './theme'
 
 export {
-	button,
+	buttonTheme,
 	Button,
 	type ButtonProps,
 };

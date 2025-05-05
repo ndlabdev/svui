@@ -1,16 +1,12 @@
 import { defaultColors } from './colors'
 
-let cached: Record<string, string> | null = null
-
-export function getMergedColors(): Record<string, string> | null {
-	if (cached) return cached
-
+export async function resolveColors() {
 	try {
-		const userConfig = require(`${process.cwd()}/ui.config.ts`)?.default
-		cached = { ...defaultColors, ...(userConfig?.colors || {}) }
-	} catch {
-		cached = defaultColors
+		const userModule = await import(
+			/* @vite-ignore */ `file://${process.cwd()}/ui.config.ts?t=${Date.now()}`
+			)
+		return { ...defaultColors, ...(userModule.default?.colors || {}) }
+	} catch (e) {
+		return defaultColors
 	}
-
-	return cached
 }

@@ -1,10 +1,10 @@
 import { tv } from 'tailwind-variants';
-import { defaultColors } from '../../../themes'
-const colors = Object.keys(defaultColors)
+import { defaultColors, type ColorKey } from '../../../themes'
+const colors = Object.keys(defaultColors) as ColorKey[]
 
-export const button = tv ({
+export const buttonTheme = tv ({
 	slots: {
-		base: ['rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75', 'transition-colors'],
+		base: 'rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors',
 		label: 'truncate',
 		leadingIcon: 'shrink-0',
 		leadingAvatar: 'shrink-0',
@@ -12,10 +12,7 @@ export const button = tv ({
 		trailingIcon: 'shrink-0'
 	},
 	variants: {
-		color: {
-			...Object.fromEntries((colors || []).map((color: string) => [color, ''])),
-			neutral: ''
-		},
+		color: Object.fromEntries((colors || []).map((color: string) => [color, ''])),
 		variant: {
 			solid: '',
 			outline: '',
@@ -85,27 +82,27 @@ export const button = tv ({
 	},
 	compoundVariants: [...(colors || []).map((color: string) => ({
 		color,
-		variant: 'solid',
-		class: `text-inverted bg-${color} hover:bg-${color}/75 disabled:bg-${color} aria-disabled:bg-${color} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${color}`
+		variant: 'solid' as const,
+		class: `text-white bg-${color} hover:bg-${color}/75 disabled:bg-${color} aria-disabled:bg-${color} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-${color}`
 	})), ...(colors || []).map((color: string) => ({
 		color,
-		variant: 'outline',
+		variant: 'outline' as const,
 		class: `ring ring-inset ring-${color}/50 text-${color} hover:bg-${color}/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-${color}`
 	})), ...(colors || []).map((color: string) => ({
 		color,
-		variant: 'soft',
+		variant: 'soft' as const,
 		class: `text-${color} bg-${color}/10 hover:bg-${color}/15 focus:outline-none focus-visible:bg-${color}/15 disabled:bg-${color}/10 aria-disabled:bg-${color}/10`
 	})), ...(colors || []).map((color: string) => ({
 		color,
-		variant: 'subtle',
+		variant: 'subtle' as const,
 		class: `text-${color} ring ring-inset ring-${color}/25 bg-${color}/10 hover:bg-${color}/15 disabled:bg-${color}/10 aria-disabled:bg-${color}/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-${color}`
 	})), ...(colors || []).map((color: string) => ({
 		color,
-		variant: 'ghost',
+		variant: 'ghost' as const,
 		class: `text-${color} hover:bg-${color}/10 focus:outline-none focus-visible:bg-${color}/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent`
 	})), ...(colors || []).map((color: string) => ({
 		color,
-		variant: 'link',
+		variant: 'link' as const,
 		class: `text-${color} hover:text-${color}/75 disabled:text-${color} aria-disabled:text-${color} focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-${color}`
 	})), {
 		size: 'xs',

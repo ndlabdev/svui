@@ -20,7 +20,16 @@ export default ts.config(
 		languageOptions: {
 			globals: { ...globals.browser, ...globals.node }
 		},
-		rules: { "no-undef": 'off' }
+		rules: {
+			'no-undef': 'off',
+			'semi': ['error', 'never'],
+			'indent': ['error', 4],
+			'comma-dangle': ['error', 'never'],
+			'quotes': ['error', 'single'],
+			'eqeqeq': ['error', 'always'],
+			'no-console': 'warn',
+			'no-unused-vars': 'warn'
+		}
 	},
 	{
 		files: [
@@ -35,6 +44,22 @@ export default ts.config(
 				parser: ts.parser,
 				svelteConfig
 			}
+		},
+		rules: {
+			// Svelte-specific formatting rules
+			'svelte/html-closing-bracket-newline': ['error', {
+				singleline: 'ignore',
+				multiline: 'always'
+			}],
+			'svelte/html-closing-bracket-spacing': ['error', {
+				startTag: 'never',
+				endTag: 'never',
+				selfClosingTag: 'always'
+			}],
+			'svelte/first-attribute-linebreak': ['error', {
+				singleline: 'beside',
+				multiline: 'below'
+			}]
 		}
 	}
 );

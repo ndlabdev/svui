@@ -53,18 +53,26 @@ export async function generateTheme() {
 	// ✅ dùng brace-expanded shades
 	const shadeStr = '-{50,{100..900..100},950}'
 
-	const generateSafelistLine = (
+	const generateSafelistLines = (
 		prefix: string,
 		includeVariants = true,
 		includeShades = true
-	): string => {
+	): string[] => {
 		const variantStr = includeVariants ? `{${variants.join(',')}}` : ''
-		const full = `${variantStr}${prefix}-{${colorKeys.join(',')}}${includeShades ? shadeStr : ''}`
-		return `@source inline("${full}");`
+
+		const noShade = `${variantStr}${prefix}-{${colorKeys.join(',')}}`
+		const withShade = `${variantStr}${prefix}-{${colorKeys.join(',')}}${includeShades ? shadeStr : ''}`
+
+		const lines = [`@source inline("${noShade}");`]
+		if (includeShades) {
+			lines.push(`@source inline("${withShade}");`)
+		}
+
+		return lines
 	}
 
-	const safelistLines = basePrefixes.map((prefix) =>
-		generateSafelistLine(prefix, true, prefix !== 'shadow')
+	const safelistLines = basePrefixes.flatMap((prefix) =>
+		generateSafelistLines(prefix, true, prefix !== 'shadow')
 	)
 
 	const safelistOutputPath = path.resolve('src/generated/colors-safelist.css')

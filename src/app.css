@@ -1,5 +1,3 @@
 @import 'tailwindcss';
 @import './generated/theme.css';
 @import './generated/colors-safelist.css';
-
-@source inline("{hover:,focus:,focus-visible:,active:,disabled:,aria-disabled:,}bg-primary-{50,{100..900..100},950}");
