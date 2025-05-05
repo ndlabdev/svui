@@ -24,7 +24,9 @@
     }))
 </script>
 
-<button class={uiBase}>
+<button {type} class={uiBase}>
+    {@render children?.()}
+
     {#if children}
         {@render children?.()}
     {:else}
