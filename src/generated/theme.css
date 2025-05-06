@@ -1,4 +1,4 @@
-@theme default inline {
+@theme {
   --color-primary: oklch(62.7% 0.265 303.9);
   --color-primary-50: oklch(97.7% 0.014 308.299);
   --color-primary-100: oklch(94.6% 0.033 307.174);

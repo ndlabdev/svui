@@ -1,7 +1,7 @@
 <script>
     import Loader from '@lucide/svelte/icons/loader'
 
-    import Button from '../lib/components/button/Button.svelte'
+    import Button from '$lib/components/button/Button.svelte'
 </script>
 
 <div class="flex m-4 gap-2">
