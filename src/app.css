@@ -1,3 +1,2 @@
 @import 'tailwindcss' source('../src');
 @import './generated/theme.css';
-/*@import './generated/colors-safelist.css';*/

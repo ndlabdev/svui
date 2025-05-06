@@ -5,27 +5,52 @@
     import Button from '$lib/components/button/Button.svelte'
 </script>
 
-<div class="flex m-4 gap-2">
-    <Button label="Primary Label" />
-    <Button label="Primary Disabled" color="danger" disabled />
-    <Button>Primary</Button>
-    <Button variant="outline" color="danger">Outline Danger</Button>
-    <Button variant="ghost" color="success">Ghost Success</Button>
-    <Button size="md">
-        {#snippet leading()}
-            <Loader class="animate-spin" />
-        {/snippet}
+<div class="grid grid-cols-12 gap-2">
+    <div class="col-span-3">
+        <Button label="Primary Label" />
+    </div>
 
-        With Icon Left
-    </Button>
+    <div class="col-span-3">
+        <Button label="Primary Disabled" color="danger" disabled />
+    </div>
 
-    <Button size="md">
-        {#snippet trailing()}
-            <Activity />
-        {/snippet}
+    <div class="col-span-3">
+        <Button>Primary</Button>
+    </div>
 
-        With Icon Right
-    </Button>
-    <Button href="https://svelte.dev" target="_blank">Link Button</Button>
-    <Button loading>Loading</Button>
+    <div class="col-span-3">
+        <Button variant="outline" color="danger">Outline Danger</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button variant="ghost" color="success">Ghost Success</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button size="md" leading={Activity} label="With Icon Left" />
+    </div>
+
+    <div class="col-span-3">
+        <Button size="md" trailing={Activity} label="With Icon Right" />
+    </div>
+
+    <div class="col-span-3">
+        <Button href="https://svelte.dev" target="_blank">Link Button</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button loading>Loading</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button loading label="Waiting..." />
+    </div>
+
+    <div class="col-span-3">
+        <Button loading label="Waiting..." loadingIcon={Loader} />
+    </div>
+
+    <div class="col-span-3">
+        <Button label="Button block" block />
+    </div>
 </div>

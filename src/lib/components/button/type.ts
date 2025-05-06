@@ -1,5 +1,5 @@
 import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
-import type { Snippet } from 'svelte'
+import type { Component } from 'svelte'
 
 import type { buttonTheme } from './theme'
 
@@ -9,8 +9,9 @@ type HTMLAttributesWithoutAbort = Omit<HTMLButtonAttributes, 'on:abort'> &
 	Omit<HTMLAnchorAttributes, 'on:abort'>
 
 export interface ButtonProps extends HTMLAttributesWithoutAbort {
-	leading?: Snippet
-	trailing?: Snippet
+	leading?: Component
+	trailing?: Component
+	loadingIcon?: Component
 	label?: string
 	loading?: boolean
 	color?: ColorType
@@ -18,5 +19,5 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	size?: SizeType
 	block?: boolean
 	tag?: string
-	ui?: keyof typeof buttonTheme['slots']
+	ui?: typeof buttonTheme['slots']
 }
