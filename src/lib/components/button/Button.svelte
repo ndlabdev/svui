@@ -10,8 +10,11 @@
         color = 'primary',
         variant = 'solid',
         type = 'button',
+        tag = 'button',
         loading,
-        block
+        block,
+        href,
+        ...restProps
     }: ButtonProps = $props()
 
     const ui = $derived(buttonTheme({
@@ -24,18 +27,26 @@
 
     const uiBase = $derived(ui.base({
     }))
+
+    const uiLabel = $derived(ui.label({}))
 </script>
 
-<button {type} class={uiBase}>
-    {@render leading?.()}
-
-    {#if children}
+{#if href}
+    <a {href} role="button" class={uiBase} {...restProps}>
         {@render children?.()}
-    {:else}
-        {#if label}
-            <span>{label}</span>
-        {/if}
-    {/if}
+    </a>
+{:else if tag === 'button'}
+    <button {type} class={uiBase} {...restProps}>
+        {@render leading?.()}
 
-    {@render trailing?.()}
-</button>
+        {#if children}
+            {@render children?.()}
+        {:else}
+            {#if label}
+                <span class="{uiLabel}">{label}</span>
+            {/if}
+        {/if}
+
+        {@render trailing?.()}
+    </button>
+{/if}
