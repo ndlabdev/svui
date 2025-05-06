@@ -2,6 +2,8 @@
     import { type ButtonProps, buttonTheme } from '.'
 
     const {
+        leading,
+        trailing,
         children,
         label,
         size = 'md',
@@ -25,7 +27,7 @@
 </script>
 
 <button {type} class={uiBase}>
-    {@render children?.()}
+    {@render leading?.()}
 
     {#if children}
         {@render children?.()}
@@ -34,4 +36,6 @@
             <span>{label}</span>
         {/if}
     {/if}
+
+    {@render trailing?.()}
 </button>

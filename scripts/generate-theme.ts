@@ -67,7 +67,7 @@ export async function generateTheme() {
         'text',
         'border',
         'ring',
-        'outline',
+        'outline'
         // 'decoration',
         // 'stroke',
         // 'fill',
