@@ -1,14 +1,56 @@
 <script>
-	import Button from '$lib/components/Button.svelte';
-	const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>`;
+    import Loader from '@lucide/svelte/icons/loader'
+    import Activity from '@lucide/svelte/icons/activity'
+
+    import Button from '$lib/components/button/Button.svelte'
 </script>
 
-<div class="flex flex-col gap-4">
-	<Button>Primary</Button>
-	<Button variant="outline" color="danger">Outline Danger</Button>
-	<Button variant="ghost" color="success">Ghost Success</Button>
-	<Button size="lg" iconLeft={arrowIcon}>With Icon Left</Button>
-	<Button iconRight={arrowIcon}>Icon Right</Button>
-	<Button as="a" href="https://svelte.dev" target="_blank">Link Button</Button>
-	<Button loading={true}>Loading</Button>
+<div class="grid grid-cols-12 gap-2">
+    <div class="col-span-3">
+        <Button label="Primary Label" />
+    </div>
+
+    <div class="col-span-3">
+        <Button label="Primary Disabled" color="danger" disabled />
+    </div>
+
+    <div class="col-span-3">
+        <Button>Primary</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button variant="outline" color="danger">Outline Danger</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button variant="ghost" color="success">Ghost Success</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button size="md" leading={Activity} label="With Icon Left" />
+    </div>
+
+    <div class="col-span-3">
+        <Button size="md" trailing={Activity} label="With Icon Right" />
+    </div>
+
+    <div class="col-span-3">
+        <Button href="https://svelte.dev" target="_blank">Link Button</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button loading>Loading</Button>
+    </div>
+
+    <div class="col-span-3">
+        <Button loading label="Waiting..." />
+    </div>
+
+    <div class="col-span-3">
+        <Button loading label="Waiting..." loadingIcon={Loader} />
+    </div>
+
+    <div class="col-span-3">
+        <Button label="Button block" block />
+    </div>
 </div>
