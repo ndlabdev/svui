@@ -2,7 +2,8 @@
 	"name": "svui",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "pnpm svui:watch & vite",
+		"dev": "pnpm dev:all",
+		"dev:all": "concurrently \"pnpm svui:watch\" \"vite\"",
 		"svui:watch": "pnpm svui:inject && pnpm svui:generate && tsx scripts/watch-theme.ts",
 		"svui:generate": "tsx scripts/generate-theme.ts",
 		"svui:inject": "tsx scripts/inject-theme-import.ts",
@@ -59,6 +60,7 @@
 		"@testing-library/svelte": "^5.2.4",
 		"@types/node": "^22.15.3",
 		"chokidar": "^4.0.3",
+		"concurrently": "^9.1.2",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-import": "^2.31.0",
