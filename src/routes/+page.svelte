@@ -4,6 +4,7 @@
 
     import Button from '$lib/components/button/Button.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
+    import Separator from '$lib/components/separator/Separator.svelte'
 </script>
 
 <div class="grid grid-cols-12 gap-2">
@@ -19,6 +20,13 @@
 
     <div class="col-span-3">
         <Button label="Primary Label" />
+    </div>
+
+    <div class="col-span-12">
+        <Separator color="primary" />
+        <Separator color="danger" label="or" />
+        <Separator icon={Activity} />
+        <Separator color="primary" orientation="vertical" />
     </div>
 
     <div class="col-span-3">
