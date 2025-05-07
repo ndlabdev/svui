@@ -1,4 +1,4 @@
-import chokidar from 'chokidar'
+import { watch } from 'chokidar'
 
 import { generateTheme } from './generate-theme.js'
 
@@ -6,7 +6,7 @@ const fileToWatch = 'ui.config.ts'
 
 console.log(`[svui] 👀 Watching ${fileToWatch} for changes...`)
 
-const watcher = chokidar.watch(fileToWatch, {
+const watcher = watch(fileToWatch, {
     ignoreInitial: false
 })
 

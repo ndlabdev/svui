@@ -6,7 +6,7 @@ export async function resolveColors() {
             /* @vite-ignore */ `file://${process.cwd()}/ui.config.ts?t=${Date.now()}`
         )
         return { ...defaultColors, ...(userModule.default?.colors || {}) }
-    } catch (e) {
+    } catch {
         return defaultColors
     }
 }
