@@ -37,7 +37,6 @@ export default ts.config(
             'no-unused-vars': 'off', // dùng bản của typescript-eslint
 
             // Clean code (optional)
-            'max-lines': ['warn', 300],
             'max-params': ['warn', 4],
             complexity: ['warn', 10],
             'no-magic-numbers': [
