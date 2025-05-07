@@ -1,6 +1,6 @@
 <script module>
     import { defineMeta } from '@storybook/addon-svelte-csf'
-    import { expect, userEvent, waitFor, within } from '@storybook/test'
+    import { expect, userEvent, waitFor, within , fn } from '@storybook/test'
 
     import Page from './Page.svelte'
 	
