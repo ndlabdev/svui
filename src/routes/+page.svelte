@@ -2,6 +2,7 @@
     import Loader from '@lucide/svelte/icons/loader'
     import Activity from '@lucide/svelte/icons/activity'
 
+    import Card from '$lib/components/card/Card.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
@@ -27,6 +28,20 @@
         <Separator color="danger" label="or" />
         <Separator icon={Activity} />
         <Separator color="primary" orientation="vertical" />
+    </div>
+
+    <div class="col-span-12">
+        <Card>
+            {#snippet header()}
+                Header
+            {/snippet}
+
+            Body
+
+            {#snippet footer()}
+                Footer
+            {/snippet}
+        </Card>
     </div>
 
     <div class="col-span-3">
