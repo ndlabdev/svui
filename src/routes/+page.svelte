@@ -3,9 +3,20 @@
     import Activity from '@lucide/svelte/icons/activity'
 
     import Button from '$lib/components/button/Button.svelte'
+    import Heading from '$lib/components/typography/Heading.svelte'
 </script>
 
 <div class="grid grid-cols-12 gap-2">
+    <div class="col-span-12">
+        <Heading tag="blockquote">"After all," he said, "everyone enjoys a good joke, so it's only fair that
+            they should pay for the privilege."</Heading>
+        <Heading tag="p" variant="small">they should pay for the privilege</Heading>
+        <Heading tag="p" variant="muted">they should pay for the privilege</Heading>
+        <Heading tag="h1" label="Heading" />
+        <Heading tag="p" label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis distinctio nam quibusdam quis, quos reiciendis repellat repudiandae! Aperiam at delectus dignissimos earum, fugiat fugit nemo nihil nostrum quis saepe vel. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis distinctio nam quibusdam quis, quos reiciendis repellat repudiandae! Aperiam at delectus dignissimos earum, fugiat fugit nemo nihil nostrum quis saepe vel." />
+        <Heading tag="h2" label="Heading 2" class="mt-10" />
+    </div>
+
     <div class="col-span-3">
         <Button label="Primary Label" />
     </div>
