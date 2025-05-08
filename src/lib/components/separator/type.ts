@@ -56,5 +56,5 @@ export interface SeparatorProps extends HTMLAttributes<HTMLElement> {
 	 * Override theme slots for separator (e.g. root, border, icon).
 	 * Useful for customizing internal layout or styles.
 	 */
-	ui?: typeof separatorTheme['slots']
+	ui?: Partial<typeof separatorTheme['slots']>
 }

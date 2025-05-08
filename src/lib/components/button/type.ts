@@ -150,5 +150,5 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * }}
 	 * ```
 	 */
-	ui?: typeof buttonTheme['slots']
+	ui?: Partial<typeof buttonTheme['slots']>
 }

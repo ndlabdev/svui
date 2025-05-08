@@ -6,5 +6,5 @@ import type { cardTheme } from './theme'
 export interface CardProps extends HTMLAttributes<HTMLDivElement>{
 	header?: Snippet
 	footer?: Snippet
-	ui?: typeof cardTheme['slots']
+	ui?: Partial<typeof cardTheme['slots']>
 }

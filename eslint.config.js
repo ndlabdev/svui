@@ -39,15 +39,7 @@ export default ts.config(
             // Clean code (optional)
             'quote-props': ['error', 'as-needed'],
             'max-params': ['warn', 4],
-            complexity: ['warn', 10],
-            'no-magic-numbers': [
-                'warn',
-                {
-                    ignore: [0, 1, -1],
-                    ignoreArrayIndexes: true,
-                    enforceConst: true
-                }
-            ]
+            complexity: ['warn', 10]
         }
     },
     {
