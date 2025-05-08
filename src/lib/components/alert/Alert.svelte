@@ -1,9 +1,9 @@
 <script lang="ts">
     import X from '@lucide/svelte/icons/x'
     import { tv } from 'tailwind-variants'
-    import { Button } from '../button'
     import { type AlertProps, alertTheme } from '.'
     import uiConfig from '#uiconfig'
+    import { Button } from '$lib/components/button'
 
     const {
         as = 'div',

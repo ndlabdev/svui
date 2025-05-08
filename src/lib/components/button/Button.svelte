@@ -1,6 +1,8 @@
 <script lang="ts">
     import RefreshCw from '@lucide/svelte/icons/refresh-cw'
+    import { tv } from 'tailwind-variants'
     import { type ButtonProps, buttonTheme } from '.'
+    import uiConfig from '#uiconfig'
 
     const {
         leading,
@@ -22,15 +24,20 @@
         ...restProps
     }: ButtonProps = $props()
 
-    const uiButton = $derived(buttonTheme({
-        color,
-        variant,
-        size,
-        loading,
-        leading: loading,
-        trailing: loading,
-        block
-    }))
+    const uiButton = $derived(
+        tv({
+            extend: tv(buttonTheme),
+            ...(uiConfig?.ui?.button || {})
+        })({
+            color,
+            variant,
+            size,
+            loading,
+            leading: loading,
+            trailing: loading,
+            block
+        })
+    )
 
     const uiBase = $derived(uiButton.base({
         class: [className?.toString(), ui?.base]

@@ -1,5 +1,7 @@
 <script lang="ts">
+    import { tv } from 'tailwind-variants'
     import { separatorTheme, type SeparatorProps } from '.'
+    import uiConfig from '#uiconfig'
 
     const {
         color,
@@ -14,12 +16,17 @@
         ...restProps
     }: SeparatorProps = $props()
 
-    const uiSeparator = $derived(separatorTheme({
-        color,
-        orientation,
-        size,
-        type
-    }))
+    const uiSeparator = $derived(
+        tv({
+            extend: tv(separatorTheme),
+            ...(uiConfig?.ui?.separator || {})
+        })({
+            color,
+            orientation,
+            size,
+            type
+        })
+    )
 
     const uiRoot = $derived(uiSeparator.root({
         class: [className?.toString(), ui?.root]
