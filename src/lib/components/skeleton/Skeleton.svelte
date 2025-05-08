@@ -12,15 +12,17 @@
         tv({
             extend: tv(skeletonTheme),
             ...(uiConfig?.ui?.skeleton || {})
-        })({
-            class: className?.toString()
-        })
+        })()
     )
+
+		const uiBase = $derived(uiSkeleton.base({
+				class: className?.toString()
+		}))
 </script>
 
 <svelte:element
     this={as}
-    class={uiSkeleton}
+    class={uiBase}
     aria-busy="true"
     aria-label="loading"
     aria-live="polite"
