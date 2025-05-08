@@ -1,6 +1,5 @@
 import type { Component } from 'svelte'
 import type { HTMLAttributes } from 'svelte/elements'
-
 import type { separatorTheme } from '$lib/components/separator'
 
 /**

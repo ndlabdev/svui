@@ -1,9 +1,9 @@
 <script lang="ts">
     import X from '@lucide/svelte/icons/x'
-
+    import { tv } from 'tailwind-variants'
     import { Button } from '../button'
-
     import { type AlertProps, alertTheme } from '.'
+    import uiConfig from '#uiconfig'
 
     const {
         as = 'div',
@@ -25,12 +25,17 @@
         ui
     }: AlertProps = $props()
 
-    const uiAlert = $derived(alertTheme({
-        color,
-        variant,
-        orientation,
-        title: !!title || !!slotTitle
-    }))
+    const uiAlert = $derived(
+        tv({
+            extend: tv(alertTheme),
+            ...(uiConfig?.ui?.alert || {})
+        })({
+            color,
+            variant,
+            orientation,
+            title: !!title || !!slotTitle
+        })
+    )
 
     const uiRoot = $derived(uiAlert.root({
         class: [ui?.root, className?.toString()]

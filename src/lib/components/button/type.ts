@@ -1,8 +1,6 @@
-import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
 import type { Component } from 'svelte'
-
+import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
 import type { buttonTheme } from './theme'
-
 import type { SizeType, ColorType, VariantType } from '$lib/types'
 
 type HTMLAttributesWithoutAbort = Omit<HTMLButtonAttributes, 'on:abort'> &

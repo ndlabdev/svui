@@ -1,6 +1,5 @@
 <script lang="ts">
     import RefreshCw from '@lucide/svelte/icons/refresh-cw'
-
     import { type ButtonProps, buttonTheme } from '.'
 
     const {

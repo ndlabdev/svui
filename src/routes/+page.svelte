@@ -1,13 +1,12 @@
 <script>
-    import Loader from '@lucide/svelte/icons/loader'
     import Activity from '@lucide/svelte/icons/activity'
-
-    import Card from '$lib/components/card/Card.svelte'
+    import Loader from '@lucide/svelte/icons/loader'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Button from '$lib/components/button/Button.svelte'
-    import Heading from '$lib/components/typography/Heading.svelte'
+    import Card from '$lib/components/card/Card.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
+    import Heading from '$lib/components/typography/Heading.svelte'
 </script>
 
 <div class="grid grid-cols-12 gap-2">
