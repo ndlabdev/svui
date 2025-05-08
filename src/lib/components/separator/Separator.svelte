@@ -9,6 +9,7 @@
         icon,
         orientation = 'horizontal',
         class: className,
+        as = 'div',
         ui,
         ...restProps
     }: SeparatorProps = $props()
@@ -41,7 +42,7 @@
     }))
 </script>
 
-<div class={uiRoot} {...restProps}>
+<svelte:element this={as} class={uiRoot} {...restProps}>
     <div class={uiBorder}></div>
 
     {#if label || icon}
@@ -56,4 +57,4 @@
 
         <div class={uiBorder}></div>
     {/if}
-</div>
+</svelte:element>

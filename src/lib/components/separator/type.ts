@@ -10,6 +10,11 @@ import type { separatorTheme } from '$lib/components/separator'
  */
 export interface SeparatorProps extends HTMLAttributes<HTMLElement> {
 	/**
+	 * The element or component this component should render as.
+	 * @defaultValue 'div'
+	 */
+	as?: keyof HTMLElementTagNameMap
+	/**
 	 * The size of the separator line.
 	 * Affects the thickness (horizontal: border-t, vertical: border-s).
 	 *

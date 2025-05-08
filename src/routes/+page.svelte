@@ -69,7 +69,7 @@
     </div>
 
     <div class="col-span-12">
-        <Card>
+        <Card as="article">
             {#snippet header()}
                 Header
             {/snippet}

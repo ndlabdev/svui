@@ -6,6 +6,7 @@
     import { type AlertProps, alertTheme } from '.'
 
     const {
+        as = 'div',
         title,
         description,
         orientation = 'vertical',
@@ -65,7 +66,7 @@
     }))
 </script>
 
-<div data-orientation={orientation} class={uiRoot}>
+<svelte:element this={as} data-orientation={orientation} class={uiRoot}>
     {#if slotLeading}
         {@render slotLeading?.()}
     {:else}
@@ -143,4 +144,4 @@
             {/if}
         </div>
     {/if}
-</div>
+</svelte:element>
