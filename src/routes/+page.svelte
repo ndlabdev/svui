@@ -31,7 +31,28 @@
             title="Heads up!"
             description="You can change the primary color in your app config."
             icon={Activity}
-            close
+            actions={[{
+                label: 'Action',
+                onclick: () => {
+                    console.log('Action clicked')
+                }
+            }]}
+        />
+    </div>
+
+    <div class="col-span-3">
+        <Alert
+          title="Heads up!"
+          description="You can change the primary color in your app config."
+          orientation="horizontal"
+          icon={Activity}
+          actions={[{
+                label: 'Action',
+                color: 'danger',
+                onclick: () => {
+                    console.log('Action clicked')
+                }
+            }]}
         />
     </div>
 

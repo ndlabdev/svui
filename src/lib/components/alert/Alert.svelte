@@ -14,9 +14,11 @@
         variant,
         close,
         closeIcon,
+        actions,
         class: className,
         slotLeading,
         slotTitle,
+        slotActions,
         slotDescription,
         slotClose,
         ui
@@ -49,7 +51,11 @@
         class: ui?.description
     }))
 
-    const uiActions = $derived(uiAlert.actions({
+    const uiActionsVertical = $derived(uiAlert.actions({
+        class: ui?.actions
+    }))
+
+    const uiActionsHorizontal = $derived(uiAlert.actions({
         class: ui?.actions,
         orientation: 'horizontal'
     }))
@@ -89,21 +95,52 @@
                 </div>
             {/if}
         {/if}
+
+        <div class={uiActionsVertical}>
+            {#if orientation === 'vertical' && (actions?.length || !!slotActions)}
+                {#if slotActions}
+                    {@render slotActions?.()}
+                {:else}
+                    {#each actions ?? [] as action, index (index)}
+                        <Button
+                            size="xs"
+                            {...action}
+                        />
+                    {/each}
+                {/if}
+            {/if}
+        </div>
     </div>
 
-    <div class={uiActions}>
-        {#if slotClose}
-            {@render slotClose?.()}
-        {:else}
-            {#if close}
-                <Button
-                    size="md"
-                    color="secondary"
-                    variant="link"
-                    leading={closeIcon || X}
-                    class={uiClose}
-                />
+    {#if orientation === 'horizontal' && (actions?.length || !!slotActions) || close}
+        <div class={uiActionsHorizontal}>
+            {#if orientation === 'horizontal' && (actions?.length || !!slotActions)}
+                {#if slotActions}
+                    {@render slotActions?.()}
+                {:else}
+                    {#each actions ?? [] as action, index (index)}
+                        <Button
+                            size="xs"
+                            {...action}
+                        />
+                    {/each}
+                {/if}
             {/if}
-        {/if}
-    </div>
+
+            {#if slotClose}
+                {@render slotClose?.()}
+            {:else}
+                {#if close}
+                    <Button
+                        size="md"
+                        color="secondary"
+                        variant="link"
+                        aria-label="Close"
+                        leading={closeIcon || X}
+                        class={uiClose}
+                    />
+                {/if}
+            {/if}
+        </div>
+    {/if}
 </div>
