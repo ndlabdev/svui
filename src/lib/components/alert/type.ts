@@ -6,6 +6,11 @@ import type { alertTheme } from './theme'
 import type { ButtonProps } from '$lib/components/button'
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
+	/**
+	 * The element or component this component should render as.
+	 * @defaultValue 'div'
+	 */
+	as?: keyof HTMLElementTagNameMap
 	title?: string
 	description?: string
 	icon?: Component
