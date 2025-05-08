@@ -5,6 +5,7 @@
         children,
         header,
         footer,
+        as = 'div',
         class: className,
         ui
     }: CardProps = $props()
@@ -28,7 +29,7 @@
     }))
 </script>
 
-<div class={uiRoot}>
+<svelte:element this={as} class={uiRoot}>
     {#if header}
         <div class={uiHeader}>
             {@render header()}
@@ -44,4 +45,4 @@
             {@render footer()}
         </div>
     {/if}
-</div>
+</svelte:element>
