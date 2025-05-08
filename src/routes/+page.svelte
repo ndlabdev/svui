@@ -3,6 +3,7 @@
     import Activity from '@lucide/svelte/icons/activity'
 
     import Card from '$lib/components/card/Card.svelte'
+    import Alert from '$lib/components/alert/Alert.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
@@ -21,6 +22,17 @@
 
     <div class="col-span-3">
         <Button label="Primary Label" />
+    </div>
+
+    <div class="col-span-3">
+        <Alert
+            color="secondary"
+            variant="subtle"
+            title="Heads up!"
+            description="You can change the primary color in your app config."
+            icon={Activity}
+            close
+        />
     </div>
 
     <div class="col-span-12">
