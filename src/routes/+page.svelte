@@ -7,6 +7,7 @@
     import Button from '$lib/components/button/Button.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
+    import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
 </script>
 
 <div class="grid grid-cols-12 gap-2">
@@ -42,11 +43,11 @@
 
     <div class="col-span-3">
         <Alert
-          title="Heads up!"
-          description="You can change the primary color in your app config."
-          orientation="horizontal"
-          icon={Activity}
-          actions={[{
+            title="Heads up!"
+            description="You can change the primary color in your app config."
+            orientation="horizontal"
+            icon={Activity}
+            actions={[{
                 label: 'Action',
                 color: 'danger',
                 onclick: () => {
@@ -61,6 +62,10 @@
         <Separator color="danger" label="or" />
         <Separator icon={Activity} />
         <Separator color="primary" orientation="vertical" />
+    </div>
+
+    <div class="col-span-6">
+        <Skeleton as="div" class="h-4 w-[250px]" />
     </div>
 
     <div class="col-span-12">
