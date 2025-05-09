@@ -15,9 +15,9 @@
         })()
     )
 
-		const uiBase = $derived(uiSkeleton.base({
-				class: className?.toString()
-		}))
+    const uiBase = $derived(uiSkeleton.base({
+        class: className?.toString()
+    }))
 </script>
 
 <svelte:element

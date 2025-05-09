@@ -2,6 +2,6 @@ import { tv } from 'tailwind-variants'
 
 export const skeletonTheme = tv({
     slots: {
-		base: 'animate-pulse rounded-md bg-secondary-100'
-	}
+        base: 'animate-pulse rounded-md bg-secondary-100'
+    }
 })
