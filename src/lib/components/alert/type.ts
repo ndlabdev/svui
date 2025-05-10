@@ -28,7 +28,7 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
 	 * The icon component displayed at the start of the alert.
 	 * This can be replaced with `slotLeading` for full customization.
 	 */
-	icon?: Component
+	icon?: string
 
 	/**
 	 * The color of the alert, mapped to theme tokens.

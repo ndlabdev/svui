@@ -1,6 +1,7 @@
 <script lang="ts">
     import { tv } from 'tailwind-variants'
     import { separatorTheme, type SeparatorProps } from '.'
+    import { Icon } from '$lib/components/icon'
     import uiConfig from '#uiconfig'
 
     const {
@@ -57,8 +58,7 @@
             {#if label}
                 <span class={uiLabel}>{label}</span>
             {:else if icon}
-                {@const Icon = icon}
-                <Icon class={uiIcon} />
+                <Icon name={icon} class={uiIcon} />
             {/if}
         </div>
 

@@ -30,7 +30,7 @@
             variant="subtle"
             title="Heads up!"
             description="You can change the primary color in your app config."
-            icon={Activity}
+            icon="lucide:heart"
             actions={[{
                 label: 'Action',
                 onclick: () => {
@@ -45,7 +45,7 @@
             title="Heads up!"
             description="You can change the primary color in your app config."
             orientation="horizontal"
-            icon={Activity}
+            icon="lucide:heart"
             actions={[{
                 label: 'Action',
                 color: 'danger',
@@ -59,7 +59,7 @@
     <div class="col-span-12">
         <Separator color="primary" />
         <Separator color="danger" label="or" />
-        <Separator icon={Activity} />
+        <Separator icon="lucide:heart" ui="{{ icon: 'size-4' }}" />
         <Separator color="primary" orientation="vertical" />
     </div>
 

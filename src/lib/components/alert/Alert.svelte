@@ -3,6 +3,7 @@
     import { tv } from 'tailwind-variants'
     import { type AlertProps, alertTheme } from '.'
     import uiConfig from '#uiconfig'
+    import { Icon } from '$lib/components/icon'
     import { Button } from '$lib/components/button'
 
     const {
@@ -76,8 +77,7 @@
         {@render slotLeading?.()}
     {:else}
         {#if icon}
-            {@const Icon = icon}
-            <Icon class={uiIcon} />
+            <Icon name={icon} class={uiIcon} />
         {/if}
     {/if}
 

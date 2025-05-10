@@ -1,4 +1,3 @@
-import type { Component } from 'svelte'
 import type { HTMLAttributes } from 'svelte/elements'
 import type { separatorTheme } from '$lib/components/separator'
 
@@ -48,7 +47,7 @@ export interface SeparatorProps extends HTMLAttributes<HTMLElement> {
 	 * Optional icon to render within the separator.
 	 * Appears inline with the line and label (if any).
 	 */
-	icon?: Component
+	icon?: string
 
 	/**
 	 * Optional text label to display with the separator.
