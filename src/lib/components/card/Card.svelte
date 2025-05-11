@@ -1,5 +1,7 @@
 <script lang="ts">
+    import { tv } from 'tailwind-variants'
     import { type CardProps, cardTheme } from '.'
+    import uiConfig from '#uiconfig'
 
     const {
         children,
@@ -10,7 +12,12 @@
         ui
     }: CardProps = $props()
 
-    const uiCard = $derived(cardTheme())
+    const uiCard = $derived(
+        tv({
+            extend: tv(cardTheme),
+            ...(uiConfig?.ui?.card || {})
+        })()
+    )
 
     const uiRoot = $derived(uiCard.root({
         class: [className?.toString(), ui?.root]

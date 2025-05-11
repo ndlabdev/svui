@@ -1,20 +1,24 @@
 <script lang="ts">
-    import RefreshCw from '@lucide/svelte/icons/refresh-cw'
-
+    import { tv } from 'tailwind-variants'
     import { type ButtonProps, buttonTheme } from '.'
+    import uiConfig from '#uiconfig'
+    import { Icon } from '$lib/components/icon'
 
     const {
+        icon,
         leading,
+        leadingIcon,
         trailing,
-        children,
+        trailingIcon,
+        loading,
         loadingIcon,
+        children,
         label,
         size = 'md',
         color = 'primary',
         variant = 'solid',
         type = 'button',
         tag = 'button',
-        loading,
         block,
         href,
         disabled,
@@ -23,15 +27,31 @@
         ...restProps
     }: ButtonProps = $props()
 
-    const uiButton = $derived(buttonTheme({
-        color,
-        variant,
-        size,
-        loading,
-        leading: loading,
-        trailing: loading,
-        block
-    }))
+    const isLeading = $derived((icon && leading) || (icon && !trailing) || (loading && !trailing) || !!leadingIcon)
+    const isTrailing = $derived((icon && trailing) || (loading && trailing) || !!trailingIcon)
+
+    const leadingIconName = $derived(
+        loading ? loadingIcon || uiConfig.icon.loading : loadingIcon || icon
+    )
+
+    const trailingIconName = $derived(
+        loading && !isLeading ? loadingIcon || uiConfig.icon.loading : trailingIcon || icon
+    )
+
+    const uiButton = $derived(
+        tv({
+            extend: tv(buttonTheme),
+            ...(uiConfig?.ui?.button || {})
+        })({
+            color,
+            variant,
+            size,
+            loading,
+            leading: isLeading,
+            trailing: isTrailing,
+            block
+        })
+    )
 
     const uiBase = $derived(uiButton.base({
         class: [className?.toString(), ui?.base]
@@ -61,14 +81,8 @@
         class={uiBase}
         {...restProps}
     >
-        {#if !loading}
-            {#if leading}
-                {@const Icon = leading}
-                <Icon class={uiLeadingIcon} />
-            {/if}
-        {:else}
-            {@const Icon = !loadingIcon ? RefreshCw : loadingIcon}
-            <Icon class={uiLeadingIcon} />
+        {#if isLeading && leadingIconName}
+            <Icon name={leadingIconName} class={uiLeadingIcon} />
         {/if}
 
         {#if children}
@@ -79,9 +93,8 @@
             {/if}
         {/if}
 
-        {#if trailing}
-            {@const Icon = trailing}
-            <Icon class={uiTrailingIcon} />
+        {#if isTrailing && trailingIconName}
+            <Icon name={trailingIconName} class={uiTrailingIcon} />
         {/if}
     </button>
 {/if}

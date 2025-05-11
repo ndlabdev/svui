@@ -1,5 +1,4 @@
 import { tv } from 'tailwind-variants'
-
 import { defaultColors } from '../../../themes'
 const colors = Object.keys(defaultColors)
 

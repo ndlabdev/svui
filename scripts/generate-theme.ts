@@ -1,12 +1,10 @@
 import fs from 'fs'
 import path from 'path'
-
 import allColors from 'tailwindcss/colors'
-
 import { defaultColors } from '../src/themes'
 
 export async function generateTheme() {
-    const userConfigPath = path.resolve(process.cwd(), 'ui.config.ts')
+    const userConfigPath = path.resolve(process.cwd(), 'src/ui.config.ts')
     let userColors: Record<string, string> = {}
 
     // Load ui.config.ts if it exists

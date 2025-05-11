@@ -1,13 +1,10 @@
 <script>
-    import Loader from '@lucide/svelte/icons/loader'
-    import Activity from '@lucide/svelte/icons/activity'
-
-    import Card from '$lib/components/card/Card.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Button from '$lib/components/button/Button.svelte'
-    import Heading from '$lib/components/typography/Heading.svelte'
+    import Card from '$lib/components/card/Card.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
+    import Heading from '$lib/components/typography/Heading.svelte'
 </script>
 
 <div class="grid grid-cols-12 gap-2">
@@ -31,7 +28,7 @@
             variant="subtle"
             title="Heads up!"
             description="You can change the primary color in your app config."
-            icon={Activity}
+            icon="lucide:heart"
             actions={[{
                 label: 'Action',
                 onclick: () => {
@@ -46,7 +43,7 @@
             title="Heads up!"
             description="You can change the primary color in your app config."
             orientation="horizontal"
-            icon={Activity}
+            icon="lucide:heart"
             actions={[{
                 label: 'Action',
                 color: 'danger',
@@ -60,7 +57,7 @@
     <div class="col-span-12">
         <Separator color="primary" />
         <Separator color="danger" label="or" />
-        <Separator icon={Activity} />
+        <Separator icon="lucide:heart" ui="{{ icon: 'size-4' }}" />
         <Separator color="primary" orientation="vertical" />
     </div>
 
@@ -99,11 +96,11 @@
     </div>
 
     <div class="col-span-3">
-        <Button size="md" leading={Activity} label="With Icon Left" />
+        <Button size="md" icon="lucide:heart" label="With Icon Left" />
     </div>
 
     <div class="col-span-3">
-        <Button size="md" trailing={Activity} label="With Icon Right" />
+        <Button size="md" trailingIcon="lucide:heart" label="With Icon Right" />
     </div>
 
     <div class="col-span-3">
@@ -119,7 +116,7 @@
     </div>
 
     <div class="col-span-3">
-        <Button loading label="Waiting..." loadingIcon={Loader} />
+        <Button loading label="Waiting..." loadingIcon='lucide:loader' />
     </div>
 
     <div class="col-span-3">

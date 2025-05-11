@@ -1,8 +1,7 @@
 import { watch } from 'chokidar'
-
 import { generateTheme } from './generate-theme.js'
 
-const fileToWatch = 'ui.config.ts'
+const fileToWatch = 'src/ui.config.ts'
 
 console.log(`[svui] 👀 Watching ${fileToWatch} for changes...`)
 

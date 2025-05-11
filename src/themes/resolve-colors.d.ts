@@ -1,1 +1,1 @@
-export declare function getMergedColors(): Record<string, string> | null
+export declare function resolveColors(): Promise<any>;
