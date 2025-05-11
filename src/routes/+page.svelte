@@ -96,11 +96,11 @@
     </div>
 
     <div class="col-span-3">
-        <Button size="md" leading leadingIcon="lucide:heart" label="With Icon Left" />
+        <Button size="md" icon="lucide:heart" label="With Icon Left" />
     </div>
 
     <div class="col-span-3">
-        <Button size="md" trailing trailingIcon="lucide:heart" label="With Icon Right" />
+        <Button size="md" trailingIcon="lucide:heart" label="With Icon Right" />
     </div>
 
     <div class="col-span-3">
