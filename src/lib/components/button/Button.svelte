@@ -1,21 +1,23 @@
 <script lang="ts">
-    import RefreshCw from '@lucide/svelte/icons/refresh-cw'
     import { tv } from 'tailwind-variants'
     import { type ButtonProps, buttonTheme } from '.'
     import uiConfig from '#uiconfig'
+    import { Icon } from '$lib/components/icon'
 
     const {
         leading,
+        leadingIcon,
         trailing,
+        trailingIcon,
+        loading,
+        loadingIcon = 'lucide:refresh-cw',
         children,
-        loadingIcon,
         label,
         size = 'md',
         color = 'primary',
         variant = 'solid',
         type = 'button',
         tag = 'button',
-        loading,
         block,
         href,
         disabled,
@@ -69,12 +71,10 @@
     >
         {#if !loading}
             {#if leading}
-                {@const Icon = leading}
-                <Icon class={uiLeadingIcon} />
+                <Icon name={leadingIcon} class={uiLeadingIcon} />
             {/if}
         {:else}
-            {@const Icon = !loadingIcon ? RefreshCw : loadingIcon}
-            <Icon class={uiLeadingIcon} />
+            <Icon name={loadingIcon} class={uiLeadingIcon} />
         {/if}
 
         {#if children}
@@ -86,8 +86,7 @@
         {/if}
 
         {#if trailing}
-            {@const Icon = trailing}
-            <Icon class={uiTrailingIcon} />
+            <Icon name={trailingIcon} class={uiTrailingIcon} />
         {/if}
     </button>
 {/if}

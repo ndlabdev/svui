@@ -1,8 +1,8 @@
 <script lang="ts">
     import { tv } from 'tailwind-variants'
     import { separatorTheme, type SeparatorProps } from '.'
-    import { Icon } from '$lib/components/icon'
     import uiConfig from '#uiconfig'
+    import { Icon } from '$lib/components/icon'
 
     const {
         color,

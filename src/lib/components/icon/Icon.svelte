@@ -1,15 +1,15 @@
 <script lang="ts">
-		import Icon from '@iconify/svelte'
+    import Icon from '@iconify/svelte'
 
-		const {
-				name,
-				class: className,
-				...restProps
-		} = $props()
+    const {
+        name,
+        class: className,
+        ...restProps
+    } = $props()
 </script>
 
 <Icon
-		icon={name}
-		class={className}
-		{...restProps}
+    icon={name}
+    class={className}
+    {...restProps}
 />

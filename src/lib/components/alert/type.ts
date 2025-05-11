@@ -1,4 +1,4 @@
-import type { Component, Snippet } from 'svelte'
+import type { Snippet } from 'svelte'
 import type { HTMLAttributes } from 'svelte/elements'
 import type { alertTheme } from './theme'
 import type { ButtonProps } from '$lib/components/button'
@@ -58,7 +58,7 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Custom icon component to use in the close button.
 	 */
-	closeIcon?: Component
+	closeIcon?: string
 
 	/**
 	 * Optional array of button props to render action buttons at the end of the alert.

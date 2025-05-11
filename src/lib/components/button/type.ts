@@ -1,4 +1,3 @@
-import type { Component } from 'svelte'
 import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
 import type { buttonTheme } from './theme'
 import type { SizeType, ColorType, VariantType } from '$lib/types'
@@ -16,7 +15,8 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button leading={IconArrowLeft} />
 	 * ```
 	 */
-	leading?: Component
+	leading?: boolean
+	leadingIcon?: string
 
 	/**
 	 * A component rendered after the button label.
@@ -27,18 +27,8 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button trailing={IconChevronRight} />
 	 * ```
 	 */
-	trailing?: Component
-
-	/**
-	 * A custom loading icon component displayed when `loading` is true.
-	 * Replaces both label and trailing content during the loading state.
-	 *
-	 * @example
-	 * ```svelte
-	 * <Button loadingIcon={SpinnerIcon} loading />
-	 * ```
-	 */
-	loadingIcon?: Component
+	trailing?: boolean
+	trailingIcon?: string
 
 	/**
 	 * The main label of the button.
@@ -63,6 +53,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * ```
 	 */
 	loading?: boolean
+	loadingIcon?: string
 
 	/**
 	 * The color theme for the button, e.g. `'primary'`, `'danger'`, `'info'`, etc.

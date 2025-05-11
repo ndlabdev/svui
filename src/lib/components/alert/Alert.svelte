@@ -1,10 +1,9 @@
 <script lang="ts">
-    import X from '@lucide/svelte/icons/x'
     import { tv } from 'tailwind-variants'
     import { type AlertProps, alertTheme } from '.'
     import uiConfig from '#uiconfig'
-    import { Icon } from '$lib/components/icon'
     import { Button } from '$lib/components/button'
+    import { Icon } from '$lib/components/icon'
 
     const {
         as = 'div',
@@ -142,7 +141,8 @@
                         color="secondary"
                         variant="link"
                         aria-label="Close"
-                        leading={closeIcon || X}
+                        leading
+                        leadingIcon={closeIcon || 'lucide:x'}
                         class={uiClose}
                     />
                 {/if}

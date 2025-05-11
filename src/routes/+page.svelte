@@ -1,6 +1,4 @@
 <script>
-    import Activity from '@lucide/svelte/icons/activity'
-    import Loader from '@lucide/svelte/icons/loader'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
@@ -98,11 +96,11 @@
     </div>
 
     <div class="col-span-3">
-        <Button size="md" leading={Activity} label="With Icon Left" />
+        <Button size="md" leading leadingIcon="lucide:heart" label="With Icon Left" />
     </div>
 
     <div class="col-span-3">
-        <Button size="md" trailing={Activity} label="With Icon Right" />
+        <Button size="md" trailing trailingIcon="lucide:heart" label="With Icon Right" />
     </div>
 
     <div class="col-span-3">
@@ -118,7 +116,7 @@
     </div>
 
     <div class="col-span-3">
-        <Button loading label="Waiting..." loadingIcon={Loader} />
+        <Button loading label="Waiting..." loadingIcon='lucide:loader' />
     </div>
 
     <div class="col-span-3">
