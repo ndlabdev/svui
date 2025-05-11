@@ -3,3 +3,7 @@
 
 @custom-variant light (&:where(.light, .light *));
 @custom-variant dark (&:where(.dark, .dark *));
+
+@theme static {
+    --font-sans: 'Public Sans', sans-serif;
+}

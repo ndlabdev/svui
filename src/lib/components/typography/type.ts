@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'svelte/elements'
-
 import type { headingTheme } from './theme'
 
 export interface HeadingProps extends HTMLAttributes<HTMLElement> {

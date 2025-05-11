@@ -55,6 +55,7 @@
 		"@chromatic-com/storybook": "^3",
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
+		"@iconify/svelte": "^5.0.0",
 		"@storybook/addon-essentials": "^8.6.12",
 		"@storybook/addon-svelte-csf": "^5.0.0-next.0",
 		"@storybook/blocks": "^8.6.12",
@@ -101,7 +102,6 @@
 	],
 	"packageManager": "pnpm@10.10.0",
 	"dependencies": {
-		"@lucide/svelte": "^0.507.0",
 		"tailwind-merge": "^3.2.0",
 		"tailwind-variants": "^1.0.0"
 	}

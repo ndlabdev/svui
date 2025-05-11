@@ -1,5 +1,8 @@
 <script lang="ts">
+    import { tv } from 'tailwind-variants'
     import { separatorTheme, type SeparatorProps } from '.'
+    import uiConfig from '#uiconfig'
+    import { Icon } from '$lib/components/icon'
 
     const {
         color,
@@ -14,12 +17,17 @@
         ...restProps
     }: SeparatorProps = $props()
 
-    const uiSeparator = $derived(separatorTheme({
-        color,
-        orientation,
-        size,
-        type
-    }))
+    const uiSeparator = $derived(
+        tv({
+            extend: tv(separatorTheme),
+            ...(uiConfig?.ui?.separator || {})
+        })({
+            color,
+            orientation,
+            size,
+            type
+        })
+    )
 
     const uiRoot = $derived(uiSeparator.root({
         class: [className?.toString(), ui?.root]
@@ -50,8 +58,7 @@
             {#if label}
                 <span class={uiLabel}>{label}</span>
             {:else if icon}
-                {@const Icon = icon}
-                <Icon class={uiIcon} />
+                <Icon name={icon} class={uiIcon} />
             {/if}
         </div>
 
