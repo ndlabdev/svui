@@ -5,12 +5,13 @@
     import { Icon } from '$lib/components/icon'
 
     const {
+        icon,
         leading,
         leadingIcon,
         trailing,
         trailingIcon,
         loading,
-        loadingIcon = 'lucide:refresh-cw',
+        loadingIcon,
         children,
         label,
         size = 'md',
@@ -26,6 +27,17 @@
         ...restProps
     }: ButtonProps = $props()
 
+    const isLeading = $derived((icon && leading) || (icon && !trailing) || (loading && !trailing) || !!leadingIcon)
+    const isTrailing = $derived((icon && trailing) || (loading && trailing) || !!trailingIcon)
+
+    const leadingIconName = $derived(
+        loading ? loadingIcon || uiConfig.icon.loading : loadingIcon || icon
+    )
+
+    const trailingIconName = $derived(
+        loading && !isLeading ? loadingIcon || uiConfig.icon.loading : trailingIcon || icon
+    )
+
     const uiButton = $derived(
         tv({
             extend: tv(buttonTheme),
@@ -35,8 +47,8 @@
             variant,
             size,
             loading,
-            leading: loading,
-            trailing: loading,
+            leading: isLeading,
+            trailing: isTrailing,
             block
         })
     )
@@ -69,12 +81,8 @@
         class={uiBase}
         {...restProps}
     >
-        {#if !loading}
-            {#if leading}
-                <Icon name={leadingIcon} class={uiLeadingIcon} />
-            {/if}
-        {:else}
-            <Icon name={loadingIcon} class={uiLeadingIcon} />
+        {#if isLeading && leadingIconName}
+            <Icon name={leadingIconName} class={uiLeadingIcon} />
         {/if}
 
         {#if children}
@@ -85,8 +93,8 @@
             {/if}
         {/if}
 
-        {#if trailing}
-            <Icon name={trailingIcon} class={uiTrailingIcon} />
+        {#if isTrailing && trailingIconName}
+            <Icon name={trailingIconName} class={uiTrailingIcon} />
         {/if}
     </button>
 {/if}

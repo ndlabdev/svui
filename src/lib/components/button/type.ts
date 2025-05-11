@@ -5,18 +5,33 @@ import type { SizeType, ColorType, VariantType } from '$lib/types'
 type HTMLAttributesWithoutAbort = Omit<HTMLButtonAttributes, 'on:abort'> &
 	Omit<HTMLAnchorAttributes, 'on:abort'>
 
-export interface ButtonProps extends HTMLAttributesWithoutAbort {
+export interface ButtonSlots {
+	leading?: boolean
+	trailing?: boolean
+}
+
+export interface ButtonProps extends HTMLAttributesWithoutAbort, ButtonSlots {
 	/**
 	 * A component rendered before the button label.
 	 * Typically used for leading icons.
 	 *
 	 * @example
 	 * ```svelte
-	 * <Button leading={IconArrowLeft} />
+	 * <Button leadingIcon="lucide:arrow-left" label="Back" />
 	 * ```
 	 */
-	leading?: boolean
-	leadingIcon?: string
+	leadingIcon?: string;
+
+	/**
+	 * The icon to be displayed inside the button.
+	 * Can be used if you don't want to specify leading or trailing icon specifically.
+	 *
+	 * @example
+	 * ```svelte
+	 * <Button icon="lucide:check-circle" label="Submit" />
+	 * ```
+	 */
+	icon?: string;
 
 	/**
 	 * A component rendered after the button label.
@@ -24,11 +39,10 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 *
 	 * @example
 	 * ```svelte
-	 * <Button trailing={IconChevronRight} />
+	 * <Button trailingIcon="lucide:chevron-right" label="Next" />
 	 * ```
 	 */
-	trailing?: boolean
-	trailingIcon?: string
+	trailingIcon?: string;
 
 	/**
 	 * The main label of the button.
@@ -39,7 +53,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button label="Submit" />
 	 * ```
 	 */
-	label?: string
+	label?: string;
 
 	/**
 	 * If true, the button will enter a loading state:
@@ -52,12 +66,12 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button loading label="Saving..." />
 	 * ```
 	 */
-	loading?: boolean
-	loadingIcon?: string
+	loading?: boolean;
+	loadingIcon?: string;
 
 	/**
-	 * The color theme for the button, e.g. `'primary'`, `'danger'`, `'info'`, etc.
-	 * This value is mapped to Tailwind color utilities.
+	 * The color theme for the button, e.g., `'primary'`, `'danger'`, `'info'`, etc.
+	 * This value is mapped to Tailwind CSS color utilities.
 	 *
 	 * @defaultValue 'primary'
 	 *
@@ -66,7 +80,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button color="danger" />
 	 * ```
 	 */
-	color?: ColorType
+	color?: ColorType;
 
 	/**
 	 * The visual style of the button.
@@ -85,7 +99,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button variant="outline" />
 	 * ```
 	 */
-	variant?: VariantType
+	variant?: VariantType;
 
 	/**
 	 * The size of the button.
@@ -98,7 +112,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button size="lg" />
 	 * ```
 	 */
-	size?: SizeType
+	size?: SizeType;
 
 	/**
 	 * If true, the button expands to full width.
@@ -110,7 +124,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button block label="Continue" />
 	 * ```
 	 */
-	block?: boolean
+	block?: boolean;
 
 	/**
 	 * The HTML element or component to render this button as when it's not a link.
@@ -124,7 +138,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * <Button tag="div" />
 	 * ```
 	 */
-	tag?: string
+	tag?: string;
 
 	/**
 	 * An optional override for internal UI class slots, typically derived from your theme config.
@@ -139,5 +153,5 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort {
 	 * }}
 	 * ```
 	 */
-	ui?: Partial<typeof buttonTheme['slots']>
+	ui?: Partial<typeof buttonTheme['slots']>;
 }

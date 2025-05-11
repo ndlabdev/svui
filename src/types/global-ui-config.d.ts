@@ -1,4 +1,5 @@
 import type colors from 'tailwindcss/colors'
+import type icon from '../themes/icon'
 import type { alertTheme } from '$lib/components/alert/theme'
 import type { buttonTheme } from '$lib/components/button/theme'
 import type { cardTheme } from '$lib/components/card/theme'
@@ -8,6 +9,7 @@ import type { headingTheme } from '$lib/components/typography/theme'
 import type { ColorType } from '$lib/types'
 
 export interface UiConfig {
+	icon: Partial<Record<keyof typeof icon, string>>
 	colors?: Partial<Record<ColorType, keyof typeof colors>>
 	ui?: {
 		alert?: {
