@@ -1,10 +1,10 @@
 <script lang="ts">
     import { Accordion } from 'bits-ui'
+    import { slide } from 'svelte/transition'
     import { tv } from 'tailwind-variants'
     import { accordionTheme, type AccordionProps } from '.'
     import uiConfig from '#uiconfig'
     import { Icon } from '$lib/components/icon'
-    import { slide } from 'svelte/transition'
 
     const {
         ui,
@@ -41,6 +41,10 @@
     const uiContent = $derived(uiAccordion.content({
         class: ui?.content
     }))
+
+    const uiContentClass = $derived(forceMount
+        ? `${ui?.content} overflow-hidden focus:outline-none`
+        : ui?.content)
 
     const uiBody = $derived(uiAccordion.body({
         class: ui?.body
@@ -83,7 +87,7 @@
             </Accordion.Header>
 
             {#if forceMount}
-                <Accordion.Content {forceMount} class={uiContent}>
+                <Accordion.Content {forceMount} class={uiContentClass}>
                     {#snippet child({ props, open })}
                         {#if open}
                             <div {...props} transition:slide={{ duration: 200 }}>
