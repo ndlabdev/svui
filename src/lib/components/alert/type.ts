@@ -1,6 +1,7 @@
 import type { Snippet } from 'svelte'
 import type { HTMLAttributes } from 'svelte/elements'
 import type { alertTheme } from './theme'
+import type { AvatarProps } from '$lib/components/avatar'
 import type { ButtonProps } from '$lib/components/button'
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
@@ -23,6 +24,19 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
 	 * This can be replaced using `slotDescription`.
 	 */
 	description?: string
+
+	/**
+	 * The avatar to be displayed inside the button.
+	 * Can be used if you don't want to specify leading or trailing icon specifically.
+	 *
+	 * @example
+	 * ```svelte
+	 * <Alert avatar="{{
+	 *       src: 'https://github.com/nuxt.png'
+	 *     }}" />
+	 * ```
+	 */
+	avatar?: AvatarProps;
 
 	/**
 	 * The icon component displayed at the start of the alert.

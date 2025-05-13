@@ -52,7 +52,10 @@
             variant="subtle"
             title="Heads up!"
             description="You can change the primary color in your app config."
-            icon="lucide:heart"
+            avatar="{{
+                src: 'https://github.com/nuxt.png',
+                size: 'sm'
+            }}"
             actions={[{
                 label: 'Action',
                 onclick: () => {
@@ -67,7 +70,7 @@
             title="Heads up!"
             description="You can change the primary color in your app config."
             orientation="horizontal"
-            icon="lucide:heart"
+            icon="lucide:terminal"
             actions={[{
                 label: 'Action',
                 color: 'danger',
@@ -82,6 +85,12 @@
         <Separator color="primary" />
         <Separator color="danger" label="or" />
         <Separator icon="lucide:heart" ui="{{ icon: 'size-4' }}" />
+        <Separator
+            avatar="{{
+                src: 'https://github.com/nuxt.png',
+                size: 'sm'
+            }}"
+        />
         <Separator color="primary" orientation="vertical" />
     </div>
 

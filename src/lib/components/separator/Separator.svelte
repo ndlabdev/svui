@@ -2,6 +2,7 @@
     import { tv } from 'tailwind-variants'
     import { separatorTheme, type SeparatorProps } from '.'
     import uiConfig from '#uiconfig'
+    import { Avatar, type AvatarProps } from '$lib/components/avatar'
     import { Icon } from '$lib/components/icon'
 
     const {
@@ -10,6 +11,7 @@
         type,
         label,
         icon,
+        avatar,
         orientation = 'horizontal',
         class: className,
         as = 'div',
@@ -48,17 +50,25 @@
     const uiIcon = $derived(uiSeparator.icon({
         class: ui?.icon
     }))
+
+    const uiAvatar = $derived(uiSeparator.avatarSize({
+        class: ui?.avatar
+    }))
+
+    const uiAvatarSize = $derived((ui?.avatarSize || uiSeparator.avatarSize()) as AvatarProps['size'])
 </script>
 
 <svelte:element this={as} class={uiRoot} {...restProps}>
     <div class={uiBorder}></div>
 
-    {#if label || icon}
+    {#if label || icon || avatar}
         <div class={uiContainer}>
             {#if label}
                 <span class={uiLabel}>{label}</span>
             {:else if icon}
                 <Icon name={icon} class={uiIcon} />
+            {:else if !!avatar}
+                <Avatar size={uiAvatarSize} class={uiAvatar} {...avatar} />
             {/if}
         </div>
 

@@ -67,7 +67,6 @@
             alt={alt}
             width={sizePx}
             height={sizePx}
-            role="img"
             class={uiImage}
             {...restProps}
         >

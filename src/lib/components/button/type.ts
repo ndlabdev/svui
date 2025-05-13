@@ -29,9 +29,9 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort, ButtonSlots {
 	 *
 	 * @example
 	 * ```svelte
-	 * <Button avatar="{
+	 * <Button avatar="{{
 	 *       src: 'https://github.com/nuxt.png'
-	 *     }" label="Submit" />
+	 *     }}" label="Submit" />
 	 * ```
 	 */
 	avatar?: AvatarProps;
