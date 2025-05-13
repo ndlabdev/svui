@@ -1,5 +1,6 @@
 import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
 import type { buttonTheme } from './theme'
+import type { AvatarProps } from '$lib/components/avatar'
 import type { SizeType, ColorType, VariantType } from '$lib/types'
 
 type HTMLAttributesWithoutAbort = Omit<HTMLButtonAttributes, 'on:abort'> &
@@ -21,6 +22,19 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort, ButtonSlots {
 	 * ```
 	 */
 	leadingIcon?: string;
+
+	/**
+	 * The avatar to be displayed inside the button.
+	 * Can be used if you don't want to specify leading or trailing icon specifically.
+	 *
+	 * @example
+	 * ```svelte
+	 * <Button avatar="{{
+	 *       src: 'https://github.com/nuxt.png'
+	 *     }}" label="Submit" />
+	 * ```
+	 */
+	avatar?: AvatarProps;
 
 	/**
 	 * The icon to be displayed inside the button.

@@ -4,7 +4,7 @@ export const separatorTheme = tv({
     slots: {
         root: 'flex items-center align-center text-center',
         border: '',
-        container: 'font-medium text-default flex',
+        container: 'font-medium text-secondary-700 flex',
         icon: 'shrink-0 size-5',
         avatar: 'shrink-0',
         avatarSize: '2xs',
