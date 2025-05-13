@@ -2,6 +2,7 @@
     import { tv } from 'tailwind-variants'
     import { type AlertProps, alertTheme } from '.'
     import uiConfig from '#uiconfig'
+    import { Avatar, type AvatarProps } from '$lib/components/avatar'
     import { Button } from '$lib/components/button'
     import { Icon } from '$lib/components/icon'
 
@@ -9,6 +10,7 @@
         as = 'div',
         title,
         description,
+        avatar,
         orientation = 'vertical',
         icon,
         color,
@@ -69,6 +71,12 @@
     const uiClose = $derived(uiAlert.close({
         class: ui?.close
     }))
+
+    const uiAvatar = $derived(uiAlert.avatarSize({
+        class: ui?.avatar
+    }))
+
+    const uiAvatarSize = $derived((ui?.avatarSize || uiAlert.avatarSize()) as AvatarProps['size'])
 </script>
 
 <svelte:element this={as} data-orientation={orientation} class={uiRoot}>
@@ -77,6 +85,8 @@
     {:else}
         {#if icon}
             <Icon name={icon} class={uiIcon} />
+        {:else if !!avatar}
+            <Avatar size={uiAvatarSize} class={uiAvatar} {...avatar} />
         {/if}
     {/if}
 

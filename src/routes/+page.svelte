@@ -1,6 +1,7 @@
 <script>
     import Accordion from '$lib/components/accordion/Accordion.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
+    import Avatar from '$lib/components/avatar/Avatar.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
@@ -51,7 +52,10 @@
             variant="subtle"
             title="Heads up!"
             description="You can change the primary color in your app config."
-            icon="lucide:heart"
+            avatar="{{
+                src: 'https://github.com/nuxt.png',
+                size: 'sm'
+            }}"
             actions={[{
                 label: 'Action',
                 onclick: () => {
@@ -66,7 +70,7 @@
             title="Heads up!"
             description="You can change the primary color in your app config."
             orientation="horizontal"
-            icon="lucide:heart"
+            icon="lucide:terminal"
             actions={[{
                 label: 'Action',
                 color: 'danger',
@@ -81,6 +85,12 @@
         <Separator color="primary" />
         <Separator color="danger" label="or" />
         <Separator icon="lucide:heart" ui="{{ icon: 'size-4' }}" />
+        <Separator
+            avatar="{{
+                src: 'https://github.com/nuxt.png',
+                size: 'sm'
+            }}"
+        />
         <Separator color="primary" orientation="vertical" />
     </div>
 
@@ -146,6 +156,15 @@
         <Button label="Button block" block />
     </div>
 
+    <div class="col-span-3">
+        <Button
+            avatar="{{
+                src: 'https://github.com/benjamincanac.png'
+            }}"
+            label="Label"
+        />
+    </div>
+
     <div class="col-span-12">
         <div class="mx-4">
             <Accordion
@@ -154,5 +173,13 @@
                 type="multiple"
             />
         </div>
+    </div>
+
+    <div class="col-span-12">
+        <Avatar src="https://github.com/benjamincanac.png" size="xl" />
+        <Avatar size="xl" />
+        <Avatar icon="lucide:image" size="md" />
+        <Avatar text="+1" size="md" />
+        <Avatar alt="Benjamin Canac" size="md" />
     </div>
 </div>
