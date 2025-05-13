@@ -1,5 +1,6 @@
 import type colors from 'tailwindcss/colors'
 import type icon from '../themes/icon'
+import type { accordionTheme } from '$lib/components/accordion/theme'
 import type { alertTheme } from '$lib/components/alert/theme'
 import type { buttonTheme } from '$lib/components/button/theme'
 import type { cardTheme } from '$lib/components/card/theme'
@@ -12,6 +13,9 @@ export interface UiConfig {
 	icon: Partial<Record<keyof typeof icon, string>>
 	colors?: Partial<Record<ColorType, keyof typeof colors>>
 	ui?: {
+		accordion?: {
+			slots?: Partial<typeof accordionTheme['slots']>
+		}
 		alert?: {
 			slots?: Partial<typeof alertTheme['slots']>
 		}
