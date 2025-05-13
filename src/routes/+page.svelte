@@ -1,10 +1,33 @@
 <script>
+    import Accordion from '$lib/components/accordion/Accordion.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
+
+    const items = [
+        {
+            value: '1',
+            icon: 'lucide:smile',
+            trailingIcon: 'lucide:plus',
+            label: 'What is the meaning of life?',
+            content:
+                'To become a better person, to help others, and to leave the world a better place than you found it.'
+        },
+        {
+            value: '2',
+            label: 'How do I become a better person?',
+            content:
+                'Read books, listen to podcasts, and surround yourself with people who inspire you.'
+        },
+        {
+            value: '3',
+            label: 'What is the best way to help others?',
+            content: 'Give them your time, attention, and love.'
+        }
+    ]
 </script>
 
 <div class="grid grid-cols-12 gap-2">
@@ -121,5 +144,15 @@
 
     <div class="col-span-3">
         <Button label="Button block" block />
+    </div>
+
+    <div class="col-span-12">
+        <div class="mx-4">
+            <Accordion
+                forceMount
+                items={items}
+                type="multiple"
+            />
+        </div>
     </div>
 </div>

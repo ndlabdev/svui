@@ -1,9 +1,31 @@
 @import 'tailwindcss' source('../src');
 @import './generated/theme.css';
-
 @custom-variant light (&:where(.light, .light *));
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme static {
     --font-sans: 'Public Sans', sans-serif;
+}
+
+@theme {
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+
+    @keyframes accordion-down {
+        from {
+            height: 0;
+        }
+        to {
+            height: var(--bits-accordion-content-height);
+        }
+    }
+
+    @keyframes accordion-up {
+        from {
+            height: var(--bits-accordion-content-height);
+        }
+        to {
+            height: 0;
+        }
+    }
 }
