@@ -4,6 +4,7 @@
     import Avatar from '$lib/components/avatar/Avatar.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
+    import Chip from '$lib/components/chip/Chip.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
@@ -157,12 +158,14 @@
     </div>
 
     <div class="col-span-3">
-        <Button
-            avatar="{{
-                src: 'https://github.com/benjamincanac.png'
-            }}"
-            label="Label"
-        />
+        <Chip size="3xl" text={5} position="bottom-left">
+            <Button
+                avatar="{{
+                    src: 'https://github.com/benjamincanac.png'
+                }}"
+                label="Label"
+            />
+        </Chip>
     </div>
 
     <div class="col-span-12">
@@ -181,5 +184,9 @@
         <Avatar icon="lucide:image" size="md" />
         <Avatar text="+1" size="md" />
         <Avatar alt="Benjamin Canac" size="md" />
+
+        <Chip inset>
+            <Avatar alt="Benjamin Canac" size="xl" />
+        </Chip>
     </div>
 </div>

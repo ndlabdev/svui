@@ -5,6 +5,7 @@ import type { alertTheme } from '$lib/components/alert/theme'
 import type { avatarTheme } from '$lib/components/avatar'
 import type { buttonTheme } from '$lib/components/button/theme'
 import type { cardTheme } from '$lib/components/card/theme'
+import type { chipTheme } from '$lib/components/chip'
 import type { separatorTheme } from '$lib/components/separator/theme'
 import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
@@ -25,6 +26,9 @@ export interface UiConfig {
 		}
 		button?: {
 			slots?: Partial<typeof buttonTheme['slots']>
+		}
+		chip: {
+			slots?: Partial<typeof chipTheme['slots']>
 		}
 		card: {
 			slots?: Partial<typeof cardTheme['slots']>
