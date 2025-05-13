@@ -50,10 +50,6 @@
         class: ui?.body
     }))
 
-    const uiTrigger = $derived(uiAccordion.trigger({
-        class: ui?.trigger
-    }))
-
     const uiLeadingIcon = $derived(uiAccordion.leadingIcon({
         class: ui?.leadingIcon
     }))
@@ -61,9 +57,18 @@
     const uiTrailingIcon = $derived(uiAccordion.trailingIcon({
         class: ui?.trailingIcon
     }))
+
+    const uiLabel = $derived(uiAccordion.label({
+        class: ui?.label
+    }))
+
+    const uiTrigger = (itemDisabled?: boolean) => uiAccordion.trigger({
+        class: ui?.trigger,
+        disabled: itemDisabled
+    })
 </script>
 
-<Accordion.Root {type} class={uiRoot}>
+<Accordion.Root {disabled} {type} class={uiRoot}>
     {#each items as item, index (index)}
         <Accordion.Item
             value={item.value || String(index)}
@@ -71,7 +76,7 @@
             class={uiItem}
         >
             <Accordion.Header class={uiHeader}>
-                <Accordion.Trigger class={uiTrigger}>
+                <Accordion.Trigger class={uiTrigger(item.disabled)}>
                     {#if leading}
                         {@render leading?.()}
                     {:else}
@@ -80,7 +85,7 @@
                         {/if}
                     {/if}
 
-                    {item.label}
+                    <span class={uiLabel}>{item.label}</span>
 
                     <Icon name={item.trailingIcon || trailingIcon || uiConfig.icon.chevronDown} class={uiTrailingIcon} />
                 </Accordion.Trigger>
@@ -92,7 +97,12 @@
                         {#if open}
                             <div {...props} transition:slide={{ duration: 200 }}>
                                 <div class={uiBody}>
-                                    {item.content}
+                                    {#if item.slot}
+                                        {@const Component = item.slot.component}
+                                        <Component {...item.slot.props} />
+                                    {:else}
+                                        {item.content}
+                                    {/if}
                                 </div>
                             </div>
                         {/if}
@@ -101,7 +111,12 @@
             {:else}
                 <Accordion.Content {forceMount} class={uiContent}>
                     <div class={uiBody}>
-                        {item.content}
+                        {#if item.slot}
+                            {@const Component = item.slot.component}
+                            <Component {...item.slot.props} />
+                        {:else}
+                            {item.content}
+                        {/if}
                     </div>
                 </Accordion.Content>
             {/if}

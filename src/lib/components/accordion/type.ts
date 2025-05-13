@@ -1,14 +1,12 @@
 import type { AccordionRootProps, AccordionItemPropsWithoutHTML } from 'bits-ui'
-import type { Snippet } from 'svelte'
+import { type Snippet } from 'svelte'
 import type { accordionTheme } from './theme'
 
 export interface AccordionSlots {
 	leading?: Snippet
-	content?: boolean
-	body?: boolean
 }
 
-export type AccordionProps = AccordionRootProps & AccordionSlots & {
+export type AccordionProps = Omit<AccordionRootProps, 'orientation'> & AccordionSlots & {
 	trailingIcon?: string
 	forceMount?: boolean
 	items?: AccordionItemPropsWithoutHTML & {
@@ -18,6 +16,10 @@ export type AccordionProps = AccordionRootProps & AccordionSlots & {
 		content?: string
 		value?: string
 		disabled?: boolean
+		slot?: {
+			component: any
+			props: Record<string, unknown>
+		}
 	}[]
 	ui?: Partial<typeof accordionTheme['slots']>
 }

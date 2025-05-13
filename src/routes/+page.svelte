@@ -28,7 +28,6 @@
             content: 'Give them your time, attention, and love.'
         }
     ]
-
 </script>
 
 <div class="grid grid-cols-12 gap-2">
