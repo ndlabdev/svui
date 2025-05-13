@@ -2,10 +2,12 @@
     import { tv } from 'tailwind-variants'
     import { type ButtonProps, buttonTheme } from '.'
     import uiConfig from '#uiconfig'
+    import { Avatar, type AvatarProps } from '$lib/components/avatar'
     import { Icon } from '$lib/components/icon'
 
     const {
         icon,
+        avatar,
         leading,
         leadingIcon,
         trailing,
@@ -68,6 +70,12 @@
     const uiTrailingIcon = $derived(uiButton.trailingIcon({
         class: ui?.trailingIcon
     }))
+
+    const uiAvatar = $derived(uiButton.leadingAvatarSize({
+        class: ui?.leadingAvatar
+    }))
+
+    const uiAvatarSize = $derived((ui?.leadingAvatarSize || uiButton.leadingAvatarSize()) as AvatarProps['size'])
 </script>
 
 {#if href}
@@ -83,6 +91,8 @@
     >
         {#if isLeading && leadingIconName}
             <Icon name={leadingIconName} class={uiLeadingIcon} />
+        {:else if !!avatar}
+            <Avatar size={uiAvatarSize} class={uiAvatar} {...avatar} />
         {/if}
 
         {#if children}

@@ -1,6 +1,7 @@
 <script>
     import Accordion from '$lib/components/accordion/Accordion.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
+    import Avatar from '$lib/components/avatar/Avatar.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
@@ -146,6 +147,15 @@
         <Button label="Button block" block />
     </div>
 
+    <div class="col-span-3">
+        <Button
+            avatar="{{
+                src: 'https://github.com/benjamincanac.png'
+            }}"
+            label="Label"
+        />
+    </div>
+
     <div class="col-span-12">
         <div class="mx-4">
             <Accordion
@@ -154,5 +164,13 @@
                 type="multiple"
             />
         </div>
+    </div>
+
+    <div class="col-span-12">
+        <Avatar src="https://github.com/benjamincanac.png" size="xl" />
+        <Avatar size="xl" />
+        <Avatar icon="lucide:image" size="md" />
+        <Avatar text="+1" size="md" />
+        <Avatar alt="Benjamin Canac" size="md" />
     </div>
 </div>
