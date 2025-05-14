@@ -9,6 +9,7 @@ import type { chipTheme } from '$lib/components/chip'
 import type { separatorTheme } from '$lib/components/separator/theme'
 import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
+import type { linkTheme } from '$lib/components/link/theme'
 import type { ColorType } from '$lib/types'
 
 export interface UiConfig {
@@ -41,6 +42,9 @@ export interface UiConfig {
 		}
 		typography?: {
 			slots?: Partial<typeof headingTheme['slots']>
+		}
+		link?: {
+			slots?: Partial<typeof linkTheme['slots']>
 		}
 	}
 }

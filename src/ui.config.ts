@@ -4,7 +4,8 @@ import type { UiConfig } from './types/global-ui-config'
 const config = {
     icon,
     colors: {
-        primary: 'purple'
+        primary: 'purple',
+        secondary: 'neutral'
     }
 } as UiConfig
 

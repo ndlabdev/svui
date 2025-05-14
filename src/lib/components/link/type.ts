@@ -1,5 +1,4 @@
 import type { HTMLAnchorAttributes, HTMLAreaAttributes } from 'svelte/elements'
-import type { linkTheme } from './theme'
 
 export interface LinkProps extends HTMLAnchorAttributes {
 	as?: string
@@ -15,7 +14,6 @@ export interface LinkProps extends HTMLAnchorAttributes {
 	noRel?: boolean
 	raw?: boolean
 	ariaCurrentValue?: HTMLAreaAttributes['aria-current']
-	ui?: Partial<typeof linkTheme['slots']>
 }
 
 export interface LinkBaseProps extends HTMLAnchorAttributes {

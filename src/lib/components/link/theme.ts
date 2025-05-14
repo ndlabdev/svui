@@ -16,6 +16,6 @@ export const linkTheme = tv({
     compoundVariants: [{
         active: false,
         disabled: false,
-        class: 'hover:text-default transition-colors'
+        class: 'hover:text-secondary-700 transition-colors'
     }]
 })

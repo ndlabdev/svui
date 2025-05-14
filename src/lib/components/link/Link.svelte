@@ -22,23 +22,21 @@
         activeClass = '',
         inactiveClass = '',
         custom,
-        ui
     }: LinkProps = $props()
 
     const uiLink = $derived(
         tv({
             extend: tv(linkTheme),
-						variants: {
-								active: {
-										true: activeClass,
-										false: inactiveClass
-								}
-						},
-					...(uiConfig?.ui?.link || {})
+            variants: {
+                active: {
+                    true: activeClass,
+                    false: inactiveClass
+                }
+            },
+            ...(uiConfig?.ui?.link || {})
         })()
     )
 
-    const isExternal = href && !href.startsWith(window.location.origin)
     const isActive = href && href === page.url.pathname
     const isExactActive = href && href === page.url.pathname && !page.url.search && !page.url.hash
 
@@ -52,8 +50,6 @@
         }
 
         return !!(!exact && isActive)
-
-
     }
 
     function resolveLinkClass() {
@@ -63,7 +59,7 @@
             return [className?.toString(), active ? activeClass : inactiveClass]
         }
 
-    		return uiLink.base({ class: className, active, disabled })
+        return uiLink.base({ class: className?.toString(), active, disabled })
     }
 </script>
 

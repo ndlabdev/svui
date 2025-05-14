@@ -44,6 +44,16 @@
         <Heading tag="h2" label="Heading 2" class="mt-10" />
     </div>
 
+    <div class="col-span-12">
+        <Link href="/" raw class="text-2xl" activeClass="font-bold" inactiveClass="text-muted">
+            Home
+        </Link>
+
+        <Link href="/about">
+            About
+        </Link>
+    </div>
+
     <div class="col-span-3">
         <Button label="Primary Label" />
     </div>
@@ -192,8 +202,6 @@
     </div>
 
     <div class="col-span-12">
-        <Link href="/">
-            Link
-        </Link>
+        <div class="mb-16"></div>
     </div>
 </div>
