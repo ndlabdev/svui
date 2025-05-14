@@ -5,6 +5,7 @@
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Chip from '$lib/components/chip/Chip.svelte'
+    import Link from '$lib/components/link/Link.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
@@ -188,5 +189,11 @@
         <Chip inset>
             <Avatar alt="Benjamin Canac" size="xl" />
         </Chip>
+    </div>
+
+    <div class="col-span-12">
+        <Link href="/">
+            Link
+        </Link>
     </div>
 </div>
