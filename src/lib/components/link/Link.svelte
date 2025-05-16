@@ -3,6 +3,7 @@
     import { LinkBase, type LinkProps, linkTheme } from '.'
     import uiConfig from '#uiconfig'
     import { page } from '$app/state'
+    import { browser } from '$app/environment';
 
     const {
         children,
@@ -15,13 +16,13 @@
         disabled,
         active,
         href,
-        rel = 'noopener noreferrer',
+        rel,
         target,
         raw,
         class: className,
         activeClass = '',
         inactiveClass = '',
-        custom,
+        custom
     }: LinkProps = $props()
 
     const uiLink = $derived(
@@ -37,12 +38,20 @@
         })()
     )
 
-    const isActive = href && href === page.url.pathname
-    const isExactActive = href && href === page.url.pathname && !page.url.search && !page.url.hash
+    // let isExactHash = false;
+    const isActive = $derived(href && page.url.pathname.startsWith(href))
+    const isExternal = $derived(href && !href.startsWith('http'))
+    const isExactActive = $derived(href && page.url.pathname === href)
+
+    const url = $derived(new URL(href as string, browser ? window.location.href : 'http://localhost'))
 
     function isLinkActive() {
         if (active !== undefined) {
             return active
+        }
+
+        if (exactHash && url.hash !== page.url.hash) {
+            return false
         }
 
         if (exact && isExactActive) {
