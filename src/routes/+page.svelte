@@ -45,11 +45,19 @@
     </div>
 
     <div class="col-span-12">
-        <Link href="/" exact raw class="text-2xl" activeClass="font-bold" inactiveClass="text-muted">
+        <!--        <Link href="/" exact raw class="text-2xl" activeClass="font-bold" inactiveClass="text-muted">-->
+        <!--            Home-->
+        <!--        </Link>-->
+
+        <!--        <Link href="/about" exact raw class="text-2xl" activeClass="font-bold" inactiveClass="text-muted">-->
+        <!--            About-->
+        <!--        </Link>-->
+
+        <Link href="/">
             Home
         </Link>
 
-        <Link href="/about" exact raw class="text-2xl" activeClass="font-bold" inactiveClass="text-muted">
+        <Link href="/about#theme" exactHash>
             About
         </Link>
     </div>

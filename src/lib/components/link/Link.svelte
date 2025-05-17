@@ -1,10 +1,10 @@
 <script lang="ts">
+    import { isEqual } from 'ohash/utils'
     import { tv } from 'tailwind-variants'
     import { LinkBase, type LinkProps, linkTheme } from '.'
     import uiConfig from '#uiconfig'
-    import { page } from '$app/state'
     import { browser } from '$app/environment'
-    import { isEqual, diff } from 'ohash/utils'
+    import { page } from '$app/state'
 
     const {
         children,
@@ -39,31 +39,16 @@
         })()
     )
 
-    // let isExactHash = false;
-    const isActive = $derived(href && page.url.pathname.startsWith(href))
-    const isExternal = $derived(href && !href.startsWith('http'))
-    const isExactActive = $derived(href && page.url.pathname === href)
-
+    const currentUrl = $derived(new URL(page.url.href))
+    const targetUrl = $derived(new URL(href as string, browser ? window.location.origin : 'http://localhost'))
     const url = $derived(new URL(href as string, browser ? window.location.href : 'http://localhost'))
+    const isActive = $derived(currentUrl.pathname.startsWith(targetUrl.pathname) && currentUrl.search === targetUrl.search && currentUrl.hash === targetUrl.hash)
+    const isExactActive = $derived(currentUrl.pathname === targetUrl.pathname && currentUrl.search === targetUrl.search && currentUrl.hash === targetUrl.hash)
 
-    function useQuery(query: any) {
+    function routerParams(query: URLSearchParams) {
         return Object.fromEntries(
-          [...query.entries()].map(([key, value]) => [key, value])
+            [...query.entries()].map(([key, value]) => [key, value])
         )
-    }
-
-    function isPartiallyEqual(item1: any, item2: any) {
-        const diffedKeys = diff(item1, item2).reduce((filtered, q) => {
-            if (q.type === 'added') {
-                filtered.add(q.key)
-            }
-            return filtered
-        }, new Set<string>())
-
-        const item1Filtered = Object.fromEntries(Object.entries(item1).filter(([key]) => !diffedKeys.has(key)))
-        const item2Filtered = Object.fromEntries(Object.entries(item2).filter(([key]) => !diffedKeys.has(key)))
-
-        return isEqual(item1Filtered, item2Filtered)
     }
 
     function isLinkActive() {
@@ -71,10 +56,8 @@
             return active
         }
 
-        if (exactQuery === 'partial') {
-            if (!isPartiallyEqual(useQuery(page.url.searchParams), useQuery(url.searchParams))) return false
-        } else if (exactQuery === true) {
-            if (!isEqual(useQuery(page.url.searchParams), useQuery(url.searchParams))) return false
+        if (exactQuery === true) {
+            if (!isEqual(routerParams(page.url.searchParams), routerParams(url.searchParams))) return false
         }
 
         if (exactHash && url.hash !== page.url.hash) {

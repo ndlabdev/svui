@@ -6,10 +6,10 @@ import type { avatarTheme } from '$lib/components/avatar'
 import type { buttonTheme } from '$lib/components/button/theme'
 import type { cardTheme } from '$lib/components/card/theme'
 import type { chipTheme } from '$lib/components/chip'
+import type { linkTheme } from '$lib/components/link/theme'
 import type { separatorTheme } from '$lib/components/separator/theme'
 import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
-import type { linkTheme } from '$lib/components/link/theme'
 import type { ColorType } from '$lib/types'
 
 export interface UiConfig {
