@@ -16,7 +16,7 @@
             Home
         </Link>
 
-        <Link href="/about?type=1&search=2" exactQuery>
+        <Link href="/about?type=1" exactQuery="partial">
             About
         </Link>
     </div>

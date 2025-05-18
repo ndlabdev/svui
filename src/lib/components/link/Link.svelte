@@ -41,9 +41,14 @@
 
     const currentUrl = $derived(new URL(page.url.href))
     const targetUrl = $derived(new URL(href as string, browser ? window.location.origin : 'http://localhost'))
-    const url = $derived(new URL(href as string, browser ? window.location.href : 'http://localhost'))
-    const isActive = $derived(currentUrl.pathname.startsWith(targetUrl.pathname) && currentUrl.search === targetUrl.search && currentUrl.hash === targetUrl.hash)
-    const isExactActive = $derived(currentUrl.pathname === targetUrl.pathname && currentUrl.search === targetUrl.search && currentUrl.hash === targetUrl.hash)
+    const isHashActive = $derived(currentUrl.hash === targetUrl.hash)
+    const isActive = $derived(currentUrl.pathname.startsWith(targetUrl.pathname) && currentUrl.search === targetUrl.search && isHashActive)
+    const isExactActive = $derived(currentUrl.pathname === targetUrl.pathname && currentUrl.search === targetUrl.search && isHashActive)
+    const resolveLinkClass = $derived(
+        raw
+            ? [className?.toString(), isLinkActive() ? activeClass : inactiveClass]
+            : uiLink.base({ class: className?.toString(), active: isLinkActive(), disabled })
+    )
 
     function routerParams(query: URLSearchParams) {
         return Object.fromEntries(
@@ -56,11 +61,15 @@
             return active
         }
 
-        if (exactQuery === true) {
-            if (!isEqual(routerParams(page.url.searchParams), routerParams(url.searchParams))) return false
+        if (exactQuery === true && !isEqual(routerParams(currentUrl.searchParams), routerParams(targetUrl.searchParams))) {
+            return false
         }
 
-        if (exactHash && url.hash !== page.url.hash) {
+        if (exactQuery === 'partial') {
+            return Array.from(targetUrl.searchParams.entries()).every(([key, value]) => currentUrl.searchParams.get(key) === value)
+        }
+
+        if (exactHash && currentUrl.hash !== targetUrl.hash) {
             return false
         }
 
@@ -70,16 +79,6 @@
 
         return !!(!exact && isActive)
     }
-
-    function resolveLinkClass() {
-        const active = isLinkActive()
-
-        if (raw) {
-            return [className?.toString(), active ? activeClass : inactiveClass]
-        }
-
-        return uiLink.base({ class: className?.toString(), active, disabled })
-    }
 </script>
 
 {#if custom}
@@ -87,7 +86,7 @@
         {@render children?.()}
     </svelte:element>
 {:else}
-    <LinkBase {as} {type} {disabled} {href} {rel} {target} {...(exact && isExactActive ? { 'aria-current': ariaCurrentValue } : {})} class={resolveLinkClass()}>
+    <LinkBase {as} {type} {disabled} {href} {rel} {target} {...(exact && isExactActive ? { 'aria-current': ariaCurrentValue } : {})} class={resolveLinkClass}>
         {@render children?.()}
     </LinkBase>
 {/if}
