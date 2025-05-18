@@ -16,7 +16,7 @@
             Home
         </Link>
 
-        <Link href="/about?type=1" exactQuery="partial">
+        <Link href="/about#theme">
             About
         </Link>
     </div>

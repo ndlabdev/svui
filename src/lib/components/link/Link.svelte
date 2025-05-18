@@ -1,7 +1,7 @@
 <script lang="ts">
     import { isEqual } from 'ohash/utils'
     import { tv } from 'tailwind-variants'
-    import { LinkBase, type LinkProps, linkTheme } from '.'
+    import { type LinkProps, linkTheme } from '.'
     import uiConfig from '#uiconfig'
     import { browser } from '$app/environment'
     import { page } from '$app/state'
@@ -23,7 +23,7 @@
         class: className,
         activeClass = '',
         inactiveClass = '',
-        custom
+        ...restProps
     }: LinkProps = $props()
 
     const uiLink = $derived(
@@ -47,7 +47,7 @@
     const resolveLinkClass = $derived(
         raw
             ? [className?.toString(), isLinkActive() ? activeClass : inactiveClass]
-            : uiLink.base({ class: className?.toString(), active: isLinkActive(), disabled })
+            : uiLink.base({ class: className?.toString(), active: isLinkActive(), disabled: Boolean(disabled) })
     )
 
     function routerParams(query: URLSearchParams) {
@@ -79,14 +79,38 @@
 
         return !!(!exact && isActive)
     }
+
+    const attributes = $derived(
+        href ? {
+            href: disabled ? undefined : href,
+            'aria-disabled': disabled ? true : undefined,
+            role: disabled ? 'link' : undefined,
+            tabindex: disabled ? -1 : undefined,
+            rel,
+            target,
+            class: resolveLinkClass,
+            ...restProps,
+            ...(exact && isExactActive ? {
+                'aria-current': ariaCurrentValue
+            } : {})
+        } : as === 'button' ? {
+            type,
+            disabled,
+            ...restProps
+        } : {}
+    )
 </script>
 
-{#if custom}
-    <svelte:element this={as} {type} {disabled} {href} {rel} {target} {...(exact && isExactActive ? { 'aria-current': ariaCurrentValue } : {})}>
+{#if href}
+    <a {...attributes}>
+        {@render children?.()}
+    </a>
+{:else if as === 'button'}
+    <button {...attributes}>
+        {@render children?.()}
+    </button>
+{:else}
+    <svelte:element this={as} {...restProps}>
         {@render children?.()}
     </svelte:element>
-{:else}
-    <LinkBase {as} {type} {disabled} {href} {rel} {target} {...(exact && isExactActive ? { 'aria-current': ariaCurrentValue } : {})} class={resolveLinkClass}>
-        {@render children?.()}
-    </LinkBase>
 {/if}

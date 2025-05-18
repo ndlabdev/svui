@@ -1,10 +1,10 @@
 import type { HTMLAnchorAttributes, HTMLAreaAttributes } from 'svelte/elements'
+import type { ButtonProps } from '$lib/components/button'
 
-export interface LinkProps extends HTMLAnchorAttributes {
+export type LinkProps<T extends HTMLAnchorAttributes = HTMLAnchorAttributes> = T & {
 	as?: string
-	type?: HTMLButtonElement['type']
-	custom?: boolean
-	disabled?: boolean
+	type?: ButtonProps['type']
+	disabled?: ButtonProps['disabled']
 	active?: boolean
 	activeClass?: string
 	inactiveClass?: string
@@ -14,11 +14,4 @@ export interface LinkProps extends HTMLAnchorAttributes {
 	noRel?: boolean
 	raw?: boolean
 	ariaCurrentValue?: HTMLAreaAttributes['aria-current']
-}
-
-export interface LinkBaseProps extends HTMLAnchorAttributes {
-	as?: string
-	type?: HTMLButtonElement['type']
-	disabled?: boolean
-	active?: boolean
 }

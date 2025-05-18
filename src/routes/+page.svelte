@@ -157,7 +157,7 @@
     </div>
 
     <div class="col-span-3">
-        <Button href="https://svelte.dev" target="_blank">Link Button</Button>
+        <Button href="https://svelte.dev" target="_blank" icon="lucide:heart" trailingIcon="lucide:heart">Link Button</Button>
     </div>
 
     <div class="col-span-3">
