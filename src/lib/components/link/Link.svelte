@@ -42,8 +42,8 @@
     const currentUrl = $derived(new URL(page.url.href))
     const targetUrl = $derived(new URL(href as string, browser ? window.location.origin : 'http://localhost'))
     const isHashActive = $derived(currentUrl.hash === targetUrl.hash)
-    const isActive = $derived(currentUrl.pathname.startsWith(targetUrl.pathname) && currentUrl.search === targetUrl.search && isHashActive)
-    const isExactActive = $derived(currentUrl.pathname === targetUrl.pathname && currentUrl.search === targetUrl.search && isHashActive)
+    const isActive = $derived(currentUrl.pathname === targetUrl.pathname)
+    const isExactActive = $derived(isActive && currentUrl.search === targetUrl.search && isHashActive)
     const resolveLinkClass = $derived(
         raw
             ? [className?.toString(), isLinkActive() ? activeClass : inactiveClass]
@@ -57,25 +57,11 @@
     }
 
     function isLinkActive() {
-        if (active !== undefined) {
-            return active
-        }
-
-        if (exactQuery === true && !isEqual(routerParams(currentUrl.searchParams), routerParams(targetUrl.searchParams))) {
-            return false
-        }
-
-        if (exactQuery === 'partial') {
-            return Array.from(targetUrl.searchParams.entries()).every(([key, value]) => currentUrl.searchParams.get(key) === value)
-        }
-
-        if (exactHash && currentUrl.hash !== targetUrl.hash) {
-            return false
-        }
-
-        if (exact && isExactActive) {
-            return true
-        }
+        if (active !== undefined) return active
+        if (exactQuery === true && !isEqual(routerParams(currentUrl.searchParams), routerParams(targetUrl.searchParams))) return false
+        if (exactQuery === 'partial') return Array.from(targetUrl.searchParams.entries()).every(([key, value]) => currentUrl.searchParams.get(key) === value)
+        if (exactHash && !isHashActive) return false
+        if (exact && isExactActive) return true
 
         return !!(!exact && isActive)
     }
