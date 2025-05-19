@@ -2,6 +2,7 @@
     import Accordion from '$lib/components/accordion/Accordion.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Avatar from '$lib/components/avatar/Avatar.svelte'
+    import Badge from '$lib/components/badge/Badge.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Chip from '$lib/components/chip/Chip.svelte'
@@ -207,6 +208,25 @@
         <Chip inset>
             <Avatar alt="Benjamin Canac" size="xl" />
         </Chip>
+    </div>
+
+    <div class="col-span-12">
+        <Badge label="Badge">Badge</Badge>
+        <Badge label="Badge" />
+        <Badge color="danger" label="Badge" />
+        <Badge color="secondary" variant="outline">Badge</Badge>
+        <Badge label="Badge" size="xl" />
+        <Badge icon="lucide:rocket">Badge</Badge>
+        <Badge trailingIcon="lucide:arrow-right">Badge</Badge>
+        <Badge
+            avatar="{{src: 'https://github.com/nuxt.png'}}"
+            size="md"
+            color="secondary"
+            variant="outline"
+        >
+            Badge
+        </Badge>
+        <Badge class="font-bold rounded-full">Badge</Badge>
     </div>
 
     <div class="col-span-12">
