@@ -1,7 +1,6 @@
 import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements'
 import type { buttonTheme } from './theme'
 import type { AvatarProps } from '$lib/components/avatar'
-import type { SizeType, ColorType, VariantType } from '$lib/types'
 
 type HTMLAttributesWithoutAbort = Omit<HTMLButtonAttributes, 'on:abort'> &
 	Omit<HTMLAnchorAttributes, 'on:abort'>
@@ -94,7 +93,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort, ButtonSlots {
 	 * <Button color="danger" />
 	 * ```
 	 */
-	color?: ColorType;
+	color?: keyof typeof buttonTheme['variants']['color'];
 
 	/**
 	 * The visual style of the button.
@@ -113,7 +112,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort, ButtonSlots {
 	 * <Button variant="outline" />
 	 * ```
 	 */
-	variant?: VariantType;
+	variant?: keyof typeof buttonTheme['variants']['variant'];
 
 	/**
 	 * The size of the button.
@@ -126,7 +125,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort, ButtonSlots {
 	 * <Button size="lg" />
 	 * ```
 	 */
-	size?: SizeType;
+	size?: keyof typeof buttonTheme['variants']['size'];
 
 	/**
 	 * If true, the button expands to full width.

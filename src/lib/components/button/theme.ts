@@ -1,6 +1,4 @@
 import { tv } from 'tailwind-variants'
-import { defaultColors } from '../../../themes'
-const colors = Object.keys(defaultColors)
 
 export const buttonTheme = tv({
     slots: {
@@ -12,7 +10,15 @@ export const buttonTheme = tv({
         trailingIcon: 'shrink-0'
     },
     variants: {
-        color: Object.fromEntries((colors || []).map((color: string) => [color, ''])),
+        color: {
+            primary: '',
+            secondary: '',
+            success: '',
+            danger: '',
+            warning: '',
+            info: '',
+            muted: ''
+        },
         variant: {
             solid: '',
             outline: '',
