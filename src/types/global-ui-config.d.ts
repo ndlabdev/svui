@@ -11,11 +11,10 @@ import type { linkTheme } from '$lib/components/link/theme'
 import type { separatorTheme } from '$lib/components/separator/theme'
 import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
-import type { ColorType } from '$lib/types'
 
 export interface UiConfig {
 	icon: Partial<Record<keyof typeof icon, string>>
-	colors?: Partial<Record<ColorType, keyof typeof colors>>
+	colors?: Partial<Record<'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'muted', keyof typeof colors>>
 	ui?: {
 		accordion?: {
 			slots?: Partial<typeof accordionTheme['slots']>
