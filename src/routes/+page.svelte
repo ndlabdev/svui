@@ -5,6 +5,7 @@
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Chip from '$lib/components/chip/Chip.svelte'
+    import Link from '$lib/components/link/Link.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
@@ -41,6 +42,24 @@
         <Heading tag="h1" label="Heading" />
         <Heading tag="p" label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis distinctio nam quibusdam quis, quos reiciendis repellat repudiandae! Aperiam at delectus dignissimos earum, fugiat fugit nemo nihil nostrum quis saepe vel. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis distinctio nam quibusdam quis, quos reiciendis repellat repudiandae! Aperiam at delectus dignissimos earum, fugiat fugit nemo nihil nostrum quis saepe vel." />
         <Heading tag="h2" label="Heading 2" class="mt-10" />
+    </div>
+
+    <div class="col-span-12">
+        <!--        <Link href="/" exact raw class="text-2xl" activeClass="font-bold" inactiveClass="text-muted">-->
+        <!--            Home-->
+        <!--        </Link>-->
+
+        <!--        <Link href="/about" exact raw class="text-2xl" activeClass="font-bold" inactiveClass="text-muted">-->
+        <!--            About-->
+        <!--        </Link>-->
+
+        <Link href="/">
+            Home
+        </Link>
+
+        <Link href="/about#theme" exactHash>
+            About
+        </Link>
     </div>
 
     <div class="col-span-3">
@@ -138,7 +157,7 @@
     </div>
 
     <div class="col-span-3">
-        <Button href="https://svelte.dev" target="_blank">Link Button</Button>
+        <Button href="https://svelte.dev" target="_blank" icon="lucide:heart" trailingIcon="lucide:heart">Link Button</Button>
     </div>
 
     <div class="col-span-3">
@@ -188,5 +207,9 @@
         <Chip inset>
             <Avatar alt="Benjamin Canac" size="xl" />
         </Chip>
+    </div>
+
+    <div class="col-span-12">
+        <div class="mb-16"></div>
     </div>
 </div>
