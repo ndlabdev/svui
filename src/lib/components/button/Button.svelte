@@ -4,6 +4,7 @@
     import uiConfig from '#uiconfig'
     import { Avatar, type AvatarProps } from '$lib/components/avatar'
     import { Icon } from '$lib/components/icon'
+    import { Link } from '$lib/components/link'
 
     const {
         icon,
@@ -78,10 +79,30 @@
     const uiAvatarSize = $derived((ui?.leadingAvatarSize || uiButton.leadingAvatarSize()) as AvatarProps['size'])
 </script>
 
-{#if href}
-    <a {href} role="button" class={uiBase} {...restProps}>
+{#snippet buttonSlots()}
+    {#if isLeading && leadingIconName}
+        <Icon name={leadingIconName} class={uiLeadingIcon} />
+    {:else if !!avatar}
+        <Avatar size={uiAvatarSize} class={uiAvatar} {...avatar} />
+    {/if}
+
+    {#if children}
         {@render children?.()}
-    </a>
+    {:else}
+        {#if label}
+            <span class="{uiLabel}">{label}</span>
+        {/if}
+    {/if}
+
+    {#if isTrailing && trailingIconName}
+        <Icon name={trailingIconName} class={uiTrailingIcon} />
+    {/if}
+{/snippet}
+
+{#if href}
+    <Link {href} {disabled} class={uiBase} {...restProps}>
+        {@render buttonSlots?.()}
+    </Link>
 {:else if tag === 'button'}
     <button
         {type}
@@ -89,22 +110,6 @@
         class={uiBase}
         {...restProps}
     >
-        {#if isLeading && leadingIconName}
-            <Icon name={leadingIconName} class={uiLeadingIcon} />
-        {:else if !!avatar}
-            <Avatar size={uiAvatarSize} class={uiAvatar} {...avatar} />
-        {/if}
-
-        {#if children}
-            {@render children?.()}
-        {:else}
-            {#if label}
-                <span class="{uiLabel}">{label}</span>
-            {/if}
-        {/if}
-
-        {#if isTrailing && trailingIconName}
-            <Icon name={trailingIconName} class={uiTrailingIcon} />
-        {/if}
+        {@render buttonSlots?.()}
     </button>
 {/if}
