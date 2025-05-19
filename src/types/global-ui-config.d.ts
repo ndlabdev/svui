@@ -3,6 +3,7 @@ import type icon from '../themes/icon'
 import type { accordionTheme } from '$lib/components/accordion/theme'
 import type { alertTheme } from '$lib/components/alert/theme'
 import type { avatarTheme } from '$lib/components/avatar'
+import type { badgeTheme } from '$lib/components/badge'
 import type { buttonTheme } from '$lib/components/button/theme'
 import type { cardTheme } from '$lib/components/card/theme'
 import type { chipTheme } from '$lib/components/chip'
@@ -24,6 +25,9 @@ export interface UiConfig {
 		}
 		alert?: {
 			slots?: Partial<typeof alertTheme['slots']>
+		}
+		badge?: {
+			slots?: Partial<typeof badgeTheme['slots']>
 		}
 		button?: {
 			slots?: Partial<typeof buttonTheme['slots']>
