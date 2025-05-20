@@ -9,6 +9,7 @@
         footer,
         as = 'div',
         class: className,
+        variant,
         ui
     }: CardProps = $props()
 
@@ -16,7 +17,9 @@
         tv({
             extend: tv(cardTheme),
             ...(uiConfig?.ui?.card || {})
-        })()
+        })({
+            variant
+        })
     )
 
     const uiRoot = $derived(uiCard.root({

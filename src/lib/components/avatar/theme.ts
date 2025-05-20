@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants'
 
 export const avatarTheme = tv({
     slots: {
-        root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-secondary-100',
+        root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-elevated',
         image: 'h-full w-full rounded-[inherit] object-cover',
         fallback: 'font-medium leading-none text-muted truncate',
         icon: 'text-muted shrink-0'

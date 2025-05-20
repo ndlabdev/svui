@@ -10,5 +10,6 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement>{
 	as?: keyof HTMLElementTagNameMap
 	header?: Snippet
 	footer?: Snippet
+	variant?: keyof typeof cardTheme['variants']['variant']
 	ui?: Partial<typeof cardTheme['slots']>
 }

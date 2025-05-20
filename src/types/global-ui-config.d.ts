@@ -14,7 +14,7 @@ import type { headingTheme } from '$lib/components/typography/theme'
 
 export interface UiConfig {
 	icon: Partial<Record<keyof typeof icon, string>>
-	colors?: Partial<Record<'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'muted', keyof typeof colors>>
+	colors?: Partial<Record<'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | 'neutral', keyof typeof colors>>
 	ui?: {
 		accordion?: {
 			slots?: Partial<typeof accordionTheme['slots']>

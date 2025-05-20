@@ -14,10 +14,10 @@ export const badgeTheme = tv({
             primary: '',
             secondary: '',
             success: '',
-            danger: '',
+            error: '',
             warning: '',
             info: '',
-            muted: ''
+            neutral: ''
         },
         variant: {
             solid: '',
@@ -65,37 +65,37 @@ export const badgeTheme = tv({
         {
             color: 'primary',
             variant: 'solid',
-            class: 'bg-primary text-white'
+            class: 'bg-primary text-inverted'
         },
         {
             color: 'secondary',
             variant: 'solid',
-            class: 'bg-secondary text-white'
+            class: 'bg-secondary text-inverted'
         },
         {
             color: 'success',
             variant: 'solid',
-            class: 'bg-success text-white'
+            class: 'bg-success text-inverted'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'solid',
-            class: 'bg-danger text-white'
+            class: 'bg-error text-inverted'
         },
         {
             color: 'warning',
             variant: 'solid',
-            class: 'bg-warning text-white'
+            class: 'bg-warning text-inverted'
         },
         {
             color: 'info',
             variant: 'solid',
-            class: 'bg-info text-white'
+            class: 'bg-info text-inverted'
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'solid',
-            class: 'bg-muted text-white'
+            class: 'text-inverted bg-inverted'
         },
         {
             color: 'primary',
@@ -113,9 +113,9 @@ export const badgeTheme = tv({
             class: 'text-success ring ring-inset ring-success/50'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'outline',
-            class: 'text-danger ring ring-inset ring-danger/50'
+            class: 'text-error ring ring-inset ring-error/50'
         },
         {
             color: 'warning',
@@ -128,9 +128,9 @@ export const badgeTheme = tv({
             class: 'text-info ring ring-inset ring-info/50'
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'outline',
-            class: 'text-muted ring ring-inset ring-muted/50'
+            class: 'ring ring-inset ring-accented text-default bg-default'
         },
         {
             color: 'primary',
@@ -148,9 +148,9 @@ export const badgeTheme = tv({
             class: 'bg-success/10 text-success'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'soft',
-            class: 'bg-danger/10 text-danger'
+            class: 'bg-error/10 text-error'
         },
         {
             color: 'warning',
@@ -163,9 +163,9 @@ export const badgeTheme = tv({
             class: 'bg-info/10 text-info'
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'soft',
-            class: 'bg-muted/10 text-muted'
+            class: 'text-default bg-elevated'
         },
         {
             color: 'primary',
@@ -183,9 +183,9 @@ export const badgeTheme = tv({
             class: 'bg-success/10 text-success ring ring-inset ring-success/25'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'subtle',
-            class: 'bg-danger/10 text-danger ring ring-inset ring-danger/25'
+            class: 'bg-error/10 text-error ring ring-inset ring-error/25'
         },
         {
             color: 'warning',
@@ -198,9 +198,9 @@ export const badgeTheme = tv({
             class: 'bg-info/10 text-info ring ring-inset ring-info/25'
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'subtle',
-            class: 'bg-muted/10 text-muted ring ring-inset ring-muted/25'
+            class: 'ring ring-inset ring-accented text-default bg-elevated'
         },
         {
             size: 'xs',

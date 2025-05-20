@@ -3,17 +3,17 @@ import { tv } from 'tailwind-variants'
 export const chipTheme = tv({
     slots: {
         root: 'relative inline-flex items-center justify-center shrink-0',
-        base: 'rounded-full ring ring-bg flex items-center justify-center text-white font-medium whitespace-nowrap'
+        base: 'rounded-full ring ring-bg flex items-center justify-center text-inverted font-medium whitespace-nowrap'
     },
     variants: {
         color: {
             primary: 'bg-primary',
             secondary: 'bg-secondary',
             success: 'bg-success',
-            danger: 'bg-danger',
+            error: 'bg-error',
             warning: 'bg-warning',
             info: 'bg-info',
-            muted: 'bg-muted'
+            neutral: 'bg-inverted'
         },
         size: {
             '3xs': 'h-[4px] min-w-[4px] text-[4px]',

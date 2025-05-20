@@ -14,10 +14,10 @@ export const buttonTheme = tv({
             primary: '',
             secondary: '',
             success: '',
-            danger: '',
+            error: '',
             warning: '',
             info: '',
-            muted: ''
+            neutral: ''
         },
         variant: {
             solid: '',
@@ -90,37 +90,32 @@ export const buttonTheme = tv({
         {
             color: 'primary',
             variant: 'solid',
-            class: 'text-white bg-primary hover:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+            class: 'text-inverted bg-primary hover:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
         },
         {
             color: 'secondary',
             variant: 'solid',
-            class: 'text-white bg-secondary hover:bg-secondary/75 disabled:bg-secondary aria-disabled:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary'
+            class: 'text-inverted bg-secondary hover:bg-secondary/75 disabled:bg-secondary aria-disabled:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary'
         },
         {
             color: 'success',
             variant: 'solid',
-            class: 'text-white bg-success hover:bg-success/75 disabled:bg-success aria-disabled:bg-success focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success'
+            class: 'text-inverted bg-success hover:bg-success/75 disabled:bg-success aria-disabled:bg-success focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'solid',
-            class: 'text-white bg-danger hover:bg-danger/75 disabled:bg-danger aria-disabled:bg-danger focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger'
+            class: 'text-inverted bg-error hover:bg-error/75 disabled:bg-error aria-disabled:bg-error focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-error'
         },
         {
             color: 'warning',
             variant: 'solid',
-            class: 'text-white bg-warning hover:bg-warning/75 disabled:bg-warning aria-disabled:bg-warning focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning'
+            class: 'text-inverted bg-warning hover:bg-warning/75 disabled:bg-warning aria-disabled:bg-warning focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning'
         },
         {
             color: 'info',
             variant: 'solid',
-            class: 'text-white bg-info hover:bg-info/75 disabled:bg-info aria-disabled:bg-info focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-info'
-        },
-        {
-            color: 'muted',
-            variant: 'solid',
-            class: 'text-white bg-muted hover:bg-muted/75 disabled:bg-muted aria-disabled:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-muted'
+            class: 'text-inverted bg-info hover:bg-info/75 disabled:bg-info aria-disabled:bg-info focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-info'
         },
         {
             color: 'primary',
@@ -138,9 +133,9 @@ export const buttonTheme = tv({
             class: 'ring ring-inset ring-success/50 text-success hover:bg-success/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-success'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'outline',
-            class: 'ring ring-inset ring-danger/50 text-danger hover:bg-danger/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-danger'
+            class: 'ring ring-inset ring-error/50 text-error hover:bg-error/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-error'
         },
         {
             color: 'warning',
@@ -151,11 +146,6 @@ export const buttonTheme = tv({
             color: 'info',
             variant: 'outline',
             class: 'ring ring-inset ring-info/50 text-info hover:bg-info/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-info'
-        },
-        {
-            color: 'muted',
-            variant: 'outline',
-            class: 'ring ring-inset ring-muted/50 text-muted hover:bg-muted/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-muted'
         },
         {
             color: 'primary',
@@ -173,9 +163,9 @@ export const buttonTheme = tv({
             class: 'text-success bg-success/10 hover:bg-success/15 focus:outline-none focus-visible:bg-success/15 disabled:bg-success/10 aria-disabled:bg-success/10'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'soft',
-            class: 'text-danger bg-danger/10 hover:bg-danger/15 focus:outline-none focus-visible:bg-danger/15 disabled:bg-danger/10 aria-disabled:bg-danger/10'
+            class: 'text-error bg-error/10 hover:bg-error/15 focus:outline-none focus-visible:bg-error/15 disabled:bg-error/10 aria-disabled:bg-error/10'
         },
         {
             color: 'warning',
@@ -186,11 +176,6 @@ export const buttonTheme = tv({
             color: 'info',
             variant: 'soft',
             class: 'text-info bg-info/10 hover:bg-info/15 focus:outline-none focus-visible:bg-info/15 disabled:bg-info/10 aria-disabled:bg-info/10'
-        },
-        {
-            color: 'muted',
-            variant: 'soft',
-            class: 'text-muted bg-muted/10 hover:bg-muted/15 focus:outline-none focus-visible:bg-muted/15 disabled:bg-muted/10 aria-disabled:bg-muted/10'
         },
         {
             color: 'primary',
@@ -208,9 +193,9 @@ export const buttonTheme = tv({
             class: 'text-success ring ring-inset ring-success/25 bg-success/10 hover:bg-success/15 disabled:bg-success/10 aria-disabled:bg-success/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-success'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'subtle',
-            class: 'text-danger ring ring-inset ring-danger/25 bg-danger/10 hover:bg-danger/15 disabled:bg-danger/10 aria-disabled:bg-danger/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-danger'
+            class: 'text-error ring ring-inset ring-error/25 bg-error/10 hover:bg-error/15 disabled:bg-error/10 aria-disabled:bg-error/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-error'
         },
         {
             color: 'warning',
@@ -221,11 +206,6 @@ export const buttonTheme = tv({
             color: 'info',
             variant: 'subtle',
             class: 'text-info ring ring-inset ring-info/25 bg-info/10 hover:bg-info/15 disabled:bg-info/10 aria-disabled:bg-info/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-info'
-        },
-        {
-            color: 'muted',
-            variant: 'subtle',
-            class: 'text-muted ring ring-inset ring-muted/25 bg-muted/10 hover:bg-muted/15 disabled:bg-muted/10 aria-disabled:bg-muted/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-muted'
         },
         {
             color: 'primary',
@@ -243,9 +223,9 @@ export const buttonTheme = tv({
             class: 'text-success hover:bg-success/10 focus:outline-none focus-visible:bg-success/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'ghost',
-            class: 'text-danger hover:bg-danger/10 focus:outline-none focus-visible:bg-danger/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
+            class: 'text-error hover:bg-error/10 focus:outline-none focus-visible:bg-error/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
         },
         {
             color: 'warning',
@@ -256,11 +236,6 @@ export const buttonTheme = tv({
             color: 'info',
             variant: 'ghost',
             class: 'text-info hover:bg-info/10 focus:outline-none focus-visible:bg-info/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
-        },
-        {
-            color: 'muted',
-            variant: 'ghost',
-            class: 'text-muted hover:bg-muted/10 focus:outline-none focus-visible:bg-muted/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent'
         },
         {
             color: 'primary',
@@ -278,9 +253,9 @@ export const buttonTheme = tv({
             class: 'text-success hover:text-success/75 disabled:text-success aria-disabled:text-success focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-success'
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'link',
-            class: 'text-danger hover:text-danger/75 disabled:text-danger aria-disabled:text-danger focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-danger'
+            class: 'text-error hover:text-error/75 disabled:text-error aria-disabled:text-error focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error'
         },
         {
             color: 'warning',
@@ -291,11 +266,6 @@ export const buttonTheme = tv({
             color: 'info',
             variant: 'link',
             class: 'text-info hover:text-info/75 disabled:text-info aria-disabled:text-info focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info'
-        },
-        {
-            color: 'muted',
-            variant: 'link',
-            class: 'text-muted hover:text-muted/75 disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-muted'
         },
         {
             size: 'xs',
