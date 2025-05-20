@@ -17,9 +17,9 @@
         loadingIcon,
         children,
         label,
-        size = 'md',
-        color = 'primary',
-        variant = 'solid',
+        size,
+        color,
+        variant,
         type = 'button',
         tag = 'button',
         block,
@@ -44,7 +44,7 @@
     const uiButton = $derived(
         tv({
             extend: tv(buttonTheme),
-            ...(uiConfig?.ui?.button || {})
+            ...uiConfig.ui?.button || {}
         })({
             color,
             variant,
