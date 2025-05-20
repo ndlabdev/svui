@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants'
 export const accordionTheme = tv({
     slots: {
         root: 'w-full',
-        item: 'border-b border-secondary-200 last:border-b-0',
+        item: 'border-b border-default last:border-b-0',
         header: 'flex',
         trigger: 'group flex-1 flex items-center gap-1.5 font-medium text-sm py-3.5 focus-visible:outline-primary min-w-0',
         content: 'data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden focus:outline-none',
