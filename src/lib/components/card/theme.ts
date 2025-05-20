@@ -9,8 +9,17 @@ export const cardTheme = tv({
     },
     variants: {
         variant: {
+            solid: {
+                root: 'bg-inverted text-inverted'
+            },
             outline: {
-                root: 'bg-white ring ring-secondary-200 divide-y divide-secondary-200'
+                root: 'bg-default ring ring-default divide-y divide-default'
+            },
+            soft: {
+                root: 'bg-elevated/50 divide-y divide-default'
+            },
+            subtle: {
+                root: 'bg-elevated/50 ring ring-default divide-y divide-default'
             }
         }
     },

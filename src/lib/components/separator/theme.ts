@@ -4,7 +4,7 @@ export const separatorTheme = tv({
     slots: {
         root: 'flex items-center align-center text-center',
         border: '',
-        container: 'font-medium text-secondary-700 flex',
+        container: 'font-medium text-default flex',
         icon: 'shrink-0 size-5',
         avatar: 'shrink-0',
         avatarSize: '2xs',
@@ -21,8 +21,8 @@ export const separatorTheme = tv({
             success: {
                 border: 'border-success'
             },
-            danger: {
-                border: 'border-danger'
+            error: {
+                border: 'border-error'
             },
             warning: {
                 border: 'border-warning'
@@ -30,8 +30,8 @@ export const separatorTheme = tv({
             info: {
                 border: 'border-info'
             },
-            muted: {
-                border: 'border-muted'
+            neutral: {
+                border: 'border-default'
             }
         },
         orientation: {
@@ -107,7 +107,7 @@ export const separatorTheme = tv({
         class: { border: 'border-s-[5px]' }
     }],
     defaultVariants: {
-        color: 'secondary',
+        color: 'neutral',
         size: 'xs',
         type: 'solid'
     }

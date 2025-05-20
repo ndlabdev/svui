@@ -1,31 +1,59 @@
 @import 'tailwindcss' source('../src');
 @import './generated/theme.css';
-@custom-variant light (&:where(.light, .light *));
-@custom-variant dark (&:where(.dark, .dark *));
+@import './generated/keyframes.css';
+
+@variant light (&:where(.light, .light *));
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+    body {
+        @apply antialiased text-default bg-default scheme-light dark:scheme-dark;
+    }
+
+    :root, .light {
+        --ui-text-dimmed: var(--color-neutral-400);
+        --ui-text-muted: var(--color-neutral-500);
+        --ui-text-toned: var(--color-neutral-600);
+        --ui-text: var(--color-neutral-700);
+        --ui-text-highlighted: var(--color-neutral-900);
+        --ui-text-inverted: var(--color-white);
+
+        --ui-bg: var(--color-white);
+        --ui-bg-muted: var(--color-neutral-50);
+        --ui-bg-elevated: var(--color-neutral-100);
+        --ui-bg-accented: var(--color-neutral-200);
+        --ui-bg-inverted: var(--color-neutral-900);
+
+        --ui-border: var(--color-neutral-200);
+        --ui-border-muted: var(--color-neutral-200);
+        --ui-border-accented: var(--color-neutral-300);
+        --ui-border-inverted: var(--color-neutral-900);
+
+        --ui-radius: 0.25rem;
+        --ui-container: var(--container-7xl);
+    }
+
+    .dark {
+        --ui-text-dimmed: var(--color-neutral-500);
+        --ui-text-muted: var(--color-neutral-400);
+        --ui-text-toned: var(--color-neutral-300);
+        --ui-text: var(--color-neutral-200);
+        --ui-text-highlighted: var(--color-white);
+        --ui-text-inverted: var(--color-neutral-900);
+
+        --ui-bg: var(--color-neutral-900);
+        --ui-bg-muted: var(--color-neutral-800);
+        --ui-bg-elevated: var(--color-neutral-800);
+        --ui-bg-accented: var(--color-neutral-700);
+        --ui-bg-inverted: var(--color-white);
+
+        --ui-border: var(--color-neutral-800);
+        --ui-border-muted: var(--color-neutral-700);
+        --ui-border-accented: var(--color-neutral-700);
+        --ui-border-inverted: var(--color-white);
+    }
+}
 
 @theme static {
     --font-sans: 'Public Sans', sans-serif;
-}
-
-@theme {
-    --animate-accordion-down: accordion-down 0.2s ease-out;
-    --animate-accordion-up: accordion-up 0.2s ease-out;
-
-    @keyframes accordion-down {
-        from {
-            height: 0;
-        }
-        to {
-            height: var(--bits-accordion-content-height);
-        }
-    }
-
-    @keyframes accordion-up {
-        from {
-            height: var(--bits-accordion-content-height);
-        }
-        to {
-            height: 0;
-        }
-    }
 }

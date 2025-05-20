@@ -17,10 +17,10 @@ export const alertTheme = tv({
             primary: '',
             secondary: '',
             success: '',
-            danger: '',
+            error: '',
             warning: '',
             info: '',
-            muted: ''
+            neutral: ''
         },
         variant: {
             solid: '',
@@ -49,49 +49,49 @@ export const alertTheme = tv({
             color: 'primary',
             variant: 'solid',
             class: {
-                root: 'bg-primary text-white'
+                root: 'bg-primary text-inverted'
             }
         },
         {
             color: 'secondary',
             variant: 'solid',
             class: {
-                root: 'bg-secondary text-white'
+                root: 'bg-secondary text-inverted'
             }
         },
         {
             color: 'success',
             variant: 'solid',
             class: {
-                root: 'bg-success text-white'
+                root: 'bg-success text-inverted'
             }
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'solid',
             class: {
-                root: 'bg-danger text-white'
+                root: 'bg-error text-inverted'
             }
         },
         {
             color: 'warning',
             variant: 'solid',
             class: {
-                root: 'bg-warning text-white'
+                root: 'bg-warning text-inverted'
             }
         },
         {
             color: 'info',
             variant: 'solid',
             class: {
-                root: 'bg-info text-white'
+                root: 'bg-info text-inverted'
             }
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'solid',
             class: {
-                root: 'bg-muted text-white'
+                root: 'text-inverted bg-inverted'
             }
         },
         {
@@ -116,10 +116,10 @@ export const alertTheme = tv({
             }
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'outline',
             class: {
-                root: 'text-danger ring ring-inset ring-danger/25'
+                root: 'text-error ring ring-inset ring-error/25'
             }
         },
         {
@@ -137,10 +137,10 @@ export const alertTheme = tv({
             }
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'outline',
             class: {
-                root: 'text-muted ring ring-inset ring-muted/25'
+                root: 'text-highlighted bg-default ring ring-inset ring-default'
             }
         },
         {
@@ -165,10 +165,10 @@ export const alertTheme = tv({
             }
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'soft',
             class: {
-                root: 'bg-danger/10 text-danger'
+                root: 'bg-error/10 text-error'
             }
         },
         {
@@ -186,10 +186,10 @@ export const alertTheme = tv({
             }
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'soft',
             class: {
-                root: 'bg-muted/10 text-muted'
+                root: 'text-highlighted bg-elevated/50'
             }
         },
         {
@@ -214,10 +214,10 @@ export const alertTheme = tv({
             }
         },
         {
-            color: 'danger',
+            color: 'error',
             variant: 'subtle',
             class: {
-                root: 'bg-danger/10 text-danger ring ring-inset ring-danger/25'
+                root: 'bg-error/10 text-error ring ring-inset ring-error/25'
             }
         },
         {
@@ -235,10 +235,10 @@ export const alertTheme = tv({
             }
         },
         {
-            color: 'muted',
+            color: 'neutral',
             variant: 'subtle',
             class: {
-                root: 'bg-muted/10 text-muted ring ring-inset ring-muted/25'
+                root: 'text-highlighted bg-elevated/50 ring ring-inset ring-accented'
             }
         }
     ],

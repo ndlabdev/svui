@@ -94,7 +94,7 @@
             icon="lucide:terminal"
             actions={[{
                 label: 'Action',
-                color: 'danger',
+                color: 'error',
                 onclick: () => {
                     console.log('Action clicked')
                 }
@@ -104,7 +104,7 @@
 
     <div class="col-span-12">
         <Separator color="primary" />
-        <Separator color="danger" label="or" />
+        <Separator color="error" label="or" />
         <Separator icon="lucide:heart" ui="{{ icon: 'size-4' }}" />
         <Separator
             avatar="{{
@@ -131,10 +131,22 @@
                 Footer
             {/snippet}
         </Card>
+
+        <Card as="article" variant="subtle">
+            {#snippet header()}
+                Header
+            {/snippet}
+
+            Body
+
+            {#snippet footer()}
+                Footer
+            {/snippet}
+        </Card>
     </div>
 
     <div class="col-span-3">
-        <Button label="Primary Disabled" color="danger" disabled />
+        <Button label="Primary Disabled" color="error" disabled />
     </div>
 
     <div class="col-span-3">
@@ -142,7 +154,7 @@
     </div>
 
     <div class="col-span-3">
-        <Button variant="outline" color="danger">Outline Danger</Button>
+        <Button variant="outline" color="error">Outline Error</Button>
     </div>
 
     <div class="col-span-3">
@@ -213,7 +225,7 @@
     <div class="col-span-12">
         <Badge label="Badge">Badge</Badge>
         <Badge label="Badge" />
-        <Badge color="danger" label="Badge" />
+        <Badge color="error" label="Badge" />
         <Badge color="secondary" variant="outline">Badge</Badge>
         <Badge label="Badge" size="xl" />
         <Badge icon="lucide:rocket">Badge</Badge>
