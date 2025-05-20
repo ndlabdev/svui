@@ -1,6 +1,10 @@
 @theme {
     --animate-accordion-down: accordion-down 0.2s ease-out;
     --animate-accordion-up: accordion-up 0.2s ease-out;
+    --animate-fade-in: fade-in 0.2s ease-out;
+    --animate-fade-out: fade-out 0.2s ease-out;
+    --animate-scale-in: scale-in 0.2s ease-out;
+    --animate-scale-out: scale-out 0.2s ease-out;
 
     @keyframes accordion-down {
         from {
@@ -17,6 +21,46 @@
         }
         to {
             height: 0;
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes scale-in {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes scale-out {
+        from {
+            opacity: 1;
+            transform: scale(1);
+        }
+        to {
+            opacity: 0;
+            transform: scale(0.95);
         }
     }
 }
