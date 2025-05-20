@@ -12,43 +12,26 @@ import type { separatorTheme } from '$lib/components/separator/theme'
 import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
 
+type ThemeConfig<T> = {
+	slots?: Partial<T['slots']>
+	defaultVariants: Partial<T['defaultVariants']>
+}
+
 export interface UiConfig {
 	icon: Partial<Record<keyof typeof icon, string>>
 	colors?: Partial<Record<'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | 'neutral', keyof typeof colors>>
 	ui?: {
-		accordion?: {
-			slots?: Partial<typeof accordionTheme['slots']>
-		}
-		avatar?: {
-			slots?: Partial<typeof avatarTheme['slots']>
-		}
-		alert?: {
-			slots?: Partial<typeof alertTheme['slots']>
-		}
-		badge?: {
-			slots?: Partial<typeof badgeTheme['slots']>
-		}
-		button?: {
-			slots?: Partial<typeof buttonTheme['slots']>
-		}
-		chip: {
-			slots?: Partial<typeof chipTheme['slots']>
-		}
-		card: {
-			slots?: Partial<typeof cardTheme['slots']>
-		}
-		separator?: {
-			slots?: Partial<typeof separatorTheme['slots']>
-		}
-		skeleton?: {
-			slots?: Partial<typeof skeletonTheme['slots']>
-		}
-		typography?: {
-			slots?: Partial<typeof headingTheme['slots']>
-		}
-		link?: {
-			slots?: Partial<typeof linkTheme['slots']>
-		}
+		accordion?: ThemeConfig<typeof accordionTheme>
+		avatar?: ThemeConfig<typeof avatarTheme>
+		alert?: ThemeConfig<typeof alertTheme>
+		badge?: ThemeConfig<typeof badgeTheme>
+		button?: ThemeConfig<typeof buttonTheme>
+		chip?: ThemeConfig<typeof chipTheme>
+		card?: ThemeConfig<typeof cardTheme>
+		separator?: ThemeConfig<typeof separatorTheme>
+		skeleton?: ThemeConfig<typeof skeletonTheme>
+		typography?: ThemeConfig<typeof headingTheme>
+		link?: ThemeConfig<typeof linkTheme>
 	}
 }
 
