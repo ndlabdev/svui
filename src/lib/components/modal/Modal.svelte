@@ -84,7 +84,7 @@
 <Dialog.Root {...restProps}>
     <Dialog.Trigger class={uiTrigger}>
         {#snippet child({ props })}
-            <div {...props}>
+            <div {...props} class="inline-block">
                 {@render children?.()}
             </div>
         {/snippet}
