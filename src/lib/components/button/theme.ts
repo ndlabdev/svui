@@ -268,6 +268,36 @@ export const buttonTheme = tv({
             class: 'text-info hover:text-info/75 disabled:text-info aria-disabled:text-info focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-info'
         },
         {
+            color: 'neutral',
+            variant: 'solid',
+            class: 'text-inverted bg-inverted hover:bg-inverted/90 disabled:bg-inverted aria-disabled:bg-inverted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-inverted'
+        },
+        {
+            color: 'neutral',
+            variant: 'outline',
+            class: 'ring ring-inset ring-accented text-default bg-default hover:bg-elevated disabled:bg-default aria-disabled:bg-default focus:outline-none focus-visible:ring-2 focus-visible:ring-inverted'
+        },
+        {
+            color: 'neutral',
+            variant: 'soft',
+            class: 'text-default bg-elevated hover:bg-accented/75 focus:outline-none focus-visible:bg-accented/75 disabled:bg-elevated aria-disabled:bg-elevated'
+        },
+        {
+            color: 'neutral',
+            variant: 'subtle',
+            class: 'ring ring-inset ring-accented text-default bg-elevated hover:bg-accented/75 disabled:bg-elevated aria-disabled:bg-elevated focus:outline-none focus-visible:ring-2 focus-visible:ring-inverted'
+        },
+        {
+            color: 'neutral',
+            variant: 'ghost',
+            class: 'text-default hover:bg-elevated focus:outline-none focus-visible:bg-elevated hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent'
+        },
+        {
+            color: 'neutral',
+            variant: 'link',
+            class: 'text-muted hover:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted'
+        },
+        {
             size: 'xs',
             square: true,
             class: 'p-1'

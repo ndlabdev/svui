@@ -7,6 +7,7 @@
     import Card from '$lib/components/card/Card.svelte'
     import Chip from '$lib/components/chip/Chip.svelte'
     import Link from '$lib/components/link/Link.svelte'
+    import Modal from '$lib/components/modal/Modal.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
@@ -239,6 +240,52 @@
             Badge
         </Badge>
         <Badge class="font-bold rounded-full">Badge</Badge>
+    </div>
+
+    <div class="col-span-12">
+        <Modal title="Primary Modal">
+            <Button>Primary</Button>
+
+            {#snippet slotBody()}
+                Body
+            {/snippet}
+
+            {#snippet slotFooter()}
+                Footer
+            {/snippet}
+        </Modal>
+
+        <Modal title="First Modal">
+            <Button>First Modal</Button>
+
+            {#snippet slotBody()}
+                <Modal title="Second Modal">
+                    <Button>Second Modal</Button>
+
+                    {#snippet slotBody()}
+                        <Modal title="Third Modal">
+                            <Button>Third Modal</Button>
+
+                            {#snippet slotBody()}
+                                Body
+                            {/snippet}
+
+                            {#snippet slotFooter()}
+                                Footer
+                            {/snippet}
+                        </Modal>
+                    {/snippet}
+
+                    {#snippet slotFooter()}
+                        Footer
+                    {/snippet}
+                </Modal>
+            {/snippet}
+
+            {#snippet slotFooter()}
+                Footer
+            {/snippet}
+        </Modal>
     </div>
 
     <div class="col-span-12">
