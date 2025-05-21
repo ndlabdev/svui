@@ -17,6 +17,7 @@
         loadingIcon,
         children,
         label,
+        square,
         size,
         color,
         variant,
@@ -52,7 +53,8 @@
             loading,
             leading: isLeading,
             trailing: isTrailing,
-            block
+            block,
+            square: square || (!children && !label)
         })
     )
 

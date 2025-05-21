@@ -138,6 +138,7 @@ export interface ButtonProps extends HTMLAttributesWithoutAbort, ButtonSlots {
 	 * ```
 	 */
 	block?: boolean;
+	square?: boolean;
 
 	/**
 	 * The HTML element or component to render this button as when it's not a link.
