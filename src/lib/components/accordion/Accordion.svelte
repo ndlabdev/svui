@@ -14,8 +14,20 @@
         type = 'single',
         items = [],
         disabled,
-        class: className
+        class: className,
+        ...restProps
     }: AccordionProps = $props()
+
+    const rootProps = $derived({
+        type,
+        disabled,
+        value: restProps.value,
+        onValueChange: restProps.onValueChange,
+        loop: restProps.loop,
+        ref: restProps.ref,
+        children: restProps.children,
+        child: restProps.child
+    } as Accordion.RootProps)
 
     const uiAccordion = $derived(
         tv({
@@ -68,7 +80,7 @@
     })
 </script>
 
-<Accordion.Root {disabled} {type} class={uiRoot}>
+<Accordion.Root {...rootProps} class={uiRoot}>
     {#each items as item, index (index)}
         <Accordion.Item
             value={item.value || String(index)}

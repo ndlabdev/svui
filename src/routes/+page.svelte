@@ -33,6 +33,8 @@
             content: 'Give them your time, attention, and love.'
         }
     ]
+
+    let accordionValue = $state(['1', '2'])
 </script>
 
 <div class="grid grid-cols-12 gap-2">
@@ -204,6 +206,7 @@
     <div class="col-span-12">
         <div class="mx-4">
             <Accordion
+                value={accordionValue}
                 forceMount
                 items={items}
                 type="multiple"
