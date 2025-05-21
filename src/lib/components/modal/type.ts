@@ -1,5 +1,6 @@
-import type { DialogRootProps } from 'bits-ui'
+import type { WithoutChild, DialogRootProps, DialogContentProps } from 'bits-ui'
 import type { Snippet } from 'svelte'
+import type { ClassValue } from 'svelte/elements'
 import type { modalTheme } from './theme'
 import type { ButtonProps } from '$lib/components/button'
 
@@ -10,6 +11,7 @@ export interface ModalSlots {
 	slotClose?: Snippet
 	slotFooter?: Snippet
 	slotBody?: Snippet
+	slotContent?: Snippet
 }
 
 export interface ModalProps extends DialogRootProps, ModalSlots {
@@ -18,9 +20,11 @@ export interface ModalProps extends DialogRootProps, ModalSlots {
 	overlay?: boolean
 	transition?: boolean
 	fullscreen?: boolean
-	portal?: boolean | string | HTMLElement
+	portal?: boolean
 	close?: boolean | Partial<ButtonProps>
 	closeIcon?: string
 	dismissible?: boolean
-	ui?: keyof typeof modalTheme['slots']
+	contentProps?: WithoutChild<DialogContentProps>
+	class?: ClassValue | undefined | null
+	ui?: Partial<typeof modalTheme['slots']>
 }

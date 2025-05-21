@@ -243,14 +243,43 @@
     </div>
 
     <div class="col-span-12">
-        <Modal
-            title="Modal with description"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        >
+        <Modal title="Primary Modal">
             <Button>Primary</Button>
 
             {#snippet slotBody()}
                 Body
+            {/snippet}
+
+            {#snippet slotFooter()}
+                Footer
+            {/snippet}
+        </Modal>
+
+        <Modal title="First Modal">
+            <Button>First Modal</Button>
+
+            {#snippet slotBody()}
+                <Modal title="Second Modal">
+                    <Button>Second Modal</Button>
+
+                    {#snippet slotBody()}
+                        <Modal title="Third Modal">
+                            <Button>Third Modal</Button>
+
+                            {#snippet slotBody()}
+                                Body
+                            {/snippet}
+
+                            {#snippet slotFooter()}
+                                Footer
+                            {/snippet}
+                        </Modal>
+                    {/snippet}
+
+                    {#snippet slotFooter()}
+                        Footer
+                    {/snippet}
+                </Modal>
             {/snippet}
 
             {#snippet slotFooter()}
