@@ -18,15 +18,24 @@
         ...restProps
     }: AccordionProps = $props()
 
+    const {
+        value,
+        onValueChange,
+        loop,
+        ref,
+        children,
+        child
+    } = restProps
+
     const rootProps = $derived({
         type,
         disabled,
-        value: restProps.value,
-        onValueChange: restProps.onValueChange,
-        loop: restProps.loop,
-        ref: restProps.ref,
-        children: restProps.children,
-        child: restProps.child
+        value,
+        onValueChange,
+        loop,
+        ref,
+        children,
+        child
     } as Accordion.RootProps)
 
     const uiAccordion = $derived(

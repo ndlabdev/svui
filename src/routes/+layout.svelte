@@ -8,4 +8,6 @@
 <ModeWatcher lightClassNames={['light']} darkClassNames={['dark']} />
 <button onclick={toggleMode}>Toggle Mode</button>
 
-{@render children()}
+<div data-vaul-drawer-wrapper>
+		{@render children()}
+</div>

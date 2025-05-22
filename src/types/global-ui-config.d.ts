@@ -7,6 +7,7 @@ import type { badgeTheme } from '$lib/components/badge'
 import type { buttonTheme } from '$lib/components/button/theme'
 import type { cardTheme } from '$lib/components/card/theme'
 import type { chipTheme } from '$lib/components/chip'
+import type { drawerTheme } from '$lib/components/drawer/theme'
 import type { linkTheme } from '$lib/components/link/theme'
 import type { modalTheme } from '$lib/components/modal'
 import type { separatorTheme } from '$lib/components/separator/theme'
@@ -29,6 +30,7 @@ export interface UiConfig {
 		button?: ThemeConfig<typeof buttonTheme>
 		chip?: ThemeConfig<typeof chipTheme>
 		card?: ThemeConfig<typeof cardTheme>
+		drawer?: ThemeConfig<typeof drawerTheme>
 		separator?: ThemeConfig<typeof separatorTheme>
 		skeleton?: ThemeConfig<typeof skeletonTheme>
 		typography?: ThemeConfig<typeof headingTheme>
