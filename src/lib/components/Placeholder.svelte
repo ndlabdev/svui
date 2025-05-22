@@ -1,5 +1,11 @@
-<script>
-    const { children, class: className, ...restProps } = $props()
+<script lang="ts">
+    import type { HTMLAttributes } from 'svelte/elements';
+
+    const {
+        children,
+        class: className,
+        ...restProps
+    }: HTMLAttributes<HTMLDivElement> = $props()
 </script>
 
 <div class={['relative overflow-hidden rounded-sm border border-dashed border-accented opacity-75 px-4 flex items-center justify-center', className]} {...restProps}>
