@@ -6,8 +6,10 @@
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Chip from '$lib/components/chip/Chip.svelte'
+    import Drawer from '$lib/components/drawer/Drawer.svelte'
     import Link from '$lib/components/link/Link.svelte'
     import Modal from '$lib/components/modal/Modal.svelte'
+    import Placeholder from '$lib/components/Placeholder.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
@@ -76,10 +78,10 @@
             variant="subtle"
             title="Heads up!"
             description="You can change the primary color in your app config."
-            avatar="{{
+            avatar={{
                 src: 'https://github.com/nuxt.png',
                 size: 'sm'
-            }}"
+            }}
             actions={[{
                 label: 'Action',
                 onclick: () => {
@@ -108,12 +110,12 @@
     <div class="col-span-12">
         <Separator color="primary" />
         <Separator color="error" label="or" />
-        <Separator icon="lucide:heart" ui="{{ icon: 'size-4' }}" />
+        <Separator icon="lucide:heart" ui={{ icon: 'size-4' }} />
         <Separator
-            avatar="{{
+            avatar={{
                 src: 'https://github.com/nuxt.png',
                 size: 'sm'
-            }}"
+            }}
         />
         <Separator color="primary" orientation="vertical" />
     </div>
@@ -195,9 +197,9 @@
     <div class="col-span-3">
         <Chip size="3xl" text={5} position="bottom-left">
             <Button
-                avatar="{{
+                avatar={{
                     src: 'https://github.com/benjamincanac.png'
-                }}"
+                }}
                 label="Label"
             />
         </Chip>
@@ -235,7 +237,7 @@
         <Badge icon="lucide:rocket">Badge</Badge>
         <Badge trailingIcon="lucide:arrow-right">Badge</Badge>
         <Badge
-            avatar="{{src: 'https://github.com/nuxt.png'}}"
+            avatar={{src: 'https://github.com/nuxt.png'}}
             size="md"
             color="secondary"
             variant="outline"
@@ -289,6 +291,25 @@
                 Footer
             {/snippet}
         </Modal>
+    </div>
+
+    <div class="col-span-12">
+        <Drawer
+            title="Drawer Title"
+            description="Drawer Description"
+            shouldScaleBackground
+            setBackgroundColorOnScale
+        >
+            <Button>Open Drawer</Button>
+
+            {#snippet slotBody()}
+                <Placeholder class="h-48" />
+            {/snippet}
+
+            {#snippet slotFooter()}
+                Footer
+            {/snippet}
+        </Drawer>
     </div>
 
     <div class="col-span-12">
