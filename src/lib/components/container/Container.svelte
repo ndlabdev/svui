@@ -13,10 +13,10 @@
         tv({
             extend: tv(containerTheme),
             ...(uiConfig?.ui?.container || {})
-        })
+        })()
     )
 
-    const uiRoot = $derived(uiContainer({
+    const uiRoot = $derived(uiContainer.base({
         class: className?.toString()
     }))
 </script>
