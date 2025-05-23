@@ -13,6 +13,7 @@
     import Placeholder from '$lib/components/Placeholder.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
+    import Slideover from '$lib/components/slideover/Slideover.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
 
     const items = [
@@ -312,6 +313,19 @@
                     Footer
                 {/snippet}
             </Drawer>
+        </div>
+
+        <div class="col-span-12">
+            <Slideover
+                title="Slideover Title"
+                description="Slideover Description"
+            >
+                <Button>Open slideover</Button>
+
+                {#snippet slotBody()}
+                    <Placeholder class="h-full" />
+                {/snippet}
+            </Slideover>
         </div>
 
         <div class="col-span-12">
