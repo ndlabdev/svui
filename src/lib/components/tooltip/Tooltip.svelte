@@ -70,6 +70,20 @@
     }))
 </script>
 
+{#snippet tooltipContent()}
+    {#if slotContent}
+        {@render slotContent?.()}
+    {:else}
+        {#if tooltipText}
+            <span class={uiText}>{tooltipText}</span>
+        {/if}
+
+        {#if !!arrow}
+            <Tooltip.Arrow class={uiArrow} />
+        {/if}
+    {/if}
+{/snippet}
+
 <Tooltip.Root {...rootProps}>
     <Tooltip.Trigger class={uiTrigger}>
         {#snippet child({ props })}
@@ -90,17 +104,7 @@
                     {#if open}
                         <div {...wrapperProps}>
                             <div {...props} transition:fly={{ duration: 200 }}>
-                                {#if slotContent}
-                                    {@render slotContent?.()}
-                                {:else}
-                                    {#if tooltipText}
-                                        <span class={uiText}>{tooltipText}</span>
-                                    {/if}
-
-                                    {#if !!arrow}
-                                        <Tooltip.Arrow class={uiArrow} />
-                                    {/if}
-                                {/if}
+                                {@render tooltipContent?.()}
                             </div>
                         </div>
                     {/if}
@@ -112,17 +116,7 @@
                 {forceMount}
                 class={uiContent}
             >
-                {#if slotContent}
-                    {@render slotContent?.()}
-                {:else}
-                    {#if tooltipText}
-                        <span class={uiText}>{tooltipText}</span>
-                    {/if}
-
-                    {#if !!arrow}
-                        <Tooltip.Arrow class={uiArrow} />
-                    {/if}
-                {/if}
+                {@render tooltipContent?.()}
             </Tooltip.Content>
         {/if}
     </Tooltip.Portal>
