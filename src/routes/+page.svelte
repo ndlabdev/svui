@@ -14,6 +14,7 @@
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
     import Slideover from '$lib/components/slideover/Slideover.svelte'
+    import Tooltip from '$lib/components/tooltip/Tooltip.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
 
     const items = [
@@ -326,6 +327,12 @@
                     <Placeholder class="h-full" />
                 {/snippet}
             </Slideover>
+        </div>
+
+        <div class="col-span-12">
+            <Tooltip text="Tooltip Text" delayDuration={200} arrow>
+                <Button>Tooltip</Button>
+            </Tooltip>
         </div>
 
         <div class="col-span-12">
