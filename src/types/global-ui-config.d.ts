@@ -13,7 +13,8 @@ import type { linkTheme } from '$lib/components/link/theme'
 import type { modalTheme } from '$lib/components/modal'
 import type { separatorTheme } from '$lib/components/separator/theme'
 import type { skeletonTheme } from '$lib/components/skeleton/theme'
-import type { slideoverTheme } from '$lib/components/slideover'
+import type { slideoverTheme } from '$lib/components/slideover/theme'
+import type { tooltipTheme } from '$lib/components/tooltip/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
 
 type ThemeConfig<T> = {
@@ -38,6 +39,7 @@ export interface UiConfig {
 		skeleton?: ThemeConfig<typeof skeletonTheme>
 		slideover?: ThemeConfig<typeof slideoverTheme>
 		typography?: ThemeConfig<typeof headingTheme>
+		tooltip?: ThemeConfig<typeof tooltipTheme>
 		link?: ThemeConfig<typeof linkTheme>
 		modal?: ThemeConfig<typeof modalTheme>
 	}

@@ -1,5 +1,6 @@
 <script lang="ts">
     import '../app.css'
+    import { Tooltip } from 'bits-ui'
     import { ModeWatcher, toggleMode } from 'mode-watcher'
 
     let { children } = $props()
@@ -8,4 +9,6 @@
 <ModeWatcher lightClassNames={['light']} darkClassNames={['dark']} />
 <button onclick={toggleMode}>Toggle Mode</button>
 
-{@render children()}
+<Tooltip.Provider>
+    {@render children()}
+</Tooltip.Provider>
