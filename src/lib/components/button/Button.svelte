@@ -1,5 +1,6 @@
 <script lang="ts">
     import { tv } from 'tailwind-variants'
+    import { Button } from 'bits-ui'
     import { type ButtonProps, buttonTheme } from '.'
     import uiConfig from '#uiconfig'
     import { Avatar, type AvatarProps } from '$lib/components/avatar'
@@ -106,12 +107,12 @@
         {@render buttonSlots?.()}
     </Link>
 {:else if tag === 'button'}
-    <button
+    <Button.Root
         {type}
         disabled={disabled || loading}
         class={uiBase}
         {...restProps}
     >
         {@render buttonSlots?.()}
-    </button>
+    </Button.Root>
 {/if}
