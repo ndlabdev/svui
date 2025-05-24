@@ -11,6 +11,7 @@ export interface TooltipProps extends TooltipRootProps, TooltipSlots {
 	text?: string
 	portal?: boolean
 	arrow?: boolean
+	forceMount?: boolean
 	class?: ClassValue
 	contentProps?: TooltipContentProps
 	ui?: Partial<typeof tooltipTheme['slots']>

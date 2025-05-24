@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Tooltip } from 'bits-ui'
+    import { fly } from 'svelte/transition'
     import { tv } from 'tailwind-variants'
     import { tooltipTheme, type TooltipProps } from '.'
     import uiConfig from '#uiconfig'
@@ -10,6 +11,7 @@
         ui,
         text: tooltipText,
         arrow,
+        forceMount,
         slotContent,
         contentProps = {
             sideOffset: 8,
@@ -51,9 +53,13 @@
 
     const uiTrigger = $derived(className?.toString())
 
-    const uiContent = $derived(uiTooltip.content({
+    const uiContentClass = $derived(uiTooltip.content({
         class: [!children && className?.toString(), ui?.content]
     }))
+
+    const uiContent = $derived(forceMount
+        ? [!children && className?.toString(), ui?.content, 'flex items-center gap-1 bg-default text-highlighted shadow-sm rounded-sm ring ring-default h-6 px-2 py-1 text-xs select-none pointer-events-auto']
+        : uiContentClass)
 
     const uiText = $derived(uiTooltip.text({
         class: ui?.text
@@ -74,21 +80,50 @@
     </Tooltip.Trigger>
 
     <Tooltip.Portal disabled={!portal}>
-        <Tooltip.Content
-            {...contentProps}
-            class={uiContent}
-        >
-            {#if slotContent}
-                {@render slotContent?.()}
-            {:else}
-                {#if tooltipText}
-                    <span class={uiText}>{tooltipText}</span>
-                {/if}
+        {#if forceMount}
+            <Tooltip.Content
+                {...contentProps}
+                {forceMount}
+                class={uiContent}
+            >
+                {#snippet child({ wrapperProps, props, open })}
+                    {#if open}
+                        <div {...wrapperProps}>
+                            <div {...props} transition:fly={{ duration: 200 }}>
+                                {#if slotContent}
+                                    {@render slotContent?.()}
+                                {:else}
+                                    {#if tooltipText}
+                                        <span class={uiText}>{tooltipText}</span>
+                                    {/if}
 
-                {#if !!arrow}
-                    <Tooltip.Arrow class={uiArrow} />
+                                    {#if !!arrow}
+                                        <Tooltip.Arrow class={uiArrow} />
+                                    {/if}
+                                {/if}
+                            </div>
+                        </div>
+                    {/if}
+                {/snippet}
+            </Tooltip.Content>
+        {:else}
+            <Tooltip.Content
+                {...contentProps}
+                {forceMount}
+                class={uiContent}
+            >
+                {#if slotContent}
+                    {@render slotContent?.()}
+                {:else}
+                    {#if tooltipText}
+                        <span class={uiText}>{tooltipText}</span>
+                    {/if}
+
+                    {#if !!arrow}
+                        <Tooltip.Arrow class={uiArrow} />
+                    {/if}
                 {/if}
-            {/if}
-        </Tooltip.Content>
+            </Tooltip.Content>
+        {/if}
     </Tooltip.Portal>
 </Tooltip.Root>
