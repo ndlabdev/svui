@@ -1,5 +1,6 @@
 <script>
     import Accordion from '$lib/components/accordion/Accordion.svelte'
+    import AccordionItem from '$lib/components/accordion/AccordionItem.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Avatar from '$lib/components/avatar/Avatar.svelte'
     import Badge from '$lib/components/badge/Badge.svelte'
@@ -213,10 +214,17 @@
             <div class="mx-4">
                 <Accordion
                     value={accordionValue}
-                    forceMount
                     items={items}
+                    forceMount
                     type="multiple"
-                />
+                >
+                    <AccordionItem value="1">
+                        ???
+                        {#snippet slotItem(item)}
+                            <div>dang dep trai {item}</div>
+                        {/snippet}
+                    </AccordionItem>
+                </Accordion>
             </div>
         </div>
 
