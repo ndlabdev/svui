@@ -24,7 +24,8 @@
         loop,
         ref,
         children,
-        child
+        child,
+        slotItem
     } = restProps
 
     const rootProps = $derived({
@@ -59,13 +60,13 @@
         class: ui?.header
     }))
 
-    const uiContent = $derived(uiAccordion.content({
+    const uiContentClass = $derived(uiAccordion.content({
         class: ui?.content
     }))
 
-    const uiContentClass = $derived(forceMount
+    const uiContent = $derived(forceMount
         ? `${ui?.content} overflow-hidden focus:outline-none`
-        : ui?.content)
+        : uiContentClass)
 
     const uiBody = $derived(uiAccordion.body({
         class: ui?.body
@@ -83,7 +84,7 @@
         class: ui?.label
     }))
 
-    const uiTrigger = (itemDisabled?: boolean) => uiAccordion.trigger({
+    const uiTrigger = (itemDisabled?: boolean): string => uiAccordion.trigger({
         class: ui?.trigger,
         disabled: itemDisabled
     })
@@ -113,14 +114,13 @@
             </Accordion.Header>
 
             {#if forceMount}
-                <Accordion.Content {forceMount} class={uiContentClass}>
+                <Accordion.Content {forceMount} class={uiContent}>
                     {#snippet child({ props, open })}
                         {#if open}
                             <div {...props} transition:slide={{ duration: 200 }}>
                                 <div class={uiBody}>
-                                    {#if item.slot}
-                                        {@const Component = item.slot.component}
-                                        <Component {...item.slot.props} />
+                                    {#if item.custom}
+                                        {@render slotItem?.(item)}
                                     {:else}
                                         {item.content}
                                     {/if}
@@ -132,9 +132,8 @@
             {:else}
                 <Accordion.Content {forceMount} class={uiContent}>
                     <div class={uiBody}>
-                        {#if item.slot}
-                            {@const Component = item.slot.component}
-                            <Component {...item.slot.props} />
+                        {#if item.custom}
+                            {@render slotItem?.(item)}
                         {:else}
                             {item.content}
                         {/if}
