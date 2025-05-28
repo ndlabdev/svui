@@ -21,6 +21,7 @@
     const items = [
         {
             value: '1',
+            custom: true,
             icon: 'lucide:smile',
             trailingIcon: 'lucide:plus',
             label: 'What is the meaning of life?',
@@ -29,6 +30,7 @@
         },
         {
             value: '2',
+            custom: true,
             label: 'How do I become a better person?',
             content:
                 'Read books, listen to podcasts, and surround yourself with people who inspire you.'
@@ -218,12 +220,15 @@
                     forceMount
                     type="multiple"
                 >
-                    <AccordionItem value="1">
-                        ???
-                        {#snippet slotItem(item)}
-                            <div>dang dep trai {item}</div>
-                        {/snippet}
-                    </AccordionItem>
+                    {#snippet slotItem(item)}
+                        <AccordionItem {item} value="1">
+                            <div>Item 1 --- {item.value}</div>
+                        </AccordionItem>
+
+                        <AccordionItem {item} value="2">
+                            <div>Item 2 --- {item.value}</div>
+                        </AccordionItem>
+                    {/snippet}
                 </Accordion>
             </div>
         </div>

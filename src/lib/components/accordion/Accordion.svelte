@@ -4,7 +4,6 @@
     import { tv } from 'tailwind-variants'
     import { accordionTheme, type AccordionProps } from '.'
     import uiConfig from '#uiconfig'
-    import AccordionItem from '$lib/components/accordion/AccordionItem.svelte'
     import { Icon } from '$lib/components/icon'
 
     const {
@@ -25,7 +24,8 @@
         loop,
         ref,
         children,
-        child
+        child,
+        slotItem
     } = restProps
 
     const rootProps = $derived({
@@ -92,20 +92,54 @@
 
 <Accordion.Root {...rootProps} class={uiRoot}>
     {#each items as item, index (index)}
-        <AccordionItem
-            {item}
-            {index}
-            {forceMount}
-            {leading}
-            {uiItem}
-            {uiHeader}
-            {uiTrigger}
-            {uiLeadingIcon}
-            {uiLabel}
-            {uiTrailingIcon}
-            {uiContent}
-            {uiBody}
-            {trailingIcon}
-        />
+        <Accordion.Item
+            value={item.value || String(index)}
+            disabled={item.disabled}
+            class={uiItem}
+        >
+            <Accordion.Header class={uiHeader}>
+                <Accordion.Trigger class={uiTrigger(item.disabled)}>
+                    {#if leading}
+                        {@render leading?.()}
+                    {:else}
+                        {#if item.icon}
+                            <Icon name={item.icon} class={uiLeadingIcon} />
+                        {/if}
+                    {/if}
+
+                    <span class={uiLabel}>{item.label}</span>
+
+                    <Icon name={item.trailingIcon || trailingIcon || uiConfig.icon.chevronDown} class={uiTrailingIcon} />
+                </Accordion.Trigger>
+            </Accordion.Header>
+
+            {#if forceMount}
+                <Accordion.Content {forceMount} class={uiContent}>
+                    {#snippet child({ props, open })}
+                        {#if open}
+                            <div {...props} transition:slide={{ duration: 200 }}>
+                                <div class={uiBody}>
+                                    {#if item.custom}
+                                        {@render slotItem?.(item)}
+                                    {:else}
+                                        {item.content}
+                                    {/if}
+                                </div>
+                            </div>
+                        {/if}
+                    {/snippet}
+                </Accordion.Content>
+            {:else}
+                <Accordion.Content {forceMount} class={uiContent}>
+                    <div class={uiBody}>
+                        {#if item.custom}
+                            {@render slotItem?.(item)}
+                        {:else}
+                            {item.content}
+                        {/if}
+                    </div>
+                </Accordion.Content>
+            {/if}
+        </Accordion.Item>
     {/each}
 </Accordion.Root>
