@@ -1,4 +1,4 @@
 import { accordionTheme } from './theme'
-import { type AccordionProps } from './type'
+import { type AccordionProps, type AccordionItemProps } from './type'
 
-export { accordionTheme, type AccordionProps }
+export { accordionTheme, type AccordionProps, type AccordionItemProps }

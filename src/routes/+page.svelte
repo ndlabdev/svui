@@ -1,5 +1,6 @@
 <script>
     import Accordion from '$lib/components/accordion/Accordion.svelte'
+    import AccordionItem from '$lib/components/accordion/AccordionItem.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Avatar from '$lib/components/avatar/Avatar.svelte'
     import Badge from '$lib/components/badge/Badge.svelte'
@@ -20,6 +21,7 @@
     const items = [
         {
             value: '1',
+            custom: true,
             icon: 'lucide:smile',
             trailingIcon: 'lucide:plus',
             label: 'What is the meaning of life?',
@@ -28,6 +30,7 @@
         },
         {
             value: '2',
+            custom: true,
             label: 'How do I become a better person?',
             content:
                 'Read books, listen to podcasts, and surround yourself with people who inspire you.'
@@ -213,10 +216,20 @@
             <div class="mx-4">
                 <Accordion
                     value={accordionValue}
-                    forceMount
                     items={items}
+                    forceMount
                     type="multiple"
-                />
+                >
+                    {#snippet slotItem(item)}
+                        <AccordionItem {item} value="1">
+                            <div>Item 1 --- {item.value}</div>
+                        </AccordionItem>
+
+                        <AccordionItem {item} value="2">
+                            <div>Item 2 --- {item.value}</div>
+                        </AccordionItem>
+                    {/snippet}
+                </Accordion>
             </div>
         </div>
 

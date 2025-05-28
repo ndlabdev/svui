@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { tv } from 'tailwind-variants'
     import { Button } from 'bits-ui'
+    import { tv } from 'tailwind-variants'
     import { type ButtonProps, buttonTheme } from '.'
     import uiConfig from '#uiconfig'
     import { Avatar, type AvatarProps } from '$lib/components/avatar'
