@@ -5,6 +5,7 @@
 
     const {
         as = 'div',
+        show = $bindable(true),
         children,
         color,
         size,
@@ -47,11 +48,13 @@
         </div>
     {/if}
 
-    <span class={uiBase}>
-        {#if slotContent}
-            {@render slotContent()}
-        {:else}
-            {text}
-        {/if}
-    </span>
+    {#if show}
+        <span class={uiBase}>
+            {#if slotContent}
+                {@render slotContent()}
+            {:else}
+                {text}
+            {/if}
+        </span>
+    {/if}
 </svelte:element>

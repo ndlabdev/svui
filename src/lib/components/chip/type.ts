@@ -9,6 +9,7 @@ export interface ChipSlots {
 export interface ChipProps extends HTMLAttributes<HTMLDivElement>, ChipSlots {
 	as?: keyof HTMLElementTagNameMap
 	text?: string | number
+	show?: boolean
 	color?: keyof typeof chipTheme['variants']['color']
 	size?: keyof typeof chipTheme['variants']['size']
 	position?: keyof typeof chipTheme['variants']['position']

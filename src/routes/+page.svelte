@@ -3,6 +3,7 @@
     import AccordionItem from '$lib/components/accordion/AccordionItem.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Avatar from '$lib/components/avatar/Avatar.svelte'
+    import AvatarGroup from '$lib/components/avatar-group/AvatarGroup.svelte'
     import Badge from '$lib/components/badge/Badge.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
@@ -17,7 +18,6 @@
     import Slideover from '$lib/components/slideover/Slideover.svelte'
     import Tooltip from '$lib/components/tooltip/Tooltip.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
-    import AvatarGroup from '$lib/components/avatar-group/AvatarGroup.svelte'
 
     const items = [
         {
@@ -47,10 +47,34 @@
 
     const avatarGroupItems = [
         {
-            src: 'https://github.com/benjamincanac.png'
+            src: 'https://github.com/benjamincanac.png',
+            tooltipProps: {
+                text: 'benjamincanac'
+            },
+            chipProps: {
+                inset: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            tooltipProps: {
+                text: 'ndlabdev'
+            }
+        },
+        {
+            src: 'https://github.com/antfu.png',
+            chipProps: {
+                inset: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png'
         },
         {
             src: 'https://github.com/benjamincanac.png'
+        },
+        {
+            src: 'https://github.com/ndlabdev.png'
         }
     ]
 </script>
@@ -359,11 +383,7 @@
         </div>
 
         <div class="col-span-12">
-            <AvatarGroup children={avatarGroupItems}>
-                <Avatar src="https://github.com/benjamincanac.png" size="xl" />
-                <Avatar src="https://github.com/benjamincanac.png" size="xl" />
-                <Avatar src="https://github.com/benjamincanac.png" size="xl" />
-            </AvatarGroup>
+            <AvatarGroup items={avatarGroupItems} max={3} />
         </div>
 
         <div class="col-span-12">

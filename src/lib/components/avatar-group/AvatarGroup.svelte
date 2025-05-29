@@ -6,12 +6,11 @@
 
     const {
         as = 'div',
-        children,
+        items,
         size,
         max,
         class: className,
-				ui,
-        ...restProps
+        ui
     }: AvatarGroupProps = $props()
 
     const avatarMax = $derived(typeof max === 'string' ? Number.parseInt(max, 10) : max)
@@ -32,10 +31,22 @@
     const uiBase = $derived(uiAvatarGroup.base({
         class: ui?.base
     }))
+
+    const visibleAvatars = $derived.by(() => {
+        if (!items.length) return []
+        if (!avatarMax || avatarMax <= 0) return items.reverse()
+        return items.slice(0, avatarMax).reverse()
+    })
+
+    const hiddenCount = $derived(!items.length ? 0 : items.length - visibleAvatars.length)
 </script>
 
 <svelte:element this={as} class={uiRoot}>
-	{#each children as child}
-		{child.src}
-	{/each}
+    {#if hiddenCount > 0}
+        <Avatar text={`+${hiddenCount}`} {size} class={uiBase} />
+    {/if}
+
+    {#each visibleAvatars as item, index (index)}
+        <Avatar {...item} {size} class={uiBase} />
+    {/each}
 </svelte:element>

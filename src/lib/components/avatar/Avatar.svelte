@@ -2,7 +2,9 @@
     import { tv } from 'tailwind-variants'
     import { type AvatarProps, avatarTheme } from '.'
     import uiConfig from '#uiconfig'
+    import { Chip } from '$lib/components/chip'
     import { Icon } from '$lib/components/icon'
+    import { Tooltip } from '$lib/components/tooltip'
 
     const {
         as = 'span',
@@ -14,6 +16,8 @@
         icon,
         text,
         style,
+        chipProps,
+        tooltipProps,
         class: className,
         ...restProps
     }: AvatarProps = $props()
@@ -60,25 +64,45 @@
     )
 </script>
 
-<svelte:element this={as} class={uiRoot} {style}>
+{#snippet avatarContent()}
     {#if src}
         <img
-            src={src}
-            alt={alt}
-            width={sizePx}
-            height={sizePx}
-            class={uiImage}
-            {...restProps}
+          src={src}
+          alt={alt}
+          width={sizePx}
+          height={sizePx}
+          class={uiImage}
+          {...restProps}
         >
+    {:else if children}
+        {@render children?.()}
+    {:else if icon}
+        <Icon name={icon} class={uiIcon} />
     {:else}
-        {#if children}
-            {@render children?.()}
-        {:else}
-            {#if icon}
-                <Icon name={icon} class={uiIcon} />
-            {:else}
-                <span class={uiFallback}>{fallback || '\u00A0'}</span>
-            {/if}
-        {/if}
+        <span class={uiFallback}>{fallback || '\u00A0'}</span>
     {/if}
-</svelte:element>
+{/snippet}
+
+{#if chipProps}
+    <Chip {...chipProps}>
+        <svelte:element this={as} class={uiRoot} {style}>
+            {#if tooltipProps}
+                <Tooltip {...tooltipProps}>
+                    {@render avatarContent?.()}
+                </Tooltip>
+            {:else}
+                {@render avatarContent?.()}
+            {/if}
+        </svelte:element>
+    </Chip>
+{:else}
+    <svelte:element this={as} class={uiRoot} {style}>
+        {#if tooltipProps}
+            <Tooltip {...tooltipProps}>
+                {@render avatarContent?.()}
+            </Tooltip>
+        {:else}
+            {@render avatarContent?.()}
+        {/if}
+    </svelte:element>
+{/if}

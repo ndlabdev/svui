@@ -3,6 +3,7 @@ import type icon from '../themes/icon'
 import type { accordionTheme } from '$lib/components/accordion/theme'
 import type { alertTheme } from '$lib/components/alert/theme'
 import type { avatarTheme } from '$lib/components/avatar'
+import type { avatarGroupTheme } from '$lib/components/avatar-group/theme'
 import type { badgeTheme } from '$lib/components/badge'
 import type { buttonTheme } from '$lib/components/button/theme'
 import type { cardTheme } from '$lib/components/card/theme'
@@ -16,7 +17,6 @@ import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { slideoverTheme } from '$lib/components/slideover/theme'
 import type { tooltipTheme } from '$lib/components/tooltip/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
-import type { avatarGroupTheme } from '$lib/components/avatar-group/theme'
 
 type ThemeConfig<T> = {
 	slots?: Partial<T['slots']>
