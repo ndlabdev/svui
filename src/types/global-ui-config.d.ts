@@ -16,6 +16,7 @@ import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { slideoverTheme } from '$lib/components/slideover/theme'
 import type { tooltipTheme } from '$lib/components/tooltip/theme'
 import type { headingTheme } from '$lib/components/typography/theme'
+import type { avatarGroupTheme } from '$lib/components/avatar-group/theme'
 
 type ThemeConfig<T> = {
 	slots?: Partial<T['slots']>
@@ -28,6 +29,7 @@ export interface UiConfig {
 	ui?: {
 		accordion?: ThemeConfig<typeof accordionTheme>
 		avatar?: ThemeConfig<typeof avatarTheme>
+		avatarGroup?: ThemeConfig<typeof avatarGroupTheme>
 		alert?: ThemeConfig<typeof alertTheme>
 		badge?: ThemeConfig<typeof badgeTheme>
 		button?: ThemeConfig<typeof buttonTheme>

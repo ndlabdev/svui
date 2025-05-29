@@ -17,6 +17,7 @@
     import Slideover from '$lib/components/slideover/Slideover.svelte'
     import Tooltip from '$lib/components/tooltip/Tooltip.svelte'
     import Heading from '$lib/components/typography/Heading.svelte'
+    import AvatarGroup from '$lib/components/avatar-group/AvatarGroup.svelte'
 
     const items = [
         {
@@ -43,6 +44,15 @@
     ]
 
     let accordionValue = $state(['1', '2'])
+
+    const avatarGroupItems = [
+        {
+            src: 'https://github.com/benjamincanac.png'
+        },
+        {
+            src: 'https://github.com/benjamincanac.png'
+        }
+    ]
 </script>
 
 <Container>
@@ -346,6 +356,14 @@
             <Tooltip text="Tooltip Text" delayDuration={200} arrow>
                 <Button>Tooltip</Button>
             </Tooltip>
+        </div>
+
+        <div class="col-span-12">
+            <AvatarGroup children={avatarGroupItems}>
+                <Avatar src="https://github.com/benjamincanac.png" size="xl" />
+                <Avatar src="https://github.com/benjamincanac.png" size="xl" />
+                <Avatar src="https://github.com/benjamincanac.png" size="xl" />
+            </AvatarGroup>
         </div>
 
         <div class="col-span-12">
