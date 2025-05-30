@@ -6,6 +6,7 @@
     import AvatarGroup from '$lib/components/avatar-group/AvatarGroup.svelte'
     import Badge from '$lib/components/badge/Badge.svelte'
     import Button from '$lib/components/button/Button.svelte'
+    import ButtonGroup from '$lib/components/button-group/ButtonGroup.svelte'
     import Card from '$lib/components/card/Card.svelte'
     import Chip from '$lib/components/chip/Chip.svelte'
     import Container from '$lib/components/container/Container.svelte'
@@ -414,6 +415,18 @@
 
         <div class="col-span-12">
             <AvatarGroup items={avatarGroupItems} max={10} />
+        </div>
+
+        <div class="col-span-12">
+            <ButtonGroup size="xl">
+                <Button color="neutral" variant="subtle" label="Button" />
+                <Button color="neutral" variant="outline" icon="lucide:chevron-down" />
+            </ButtonGroup>
+
+            <ButtonGroup size="xl" orientation="vertical">
+                <Button color="neutral" variant="subtle" label="Submit" />
+                <Button color="neutral" variant="outline" label="Cancel" />
+            </ButtonGroup>
         </div>
 
         <div class="col-span-12">

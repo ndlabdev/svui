@@ -1,4 +1,5 @@
 import { tv } from 'tailwind-variants'
+import { buttonGroupVariant } from '$lib/components/button-group'
 
 export const buttonTheme = tv({
     slots: {
@@ -10,6 +11,7 @@ export const buttonTheme = tv({
         trailingIcon: 'shrink-0'
     },
     variants: {
+        ...buttonGroupVariant,
         color: {
             primary: '',
             secondary: '',
