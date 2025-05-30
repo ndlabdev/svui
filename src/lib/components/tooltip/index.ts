@@ -1,4 +1,5 @@
 import { tooltipTheme } from './theme'
+import Tooltip from './Tooltip.svelte'
 import { type TooltipProps } from './type'
 
-export { tooltipTheme, type TooltipProps }
+export { Tooltip, tooltipTheme, type TooltipProps }

@@ -102,7 +102,7 @@
 	],
 	"packageManager": "pnpm@10.11.0",
 	"dependencies": {
-		"bits-ui": "^1.7.0",
+		"bits-ui": "^2.3.0",
 		"mode-watcher": "^1.0.7",
 		"ohash": "^2.0.11",
 		"tailwind-merge": "^3.3.0",
