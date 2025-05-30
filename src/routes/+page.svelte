@@ -47,15 +47,42 @@
 
     const avatarGroupItems = [
         {
-            src: 'https://github.com/benjamincanac.png',
+            src: 'https://github.com/ndlabdev.png'
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            tooltipProps: {
+                text: 'ndlabdev'
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            tooltipProps: {
+                text: 'ndlabdev'
+            },
+            chipProps: {
+                inset: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            tooltipProps: {
+                text: 'ndlabdev'
+            },
             chipProps: {
                 inset: true
             },
             linkProps: {
-                href: 'https://github.com/benjamincanac',
+                href: 'https://github.com/ndlabdev',
                 target: '_blank',
                 class: 'hover:ring-primary transition',
                 raw: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            chipProps: {
+                inset: true
             }
         },
         {
@@ -68,25 +95,16 @@
             }
         },
         {
-            src: 'https://github.com/antfu.png',
+            src: 'https://github.com/ndlabdev.png',
             chipProps: {
                 inset: true
             },
             linkProps: {
-                href: 'https://github.com/benjamincanac',
+                href: 'https://github.com/ndlabdev',
                 target: '_blank',
                 class: 'hover:ring-primary transition',
                 raw: true
             }
-        },
-        {
-            src: 'https://github.com/ndlabdev.png'
-        },
-        {
-            src: 'https://github.com/benjamincanac.png'
-        },
-        {
-            src: 'https://github.com/ndlabdev.png'
         }
     ]
 </script>
@@ -395,7 +413,7 @@
         </div>
 
         <div class="col-span-12">
-            <AvatarGroup items={avatarGroupItems} max={3} />
+            <AvatarGroup items={avatarGroupItems} max={10} />
         </div>
 
         <div class="col-span-12">

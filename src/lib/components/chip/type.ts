@@ -4,6 +4,7 @@ import type { chipTheme } from './theme'
 
 export interface ChipSlots {
 	slotContent?: Snippet
+	slotChildren?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
 export interface ChipProps extends HTMLAttributes<HTMLDivElement>, ChipSlots {

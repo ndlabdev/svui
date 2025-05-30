@@ -5,6 +5,7 @@
     import { Chip } from '$lib/components/chip'
     import { Icon } from '$lib/components/icon'
     import { Link } from '$lib/components/link'
+    import { Tooltip } from '$lib/components/tooltip'
 
     const {
         as = 'span',
@@ -18,6 +19,7 @@
         style,
         chipProps,
         linkProps,
+        tooltipProps,
         class: className,
         ...restProps
     }: AvatarProps = $props()
@@ -37,7 +39,8 @@
         ui?.root,
         !chipProps && className,
         linkProps && linkProps?.class,
-        linkProps && className
+        linkProps && className,
+        !tooltipProps && className
     ].filter(Boolean).join(' '))
 
     const uiRoot = $derived(uiAvatar.root({
@@ -71,9 +74,10 @@
     )
 </script>
 
-{#snippet avatarContent()}
+{#snippet avatarContent(props = {})}
     {#if src}
         <img
+            {...props}
             src={src}
             alt={alt}
             width={sizePx}
@@ -84,29 +88,47 @@
     {:else if children}
         {@render children?.()}
     {:else if icon}
-        <Icon name={icon} class={uiIcon} />
+        <Icon name={icon} class={uiIcon} {...props} />
     {:else}
-        <span class={uiFallback}>{fallback || '\u00A0'}</span>
+        <span class={uiFallback} {...props}>{fallback || '\u00A0'}</span>
     {/if}
 {/snippet}
 
-{#snippet avatarWrapped()}
+{#snippet avatarWrapped(props = {})}
     {#if linkProps}
         <Link {...linkProps} class={uiRoot}>
-            <svelte:element this={as} class={uiRoot} {style}>
-                {@render avatarContent?.()}
+            <svelte:element this={as} class={uiRoot} {...props} {style}>
+                {#if tooltipProps}
+                    <Tooltip {...tooltipProps}>
+                        {#snippet slotTrigger({ props })}
+                            {@render avatarContent?.(props)}
+                        {/snippet}
+                    </Tooltip>
+                {:else}
+                    {@render avatarContent?.()}
+                {/if}
             </svelte:element>
         </Link>
     {:else}
-        <svelte:element this={as} class={uiRoot} {style}>
-            {@render avatarContent?.()}
+        <svelte:element this={as} class={uiRoot} {...props} {style}>
+            {#if tooltipProps}
+                <Tooltip {...tooltipProps}>
+                    {#snippet slotTrigger({ props })}
+                        {@render avatarContent?.(props)}
+                    {/snippet}
+                </Tooltip>
+            {:else}
+                {@render avatarContent?.()}
+            {/if}
         </svelte:element>
     {/if}
 {/snippet}
 
 {#if chipProps}
     <Chip {...chipProps} class={className}>
-        {@render avatarWrapped?.()}
+        {#snippet slotChildren({ props })}
+            {@render avatarWrapped?.(props)}
+        {/snippet}
     </Chip>
 {:else}
     {@render avatarWrapped?.()}
