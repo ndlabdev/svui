@@ -6,6 +6,7 @@
     const {
         as = 'div',
         children,
+        show = $bindable(true),
         color,
         size,
         text,
@@ -14,6 +15,7 @@
         standalone = false,
         class: className,
         ui,
+        slotChildren,
         slotContent,
         ...restProps
     }: ChipProps = $props()
@@ -42,16 +44,20 @@
 
 <svelte:element this={as} class={uiRoot}>
     {#if children}
-        <div {...restProps}>
-            {@render children()}
-        </div>
+        {@render children?.()}
+    {:else}
+        {#if slotChildren}
+            {@render slotChildren({ props: restProps })}
+        {/if}
     {/if}
 
-    <span class={uiBase}>
-        {#if slotContent}
-            {@render slotContent()}
-        {:else}
-            {text}
-        {/if}
-    </span>
+    {#if show}
+        <span class={uiBase}>
+            {#if slotContent}
+                {@render slotContent()}
+            {:else}
+                {text}
+            {/if}
+        </span>
+    {/if}
 </svelte:element>

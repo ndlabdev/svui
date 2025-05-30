@@ -5,6 +5,7 @@ import type { tooltipTheme } from './theme'
 
 export interface TooltipSlots {
 	slotContent?: Snippet
+	slotTrigger?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
 export interface TooltipProps extends TooltipRootProps, TooltipSlots {

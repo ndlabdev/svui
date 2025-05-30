@@ -12,6 +12,7 @@
         text: tooltipText,
         arrow,
         forceMount,
+        slotTrigger,
         slotContent,
         contentProps = {
             sideOffset: 8,
@@ -87,9 +88,15 @@
 <Tooltip.Root {...rootProps}>
     <Tooltip.Trigger class={uiTrigger}>
         {#snippet child({ props })}
-            <div {...props} class="inline-block">
-                {@render children?.()}
-            </div>
+            {#if children}
+                <div {...props} class="inline-block">
+                    {@render children?.()}
+                </div>
+            {:else}
+                {#if slotTrigger}
+                    {@render slotTrigger?.({ props })}
+                {/if}
+            {/if}
         {/snippet}
     </Tooltip.Trigger>
 

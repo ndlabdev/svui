@@ -3,6 +3,7 @@
     import AccordionItem from '$lib/components/accordion/AccordionItem.svelte'
     import Alert from '$lib/components/alert/Alert.svelte'
     import Avatar from '$lib/components/avatar/Avatar.svelte'
+    import AvatarGroup from '$lib/components/avatar-group/AvatarGroup.svelte'
     import Badge from '$lib/components/badge/Badge.svelte'
     import Button from '$lib/components/button/Button.svelte'
     import Card from '$lib/components/card/Card.svelte'
@@ -43,6 +44,69 @@
     ]
 
     let accordionValue = $state(['1', '2'])
+
+    const avatarGroupItems = [
+        {
+            src: 'https://github.com/ndlabdev.png'
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            tooltipProps: {
+                text: 'ndlabdev'
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            tooltipProps: {
+                text: 'ndlabdev'
+            },
+            chipProps: {
+                inset: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            tooltipProps: {
+                text: 'ndlabdev'
+            },
+            chipProps: {
+                inset: true
+            },
+            linkProps: {
+                href: 'https://github.com/ndlabdev',
+                target: '_blank',
+                class: 'hover:ring-primary transition',
+                raw: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            chipProps: {
+                inset: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            linkProps: {
+                href: 'https://github.com/ndlabdev',
+                target: '_blank',
+                class: 'hover:ring-primary transition',
+                raw: true
+            }
+        },
+        {
+            src: 'https://github.com/ndlabdev.png',
+            chipProps: {
+                inset: true
+            },
+            linkProps: {
+                href: 'https://github.com/ndlabdev',
+                target: '_blank',
+                class: 'hover:ring-primary transition',
+                raw: true
+            }
+        }
+    ]
 </script>
 
 <Container>
@@ -346,6 +410,10 @@
             <Tooltip text="Tooltip Text" delayDuration={200} arrow>
                 <Button>Tooltip</Button>
             </Tooltip>
+        </div>
+
+        <div class="col-span-12">
+            <AvatarGroup items={avatarGroupItems} max={10} />
         </div>
 
         <div class="col-span-12">
