@@ -6,6 +6,7 @@ import type { avatarTheme } from '$lib/components/avatar'
 import type { avatarGroupTheme } from '$lib/components/avatar-group/theme'
 import type { badgeTheme } from '$lib/components/badge'
 import type { buttonTheme } from '$lib/components/button/theme'
+import type { buttonGroupTheme } from '$lib/components/button-group'
 import type { cardTheme } from '$lib/components/card/theme'
 import type { chipTheme } from '$lib/components/chip'
 import type { containerTheme } from '$lib/components/container/theme'
@@ -33,6 +34,7 @@ export interface UiConfig {
 		alert?: ThemeConfig<typeof alertTheme>
 		badge?: ThemeConfig<typeof badgeTheme>
 		button?: ThemeConfig<typeof buttonTheme>
+		buttonGroup?: ThemeConfig<typeof buttonGroupTheme>
 		chip?: ThemeConfig<typeof chipTheme>
 		card?: ThemeConfig<typeof cardTheme>
 		container?: ThemeConfig<typeof containerTheme>

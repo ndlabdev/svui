@@ -1,9 +1,11 @@
 <script lang="ts">
     import { Button } from 'bits-ui'
+    import { getContext } from 'svelte'
     import { tv } from 'tailwind-variants'
     import { type ButtonProps, buttonTheme } from '.'
     import uiConfig from '#uiconfig'
     import { Avatar, type AvatarProps } from '$lib/components/avatar'
+    import type { ButtonGroupContext } from '$lib/components/button-group'
     import { Icon } from '$lib/components/icon'
     import { Link } from '$lib/components/link'
 
@@ -32,6 +34,8 @@
         ...restProps
     }: ButtonProps = $props()
 
+    const buttonGroup = getContext<ButtonGroupContext>('button-group')
+
     const isLeading = $derived((icon && leading) || (icon && !trailing) || (loading && !trailing) || !!leadingIcon)
     const isTrailing = $derived((icon && trailing) || (loading && trailing) || !!trailingIcon)
 
@@ -50,7 +54,8 @@
         })({
             color,
             variant,
-            size,
+            size: size || buttonGroup?.size,
+            buttonGroup: buttonGroup?.orientation,
             loading,
             leading: isLeading,
             trailing: isTrailing,
