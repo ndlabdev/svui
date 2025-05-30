@@ -85,13 +85,7 @@
 {/snippet}
 
 <Tooltip.Root {...rootProps}>
-    <Tooltip.Trigger class={uiTrigger}>
-        {#snippet child({ props })}
-            <div {...props} class="inline-block">
-                {@render children?.()}
-            </div>
-        {/snippet}
-    </Tooltip.Trigger>
+    <Tooltip.Trigger {children} class={uiTrigger} />
 
     <Tooltip.Portal disabled={!portal}>
         {#if forceMount}

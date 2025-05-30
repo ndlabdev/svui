@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements'
 import type { avatarTheme } from './theme'
 import type { ChipProps } from '$lib/components/chip'
-import type { TooltipProps } from '$lib/components/tooltip'
+import type { LinkProps } from '$lib/components/link'
 
 export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
 	as?: keyof HTMLElementTagNameMap
@@ -10,7 +10,7 @@ export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
 	text?: string
 	icon?: string
 	chipProps?: ChipProps
-	tooltipProps?: TooltipProps
+	linkProps?: LinkProps
 	size?: keyof typeof avatarTheme['variants']['size']
 	ui?: Partial<typeof avatarTheme['slots']>
 }

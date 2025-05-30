@@ -48,23 +48,35 @@
     const avatarGroupItems = [
         {
             src: 'https://github.com/benjamincanac.png',
-            tooltipProps: {
-                text: 'benjamincanac'
-            },
             chipProps: {
                 inset: true
+            },
+            linkProps: {
+                href: 'https://github.com/benjamincanac',
+                target: '_blank',
+                class: 'hover:ring-primary transition',
+                raw: true
             }
         },
         {
             src: 'https://github.com/ndlabdev.png',
-            tooltipProps: {
-                text: 'ndlabdev'
+            linkProps: {
+                href: 'https://github.com/ndlabdev',
+                target: '_blank',
+                class: 'hover:ring-primary transition',
+                raw: true
             }
         },
         {
             src: 'https://github.com/antfu.png',
             chipProps: {
                 inset: true
+            },
+            linkProps: {
+                href: 'https://github.com/benjamincanac',
+                target: '_blank',
+                class: 'hover:ring-primary transition',
+                raw: true
             }
         },
         {
