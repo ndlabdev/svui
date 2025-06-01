@@ -13,6 +13,7 @@
     import Drawer from '$lib/components/drawer/Drawer.svelte'
     import Link from '$lib/components/link/Link.svelte'
     import Modal from '$lib/components/modal/Modal.svelte'
+    import Pagination from '$lib/components/pagination/Pagination.svelte'
     import Placeholder from '$lib/components/Placeholder.svelte'
     import Separator from '$lib/components/separator/Separator.svelte'
     import Skeleton from '$lib/components/skeleton/Skeleton.svelte'
@@ -45,6 +46,7 @@
     ]
 
     let accordionValue = $state(['1', '2'])
+    let page = $state(1)
 
     const avatarGroupItems = [
         {
@@ -427,6 +429,10 @@
                 <Button color="neutral" variant="subtle" label="Submit" />
                 <Button color="neutral" variant="outline" label="Cancel" />
             </ButtonGroup>
+        </div>
+
+        <div class="col-span-12">
+            <Pagination bind:page={page} count={100} />
         </div>
 
         <div class="col-span-12">
