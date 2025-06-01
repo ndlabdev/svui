@@ -13,6 +13,7 @@ import type { containerTheme } from '$lib/components/container/theme'
 import type { drawerTheme } from '$lib/components/drawer/theme'
 import type { linkTheme } from '$lib/components/link/theme'
 import type { modalTheme } from '$lib/components/modal'
+import type { paginationTheme } from '$lib/components/pagination/theme'
 import type { separatorTheme } from '$lib/components/separator/theme'
 import type { skeletonTheme } from '$lib/components/skeleton/theme'
 import type { slideoverTheme } from '$lib/components/slideover/theme'
@@ -43,6 +44,7 @@ export interface UiConfig {
 		skeleton?: ThemeConfig<typeof skeletonTheme>
 		slideover?: ThemeConfig<typeof slideoverTheme>
 		typography?: ThemeConfig<typeof headingTheme>
+		pagination?: ThemeConfig<typeof paginationTheme>
 		tooltip?: ThemeConfig<typeof tooltipTheme>
 		link?: ThemeConfig<typeof linkTheme>
 		modal?: ThemeConfig<typeof modalTheme>
