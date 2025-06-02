@@ -5,10 +5,10 @@ import type { tooltipTheme } from './theme'
 
 export interface TooltipSlots {
 	slotContent?: Snippet
-	slotTrigger?: Snippet<[{ props: Record<string, unknown> }]>
+	children?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
-export interface TooltipProps extends TooltipRootProps, TooltipSlots {
+export interface TooltipProps extends Omit<TooltipRootProps, 'children'>, TooltipSlots {
 	text?: string
 	portal?: boolean
 	arrow?: boolean

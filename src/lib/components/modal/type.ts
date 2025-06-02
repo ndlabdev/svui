@@ -12,9 +12,10 @@ export interface ModalSlots {
 	slotFooter?: Snippet
 	slotBody?: Snippet
 	slotContent?: Snippet
+	children?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
-export interface ModalProps extends DialogRootProps, ModalSlots {
+export interface ModalProps extends Omit<DialogRootProps, 'children'>, ModalSlots {
 	title?: string
 	description?: string
 	overlay?: boolean

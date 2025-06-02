@@ -6,13 +6,12 @@
     import uiConfig from '#uiconfig'
 
     const {
-        children,
         portal = true,
         ui,
         text: tooltipText,
         arrow,
         forceMount,
-        slotTrigger,
+        children,
         slotContent,
         contentProps = {
             sideOffset: 8,
@@ -88,15 +87,7 @@
 <Tooltip.Root {...rootProps}>
     <Tooltip.Trigger class={uiTrigger}>
         {#snippet child({ props })}
-            {#if children}
-                <div {...props} class="inline-block">
-                    {@render children?.()}
-                </div>
-            {:else}
-                {#if slotTrigger}
-                    {@render slotTrigger?.({ props })}
-                {/if}
-            {/if}
+            {@render children?.({ props })}
         {/snippet}
     </Tooltip.Trigger>
 
