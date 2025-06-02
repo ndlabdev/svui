@@ -84,9 +84,7 @@
 <Dialog.Root {...restProps}>
     <Dialog.Trigger class={uiTrigger}>
         {#snippet child({ props })}
-            <div {...props} class="inline-block">
-                {@render children?.()}
-            </div>
+            {@render children?.({ props })}
         {/snippet}
     </Dialog.Trigger>
 
@@ -155,17 +153,16 @@
                                 {#if close}
                                     <Dialog.Close>
                                         {#snippet child({ props })}
-                                            <div {...props}>
-                                                <Button
-                                                    icon={closeIcon || uiConfig.icon.close}
-                                                    size="md"
-                                                    color="neutral"
-                                                    variant="ghost"
-                                                    aria-label="Close"
-                                                    class={uiClose}
-                                                    {...buttonCloseProps}
-                                                />
-                                            </div>
+                                            <Button
+                                                {...props}
+                                                icon={closeIcon || uiConfig.icon.close}
+                                                size="md"
+                                                color="neutral"
+                                                variant="ghost"
+                                                aria-label="Close"
+                                                class={uiClose}
+                                                {...buttonCloseProps}
+                                            />
                                         {/snippet}
                                     </Dialog.Close>
                                 {/if}

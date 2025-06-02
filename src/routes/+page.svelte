@@ -333,7 +333,9 @@
 
         <div class="col-span-12">
             <Modal title="Primary Modal">
-                <Button>Primary</Button>
+                {#snippet children({ props })}
+                    <Button {...props}>Primary</Button>
+                {/snippet}
 
                 {#snippet slotBody()}
                     Body
@@ -345,15 +347,21 @@
             </Modal>
 
             <Modal title="First Modal">
-                <Button>First Modal</Button>
+                {#snippet children({ props })}
+                    <Button {...props}>First Modal</Button>
+                {/snippet}
 
                 {#snippet slotBody()}
                     <Modal title="Second Modal">
-                        <Button>Second Modal</Button>
+                        {#snippet children({ props })}
+                            <Button {...props}>Second Modal</Button>
+                        {/snippet}
 
                         {#snippet slotBody()}
                             <Modal title="Third Modal">
-                                <Button>Third Modal</Button>
+                                {#snippet children({ props })}
+                                    <Button {...props}>Third Modal</Button>
+                                {/snippet}
 
                                 {#snippet slotBody()}
                                     Body
@@ -384,7 +392,9 @@
                 shouldScaleBackground
                 setBackgroundColorOnScale
             >
-                <Button>Open Drawer</Button>
+                {#snippet children({ props })}
+                    <Button {...props}>Open Drawer</Button>
+                {/snippet}
 
                 {#snippet slotBody()}
                     <Placeholder class="h-48" />
@@ -401,7 +411,9 @@
                 title="Slideover Title"
                 description="Slideover Description"
             >
-                <Button>Open slideover</Button>
+                {#snippet children({ props })}
+                    <Button {...props}>Open slideover</Button>
+                {/snippet}
 
                 {#snippet slotBody()}
                     <Placeholder class="h-full" />
@@ -411,7 +423,9 @@
 
         <div class="col-span-12">
             <Tooltip text="Tooltip Text" delayDuration={200} arrow>
-                <Button>Tooltip</Button>
+                {#snippet children({ props })}
+                    <Button {...props}>Tooltip</Button>
+                {/snippet}
             </Tooltip>
         </div>
 
@@ -432,7 +446,7 @@
         </div>
 
         <div class="col-span-12">
-            <Pagination bind:page={page} count={100} />
+            <Pagination bind:page count={100} />
         </div>
 
         <div class="col-span-12">

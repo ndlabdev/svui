@@ -65,7 +65,7 @@
     }))
 
     const uiContent = $derived(forceMount
-        ? `${ui?.content} overflow-hidden focus:outline-none`
+        ? [ui?.content, 'overflow-hidden focus:outline-none']
         : uiContentClass)
 
     const uiBody = $derived(uiAccordion.body({

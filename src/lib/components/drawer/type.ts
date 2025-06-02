@@ -11,9 +11,10 @@ export interface DrawerSlots {
 	slotFooter?: Snippet
 	slotBody?: Snippet
 	slotContent?: Snippet
+	children?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
-export interface DrawerProps extends DrawerSlots, Pick<DrawerRootProps, 'children' | 'activeSnapPoint' | 'closeThreshold' | 'shouldScaleBackground' | 'setBackgroundColorOnScale' | 'scrollLockTimeout' | 'fixed' | 'dismissible' | 'modal' | 'open' | 'defaultOpen' | 'nested' | 'direction' | 'noBodyStyles' | 'handleOnly' | 'preventScrollRestoration' | 'snapPoints'> {
+export interface DrawerProps extends DrawerSlots, Pick<DrawerRootProps, 'activeSnapPoint' | 'closeThreshold' | 'shouldScaleBackground' | 'setBackgroundColorOnScale' | 'scrollLockTimeout' | 'fixed' | 'dismissible' | 'modal' | 'open' | 'defaultOpen' | 'nested' | 'direction' | 'noBodyStyles' | 'handleOnly' | 'preventScrollRestoration' | 'snapPoints'> {
 	as?: string
 	title?: string
 	description?: string
