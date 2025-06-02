@@ -77,7 +77,7 @@
     }))
 </script>
 
-<Pagination.Root {...rootProps} bind:page={page} class={uiRoot}>
+<Pagination.Root {...rootProps} bind:page class={uiRoot}>
     {#snippet children({ pages, currentPage })}
         <div class={uiList}>
             {#if showControls || slotPrev}

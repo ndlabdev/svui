@@ -12,9 +12,10 @@ export interface SlideoverSlots {
 	slotFooter?: Snippet
 	slotBody?: Snippet
 	slotContent?: Snippet
+	children?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
-export interface SlideoverProps extends DialogRootProps, SlideoverSlots {
+export interface SlideoverProps extends Omit<DialogRootProps, 'children'>, SlideoverSlots {
 	title?: string
 	description?: string
 	overlay?: boolean

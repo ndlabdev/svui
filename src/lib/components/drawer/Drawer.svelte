@@ -6,7 +6,6 @@
 
     const {
         inset,
-        children,
         direction = 'bottom',
         portal = true,
         overlay = true,
@@ -16,6 +15,7 @@
         contentProps,
         title,
         description,
+        children,
         slotTitle,
         slotBody,
         slotContent,
@@ -114,9 +114,7 @@
 <Drawer.Root {...rootProps}>
     <Drawer.Trigger class={uiTrigger}>
         {#snippet child({ props })}
-            <div {...props} class="inline-block">
-                {@render children?.()}
-            </div>
+            {@render children?.({ props })}
         {/snippet}
     </Drawer.Trigger>
 
