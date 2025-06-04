@@ -14,6 +14,7 @@
         standalone = false,
         class: className,
         ui,
+        child: slotChild,
         children,
         slotContent,
         ...restProps
@@ -42,7 +43,11 @@
 </script>
 
 <svelte:element this={as} class={uiRoot}>
-    {@render children?.({ props: restProps })}
+    {#if children}
+        {@render children()}
+    {:else}
+        {@render slotChild?.({ props: restProps })}
+    {/if}
 
     {#if show}
         <span class={uiBase}>

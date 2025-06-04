@@ -310,6 +310,10 @@
             <Chip inset>
                 <Avatar alt="Benjamin Canac" size="xl" />
             </Chip>
+
+            <Chip inset>
+                <Avatar alt="Benjamin Canac" src="https://github.com/benjamincanac.png" size="xl" />
+            </Chip>
         </div>
 
         <div class="col-span-12">
@@ -333,7 +337,7 @@
 
         <div class="col-span-12">
             <Modal title="Primary Modal">
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>Primary</Button>
                 {/snippet}
 
@@ -347,19 +351,19 @@
             </Modal>
 
             <Modal title="First Modal">
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>First Modal</Button>
                 {/snippet}
 
                 {#snippet slotBody()}
                     <Modal title="Second Modal">
-                        {#snippet children({ props })}
+                        {#snippet child({ props })}
                             <Button {...props}>Second Modal</Button>
                         {/snippet}
 
                         {#snippet slotBody()}
                             <Modal title="Third Modal">
-                                {#snippet children({ props })}
+                                {#snippet child({ props })}
                                     <Button {...props}>Third Modal</Button>
                                 {/snippet}
 
@@ -392,7 +396,7 @@
                 shouldScaleBackground
                 setBackgroundColorOnScale
             >
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>Open Drawer</Button>
                 {/snippet}
 
@@ -411,7 +415,7 @@
                 title="Slideover Title"
                 description="Slideover Description"
             >
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>Open slideover</Button>
                 {/snippet}
 
@@ -423,7 +427,7 @@
 
         <div class="col-span-12">
             <Tooltip text="Tooltip Text" delayDuration={200} arrow>
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>Tooltip</Button>
                 {/snippet}
             </Tooltip>

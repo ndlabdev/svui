@@ -9,7 +9,7 @@
     import { Icon } from '$lib/components/icon'
     import { Link } from '$lib/components/link'
 
-    const {
+    let {
         icon,
         avatar,
         leading,

@@ -12,10 +12,11 @@
         handle = true,
         modal = true,
         dismissible = true,
+        triggerProps,
         contentProps,
         title,
         description,
-        children,
+        child: slotChild,
         slotTitle,
         slotBody,
         slotContent,
@@ -79,7 +80,7 @@
     }))
 
     const uiContent = $derived(uiDrawer.content({
-        class: [!children && className?.toString(), ui?.content]
+        class: [!slotChild && className?.toString(), ui?.content]
     }))
 
     const uiHandle = $derived(uiDrawer.handle({
@@ -112,9 +113,9 @@
 </script>
 
 <Drawer.Root {...rootProps}>
-    <Drawer.Trigger class={uiTrigger}>
+    <Drawer.Trigger {...triggerProps} class={uiTrigger}>
         {#snippet child({ props })}
-            {@render children?.({ props })}
+            {@render slotChild?.({ props })}
         {/snippet}
     </Drawer.Trigger>
 
