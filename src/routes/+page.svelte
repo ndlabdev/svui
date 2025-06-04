@@ -11,6 +11,7 @@
     import Chip from '$lib/components/chip/Chip.svelte'
     import Container from '$lib/components/container/Container.svelte'
     import Drawer from '$lib/components/drawer/Drawer.svelte'
+    import Input from '$lib/components/input/Input.svelte'
     import Link from '$lib/components/link/Link.svelte'
     import Modal from '$lib/components/modal/Modal.svelte'
     import Pagination from '$lib/components/pagination/Pagination.svelte'
@@ -110,6 +111,19 @@
             }
         }
     ]
+
+    let value = $state('npx nuxt module add ui')
+    let copied = $state(false)
+
+    function copy() {
+        console.log(value)
+        navigator.clipboard.writeText(value)
+        copied = true
+
+        setTimeout(() => {
+            copied = false
+        }, 2000)
+    }
 </script>
 
 <Container>
@@ -451,6 +465,32 @@
 
         <div class="col-span-12">
             <Pagination bind:page count={100} />
+        </div>
+
+        <div class="col-span-12">
+            <div class="col-span-12">
+                <Input
+                    avatar={{
+                        src: 'https://github.com/nuxt.png'
+                    }} trailingIcon="lucide:heart" size="md" variant="soft" placeholder="Search..." />
+
+                <Input ui={{ trailing: 'pr-0.5' }} bind:value>
+                    {#snippet slotTrailing()}
+                        <Tooltip text="Copy to clipboard" contentProps={{ side: 'right' }}>
+                            {#snippet child({ props })}
+                                <Button
+                                    {...props}
+                                    color={copied ? 'success' : 'neutral'}
+                                    variant="link"
+                                    icon={copied ? 'lucide:copy-check' : 'lucide:copy'}
+                                    aria-label="Copy to clipboard"
+                                    onclick={() => copy()}
+                                />
+                            {/snippet}
+                        </Tooltip>
+                    {/snippet}
+                </Input>
+            </div>
         </div>
 
         <div class="col-span-12">

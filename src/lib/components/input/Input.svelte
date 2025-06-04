@@ -12,7 +12,6 @@
         type = 'text',
         autocomplete = 'off',
         value = $bindable(),
-        autofocusDelay = 0,
         children,
         color,
         variant,
