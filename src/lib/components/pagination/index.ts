@@ -1,4 +1,5 @@
 import { paginationTheme } from './theme'
+import Pagination from './Pagination.svelte'
 import { type PaginationProps } from './type'
 
-export { paginationTheme, type PaginationProps }
+export { paginationTheme, Pagination, type PaginationProps }
