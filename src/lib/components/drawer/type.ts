@@ -1,7 +1,7 @@
-import type { WithoutChild } from 'bits-ui'
+import type { WithoutChild, WithoutChildren } from 'bits-ui'
 import type { Snippet } from 'svelte'
 import type { ClassValue } from 'svelte/elements'
-import type { DrawerRootProps, DrawerContentProps } from 'vaul-svelte'
+import type { DrawerRootProps, DrawerContentProps, DrawerTriggerProps } from 'vaul-svelte'
 import type { drawerTheme } from './theme'
 
 export interface DrawerSlots {
@@ -14,7 +14,7 @@ export interface DrawerSlots {
 	children?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
-export interface DrawerProps extends DrawerSlots, Pick<DrawerRootProps, 'activeSnapPoint' | 'closeThreshold' | 'shouldScaleBackground' | 'setBackgroundColorOnScale' | 'scrollLockTimeout' | 'fixed' | 'dismissible' | 'modal' | 'open' | 'defaultOpen' | 'nested' | 'direction' | 'noBodyStyles' | 'handleOnly' | 'preventScrollRestoration' | 'snapPoints'> {
+export interface DrawerProps extends DrawerSlots, WithoutChildren<DrawerTriggerProps>, Pick<DrawerRootProps, 'activeSnapPoint' | 'closeThreshold' | 'shouldScaleBackground' | 'setBackgroundColorOnScale' | 'scrollLockTimeout' | 'fixed' | 'dismissible' | 'modal' | 'open' | 'defaultOpen' | 'nested' | 'direction' | 'noBodyStyles' | 'handleOnly' | 'preventScrollRestoration' | 'snapPoints'> {
 	as?: string
 	title?: string
 	description?: string
@@ -23,6 +23,7 @@ export interface DrawerProps extends DrawerSlots, Pick<DrawerRootProps, 'activeS
 	handle?: boolean
 	portal?: boolean
 	class?: ClassValue | undefined | null
+	triggerProps?: WithoutChild<DrawerTriggerProps>
 	contentProps?: WithoutChild<DrawerContentProps>
 	ui?: Partial<typeof drawerTheme['slots']>
 }

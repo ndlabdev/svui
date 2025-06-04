@@ -4,7 +4,7 @@ import type { alertTheme } from './theme'
 import type { AvatarProps } from '$lib/components/avatar'
 import type { ButtonProps } from '$lib/components/button'
 
-export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
+export interface AlertProps extends HTMLAttributes<HTMLElement> {
 	/**
 	 * The element or HTML tag the alert should render as.
 	 * Common values are 'div', 'section', 'aside', etc.

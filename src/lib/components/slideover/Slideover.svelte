@@ -16,6 +16,7 @@
         title,
         description,
         closeIcon,
+        child: slotChild,
         children,
         slotBody,
         slotTitle,
@@ -24,6 +25,7 @@
         slotDescription,
         slotFooter,
         slotClose,
+        triggerProps,
         contentProps,
         class: className,
         ui,
@@ -82,9 +84,9 @@
 </script>
 
 <Dialog.Root {...restProps}>
-    <Dialog.Trigger class={uiTrigger}>
+    <Dialog.Trigger {...triggerProps} class={uiTrigger}>
         {#snippet child({ props })}
-            {@render children?.({ props })}
+            {@render slotChild?.({ props })}
         {/snippet}
     </Dialog.Trigger>
 

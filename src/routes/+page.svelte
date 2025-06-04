@@ -11,7 +11,6 @@
     import Chip from '$lib/components/chip/Chip.svelte'
     import Container from '$lib/components/container/Container.svelte'
     import Drawer from '$lib/components/drawer/Drawer.svelte'
-    import Input from '$lib/components/input/Input.svelte'
     import Link from '$lib/components/link/Link.svelte'
     import Modal from '$lib/components/modal/Modal.svelte'
     import Pagination from '$lib/components/pagination/Pagination.svelte'
@@ -111,19 +110,6 @@
             }
         }
     ]
-
-    let value = $state('npx nuxt module add ui')
-    let copied = $state(false)
-
-    function copy() {
-        console.log(value);
-        navigator.clipboard.writeText(value)
-        copied = true
-
-        setTimeout(() => {
-            copied = false
-        }, 2000)
-    }
 </script>
 
 <Container>
@@ -324,6 +310,10 @@
             <Chip inset>
                 <Avatar alt="Benjamin Canac" size="xl" />
             </Chip>
+
+            <Chip inset>
+                <Avatar alt="Benjamin Canac" src="https://github.com/benjamincanac.png" size="xl" />
+            </Chip>
         </div>
 
         <div class="col-span-12">
@@ -347,7 +337,7 @@
 
         <div class="col-span-12">
             <Modal title="Primary Modal">
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>Primary</Button>
                 {/snippet}
 
@@ -361,19 +351,19 @@
             </Modal>
 
             <Modal title="First Modal">
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>First Modal</Button>
                 {/snippet}
 
                 {#snippet slotBody()}
                     <Modal title="Second Modal">
-                        {#snippet children({ props })}
+                        {#snippet child({ props })}
                             <Button {...props}>Second Modal</Button>
                         {/snippet}
 
                         {#snippet slotBody()}
                             <Modal title="Third Modal">
-                                {#snippet children({ props })}
+                                {#snippet child({ props })}
                                     <Button {...props}>Third Modal</Button>
                                 {/snippet}
 
@@ -406,7 +396,7 @@
                 shouldScaleBackground
                 setBackgroundColorOnScale
             >
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>Open Drawer</Button>
                 {/snippet}
 
@@ -425,8 +415,8 @@
                 title="Slideover Title"
                 description="Slideover Description"
             >
-                {#snippet children({ props })}
-                    <Button {...props} onclick={() => console.log('???')}>Open slideover</Button>
+                {#snippet child({ props })}
+                    <Button {...props}>Open slideover</Button>
                 {/snippet}
 
                 {#snippet slotBody()}
@@ -437,7 +427,7 @@
 
         <div class="col-span-12">
             <Tooltip text="Tooltip Text" delayDuration={200} arrow>
-                {#snippet children({ props })}
+                {#snippet child({ props })}
                     <Button {...props}>Tooltip</Button>
                 {/snippet}
             </Tooltip>
@@ -461,27 +451,6 @@
 
         <div class="col-span-12">
             <Pagination bind:page count={100} />
-        </div>
-
-        <div class="col-span-12">
-            <Input
-                avatar={{
-                    src: 'https://github.com/nuxt.png'
-                }} trailingIcon="lucide:heart" size="md" variant="soft" placeholder="Search..." />
-
-            <Input ui={{ trailing: 'pr-0.5' }} bind:value>
-                {#snippet slotTrailing()}
-                    <Tooltip text="Copy to clipboard" contentProps={{ side: 'right' }}>
-                        <Button
-                              color={copied ? 'success' : 'neutral'}
-                              variant="link"
-                              icon={copied ? 'lucide:copy-check' : 'lucide:copy'}
-                              aria-label="Copy to clipboard"
-                              onclick={() => copy()}
-                        />
-                    </Tooltip>
-                {/snippet}
-            </Input>
         </div>
 
         <div class="col-span-12">
