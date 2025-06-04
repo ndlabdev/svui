@@ -100,7 +100,7 @@
             <svelte:element this={as} class={uiRoot} {...props} {style}>
                 {#if tooltipProps}
                     <Tooltip {...tooltipProps}>
-                        {#snippet children({ props })}
+                        {#snippet child({ props })}
                             {@render avatarContent?.(props)}
                         {/snippet}
                     </Tooltip>
@@ -113,7 +113,7 @@
         <svelte:element this={as} class={uiRoot} {...props} {style}>
             {#if tooltipProps}
                 <Tooltip {...tooltipProps}>
-                    {#snippet children({ props })}
+                    {#snippet child({ props })}
                         {@render avatarContent?.(props)}
                     {/snippet}
                 </Tooltip>
@@ -126,7 +126,7 @@
 
 {#if chipProps}
     <Chip {...chipProps} class={className}>
-        {#snippet children({ props })}
+        {#snippet child({ props })}
             {@render avatarWrapped?.(props)}
         {/snippet}
     </Chip>

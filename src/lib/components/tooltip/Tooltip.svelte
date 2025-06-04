@@ -5,14 +5,16 @@
     import { tooltipTheme, type TooltipProps } from '.'
     import uiConfig from '#uiconfig'
 
-    const {
+    let {
         portal = true,
         ui,
+        open = $bindable(false),
         text: tooltipText,
         arrow,
         forceMount,
-        children,
+        child: slotChild,
         slotContent,
+        triggerProps = {},
         contentProps = {
             sideOffset: 8,
             collisionPadding: 8,
@@ -28,7 +30,6 @@
         disableCloseOnTriggerClick,
         disabled,
         ignoreNonKeyboardFocus,
-        open,
         onOpenChange
     } = restProps
 
@@ -54,11 +55,11 @@
     const uiTrigger = $derived(className?.toString())
 
     const uiContentClass = $derived(uiTooltip.content({
-        class: [!children && className?.toString(), ui?.content]
+        class: [!slotChild && className?.toString(), ui?.content]
     }))
 
     const uiContent = $derived(forceMount
-        ? [!children && className?.toString(), ui?.content, 'flex items-center gap-1 bg-default text-highlighted shadow-sm rounded-sm ring ring-default h-6 px-2 py-1 text-xs select-none pointer-events-auto']
+        ? [!slotChild && className?.toString(), ui?.content, 'flex items-center gap-1 bg-default text-highlighted shadow-sm rounded-sm ring ring-default h-6 px-2 py-1 text-xs select-none pointer-events-auto']
         : uiContentClass)
 
     const uiText = $derived(uiTooltip.text({
@@ -84,10 +85,10 @@
     {/if}
 {/snippet}
 
-<Tooltip.Root {...rootProps}>
-    <Tooltip.Trigger class={uiTrigger}>
+<Tooltip.Root bind:open {...rootProps}>
+    <Tooltip.Trigger {...triggerProps} class={uiTrigger}>
         {#snippet child({ props })}
-            {@render children?.({ props })}
+            {@render slotChild?.({ props })}
         {/snippet}
     </Tooltip.Trigger>
 

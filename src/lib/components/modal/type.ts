@@ -1,4 +1,4 @@
-import type { WithoutChild, DialogRootProps, DialogContentProps } from 'bits-ui'
+import type { WithoutChild, DialogRootProps, DialogContentProps, DialogTriggerPropsWithoutHTML } from 'bits-ui'
 import type { Snippet } from 'svelte'
 import type { ClassValue } from 'svelte/elements'
 import type { modalTheme } from './theme'
@@ -12,10 +12,9 @@ export interface ModalSlots {
 	slotFooter?: Snippet
 	slotBody?: Snippet
 	slotContent?: Snippet
-	children?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
-export interface ModalProps extends Omit<DialogRootProps, 'children'>, ModalSlots {
+export interface ModalProps extends DialogRootProps, DialogTriggerPropsWithoutHTML, ModalSlots {
 	title?: string
 	description?: string
 	overlay?: boolean
@@ -25,6 +24,7 @@ export interface ModalProps extends Omit<DialogRootProps, 'children'>, ModalSlot
 	close?: boolean | Partial<ButtonProps>
 	closeIcon?: string
 	dismissible?: boolean
+	triggerProps?: WithoutChild<DialogTriggerPropsWithoutHTML>
 	contentProps?: WithoutChild<DialogContentProps>
 	class?: ClassValue | undefined | null
 	ui?: Partial<typeof modalTheme['slots']>

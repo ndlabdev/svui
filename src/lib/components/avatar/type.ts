@@ -4,7 +4,7 @@ import type { ChipProps } from '$lib/components/chip'
 import type { LinkProps } from '$lib/components/link'
 import type { TooltipProps } from '$lib/components/tooltip'
 
-export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
+export interface AvatarProps extends HTMLAttributes<HTMLElement> {
 	as?: keyof HTMLElementTagNameMap
 	src?: string
 	alt?: string

@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements'
 import type { avatarGroupTheme } from './theme'
 import type { AvatarProps } from '$lib/components/avatar'
 
-export interface AvatarGroupProps extends HTMLAttributes<HTMLDivElement> {
+export interface AvatarGroupProps extends HTMLAttributes<HTMLElement> {
 	as?: keyof HTMLElementTagNameMap
 	items: AvatarProps[]
 	max?: number | string

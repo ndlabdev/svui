@@ -16,7 +16,7 @@
         description,
         fullscreen,
         closeIcon,
-        children,
+        child: slotChild,
         slotBody,
         slotTitle,
         slotHeader,
@@ -24,6 +24,7 @@
         slotDescription,
         slotFooter,
         class: className,
+        triggerProps,
         contentProps,
         ui,
         slotClose,
@@ -47,7 +48,7 @@
     }))
 
     const uiContent = $derived(uiModal.content({
-        class: [!children && className?.toString(), ui?.content]
+        class: [!slotChild && className?.toString(), ui?.content]
     }))
 
     const uiTitle = $derived(uiModal.title({
@@ -82,9 +83,9 @@
 </script>
 
 <Dialog.Root {...restProps}>
-    <Dialog.Trigger class={uiTrigger}>
+    <Dialog.Trigger {...triggerProps} class={uiTrigger}>
         {#snippet child({ props })}
-            {@render children?.({ props })}
+            {@render slotChild?.({ props })}
         {/snippet}
     </Dialog.Trigger>
 
