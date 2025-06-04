@@ -7,7 +7,7 @@ export interface BadgeSlots {
 	trailing?: boolean
 }
 
-export interface BadgeProps extends HTMLAttributes<HTMLSpanElement>, BadgeSlots {
+export interface BadgeProps extends HTMLAttributes<HTMLElement>, BadgeSlots {
 	as?: keyof HTMLElementTagNameMap
 	label?: string | number
 	icon?: string;

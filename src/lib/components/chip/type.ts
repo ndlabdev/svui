@@ -4,10 +4,10 @@ import type { chipTheme } from './theme'
 
 export interface ChipSlots {
 	slotContent?: Snippet
-	children?: Snippet<[{ props: Record<string, unknown> }]>
+	child?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
-export interface ChipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'>, ChipSlots {
+export interface ChipProps extends HTMLAttributes<HTMLElement>, ChipSlots {
 	as?: keyof HTMLElementTagNameMap
 	text?: string | number
 	show?: boolean
