@@ -20,6 +20,7 @@ export interface InputProps extends HTMLAttributes<HTMLDivElement>, InputSlots {
 	trailingIcon?: string
 	loadingIcon?: string
 	loading?: boolean
+	value?: null | string | number | bigint
 	color?: keyof typeof inputTheme['variants']['color']
 	variant?: keyof typeof inputTheme['variants']['variant']
 	size?: keyof typeof inputTheme['variants']['size']

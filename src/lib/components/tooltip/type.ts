@@ -5,7 +5,7 @@ import type { tooltipTheme } from './theme'
 
 export interface TooltipSlots {
 	slotContent?: Snippet
-	children?: Snippet<[{ props: Record<string, unknown> }]>
+	slotChildren?: Snippet<[{ props: Record<string, unknown> }]>
 }
 
 export interface TooltipProps extends Omit<TooltipRootProps, 'children'>, TooltipSlots {
@@ -13,6 +13,7 @@ export interface TooltipProps extends Omit<TooltipRootProps, 'children'>, Toolti
 	portal?: boolean
 	arrow?: boolean
 	forceMount?: boolean
+	withContext?: boolean;
 	class?: ClassValue
 	contentProps?: TooltipContentProps
 	ui?: Partial<typeof tooltipTheme['slots']>

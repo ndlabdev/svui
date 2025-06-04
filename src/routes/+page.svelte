@@ -112,12 +112,12 @@
         }
     ]
 
-    let inputValue = $state('npx nuxt module add ui')
+    let value = $state('npx nuxt module add ui')
     let copied = $state(false)
 
     function copy() {
-        console.log(inputValue);
-        navigator.clipboard.writeText(inputValue)
+        console.log(value);
+        navigator.clipboard.writeText(value)
         copied = true
 
         setTimeout(() => {
@@ -426,7 +426,7 @@
                 description="Slideover Description"
             >
                 {#snippet children({ props })}
-                    <Button {...props}>Open slideover</Button>
+                    <Button {...props} onclick={() => console.log('???')}>Open slideover</Button>
                 {/snippet}
 
                 {#snippet slotBody()}
@@ -469,12 +469,16 @@
                     src: 'https://github.com/nuxt.png'
                 }} trailingIcon="lucide:heart" size="md" variant="soft" placeholder="Search..." />
 
-            <Input ui={{ trailing: 'pr-0.5' }} bind:value={inputValue}>
+            <Input ui={{ trailing: 'pr-0.5' }} bind:value>
                 {#snippet slotTrailing()}
                     <Tooltip text="Copy to clipboard" contentProps={{ side: 'right' }}>
-                        {#snippet children({ props })}
-                            <Button color={copied ? 'success' : 'neutral'} variant="link" icon={copied ? 'lucide:copy-check' : 'lucide:copy'} aria-label="Copy to clipboard" onclick={() =>console.log('â')} {...props} />
-                        {/snippet}
+                        <Button
+                              color={copied ? 'success' : 'neutral'}
+                              variant="link"
+                              icon={copied ? 'lucide:copy-check' : 'lucide:copy'}
+                              aria-label="Copy to clipboard"
+                              onclick={() => copy()}
+                        />
                     </Tooltip>
                 {/snippet}
             </Input>

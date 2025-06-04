@@ -87,7 +87,9 @@
 <Tooltip.Root {...rootProps}>
     <Tooltip.Trigger class={uiTrigger}>
         {#snippet child({ props })}
-            {@render children?.({ props })}
+            <div {...props}>
+                {@render children?.()}
+            </div>
         {/snippet}
     </Tooltip.Trigger>
 
