@@ -50,18 +50,18 @@ export interface SeparatorProps extends HTMLAttributes<HTMLElement> {
 	 */
 	icon?: string
 
-	/**
-	 * The avatar to be displayed inside the button.
-	 * Can be used if you don't want to specify leading or trailing icon specifically.
-	 *
-	 * @example
-	 * ```svelte
-	 * <Separator avatar="{{
-	 *       src: 'https://github.com/nuxt.png'
-	 *     }}" />
-	 * ```
-	 */
-	avatar?: AvatarProps;
+       /**
+        * The avatar to be displayed inside the separator.
+        * Can be used if you don't want to specify leading or trailing icon specifically.
+        *
+        * @example
+        * ```svelte
+        * <Separator avatar="{{
+        *       src: 'https://github.com/nuxt.png'
+        *     }}" />
+        * ```
+        */
+       avatar?: AvatarProps;
 
 	/**
 	 * Optional text label to display with the separator.
