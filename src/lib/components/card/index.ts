@@ -1,4 +1,5 @@
 import { cardTheme } from './theme'
-import { type  CardProps } from './type'
+import Card from './Card.svelte'
+import { type CardProps } from './type'
 
-export { cardTheme, type CardProps }
+export { cardTheme, Card, type CardProps }
