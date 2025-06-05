@@ -1,5 +1,5 @@
 import ButtonGroup from './ButtonGroup.svelte'
-import { buttonGroupTheme, buttonGroupVariant } from './theme'
+import { buttonGroupTheme, buttonGroupVariant, buttonGroupVariantWithRoot } from './theme'
 import { type ButtonGroupProps, type ButtonGroupContext } from './type'
 
-export { buttonGroupTheme, buttonGroupVariant, ButtonGroup, type ButtonGroupProps, type ButtonGroupContext }
+export { buttonGroupTheme, buttonGroupVariant, buttonGroupVariantWithRoot, ButtonGroup, type ButtonGroupProps, type ButtonGroupContext }

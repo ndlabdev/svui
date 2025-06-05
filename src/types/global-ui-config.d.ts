@@ -11,6 +11,7 @@ import type { cardTheme } from '$lib/components/card/theme'
 import type { chipTheme } from '$lib/components/chip'
 import type { containerTheme } from '$lib/components/container/theme'
 import type { drawerTheme } from '$lib/components/drawer/theme'
+import type { inputTheme } from '$lib/components/input/theme'
 import type { linkTheme } from '$lib/components/link/theme'
 import type { modalTheme } from '$lib/components/modal'
 import type { paginationTheme } from '$lib/components/pagination/theme'
@@ -48,6 +49,7 @@ export interface UiConfig {
 		tooltip?: ThemeConfig<typeof tooltipTheme>
 		link?: ThemeConfig<typeof linkTheme>
 		modal?: ThemeConfig<typeof modalTheme>
+		input?: ThemeConfig<typeof inputTheme>
 	}
 }
 
