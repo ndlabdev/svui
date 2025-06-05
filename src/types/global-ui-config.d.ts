@@ -11,6 +11,7 @@ import type { cardTheme } from '$lib/components/card/theme'
 import type { chipTheme } from '$lib/components/chip'
 import type { containerTheme } from '$lib/components/container/theme'
 import type { drawerTheme } from '$lib/components/drawer/theme'
+import type { formFieldTheme } from '$lib/components/form-field/theme'
 import type { inputTheme } from '$lib/components/input/theme'
 import type { linkTheme } from '$lib/components/link/theme'
 import type { modalTheme } from '$lib/components/modal'
@@ -45,6 +46,7 @@ export interface UiConfig {
 		skeleton?: ThemeConfig<typeof skeletonTheme>
 		slideover?: ThemeConfig<typeof slideoverTheme>
 		typography?: ThemeConfig<typeof headingTheme>
+		formField?: ThemeConfig<typeof formFieldTheme>
 		pagination?: ThemeConfig<typeof paginationTheme>
 		tooltip?: ThemeConfig<typeof tooltipTheme>
 		link?: ThemeConfig<typeof linkTheme>
