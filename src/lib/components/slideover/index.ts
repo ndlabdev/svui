@@ -1,4 +1,5 @@
 import { slideoverTheme } from './theme'
+import Slideover from './Slideover.svelte'
 import { type SlideoverProps } from './type'
 
-export { slideoverTheme, type SlideoverProps }
+export { slideoverTheme, Slideover, type SlideoverProps }
