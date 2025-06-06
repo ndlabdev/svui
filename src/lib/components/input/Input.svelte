@@ -5,6 +5,7 @@
     import uiConfig from '#uiconfig'
     import { Avatar, type AvatarProps } from '$lib/components/avatar'
     import type { ButtonGroupContext } from '$lib/components/button-group'
+    import type { FormFieldContext } from '$lib/components/form-field'
     import { Icon } from '$lib/components/icon'
 
     const {
@@ -12,6 +13,8 @@
         type = 'text',
         autocomplete = 'off',
         value = $bindable(),
+        name,
+        size,
         children,
         color,
         variant,
@@ -33,7 +36,7 @@
     }: InputProps = $props()
 
     const buttonGroup = getContext<ButtonGroupContext>('button-group')
-
+    const formField = getContext<FormFieldContext>('form-field')
 
     const isLeading = $derived((icon && slotLeading) || (icon && !slotTrailing) || (loading && !slotTrailing) || !!leadingIcon)
     const isTrailing = $derived((icon && slotTrailing) || (loading && slotTrailing) || !!trailingIcon)
@@ -55,16 +58,29 @@
             ...(uiConfig?.ui?.input || {})
         })({
             type: type as keyof typeof inputTheme['variants']['type'],
-            color,
+            color: formField?.error ? 'error' : color,
             variant,
-            size: buttonGroup?.size,
+            size: buttonGroup?.size || (size ?? formField?.size),
             loading,
-            highlight,
+            highlight: formField?.error ? true : highlight,
             leading: !!hasLeading,
             trailing: !!hasTrailing,
             buttonGroup: buttonGroup?.orientation
         })
     )
+
+    const ariaAttrs = $derived.by(() => {
+        if (!formField) return
+
+        const descriptiveAttrs = ['error' as const, 'hint' as const, 'description' as const, 'help' as const]
+            .filter(type => formField?.[type])
+            .map(type => `${formField?.id}-${type}`) || []
+
+        return {
+            'aria-describedby': descriptiveAttrs.join(' '),
+            'aria-invalid': !!formField?.error
+        }
+    })
 
     const uiRoot = $derived(uiInput.root({
         class: [ui?.root, className?.toString()]
@@ -99,13 +115,15 @@
 
 <svelte:element this={as} class={uiRoot}>
     <input
-        {id}
         {type}
         {value}
         {placeholder}
         {disabled}
         {required}
         {autocomplete}
+        {...ariaAttrs}
+        id={id || formField?.id}
+        name={name || formField?.name}
         class={uiBase}
     >
 
