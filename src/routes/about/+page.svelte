@@ -1,4 +1,5 @@
 <script>
+    import { Button } from '$lib/components/button/index.js'
     import Link from '$lib/components/link/Link.svelte'
 </script>
 
@@ -11,5 +12,7 @@
         <Link href="/about">
             About
         </Link>
+
+        <Button label="Label" />
     </div>
 </div>

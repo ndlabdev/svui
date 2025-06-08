@@ -14,6 +14,7 @@ const config = {
         // See https://svelte.dev/docs/kit/adapters for more information about adapters.
         adapter: adapter(),
         alias: {
+            '#themes/*': fileURLToPath(new URL('./src/themes/*', import.meta.url)),
             '#uiconfig': fileURLToPath(new URL('./src/ui.config.ts', import.meta.url))
         }
     }

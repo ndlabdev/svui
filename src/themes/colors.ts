@@ -1,5 +1,5 @@
 export const defaultColors: Record<string, string> = {
-    primary: 'blue',
+    primary: 'sky',
     secondary: 'gray',
     success: 'green',
     info: 'cyan',
@@ -7,3 +7,5 @@ export const defaultColors: Record<string, string> = {
     error: 'red',
     neutral: 'slate'
 }
+
+export const colors: string[] = Object.keys(defaultColors)
